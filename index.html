@@ -397,6 +397,78 @@
   .produto-imagem.photo-set{background-image:url('./imagens/conjunto-streetwear.png');}
   .produto-imagem.photo-bone{background-image:url('./imagens/bone.png');}
 
+
+  /* ---------- missão, visão e valores ---------- */
+  .mvv-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-bottom:38px;
+  }
+  @media(min-width:820px){
+    .mvv-grid{grid-template-columns:1fr 1fr;}
+  }
+  .mvv-card{
+    background:#111213;
+    border:1px solid var(--linha);
+    border-left:3px solid var(--vermelho);
+    border-radius:14px;
+    padding:28px;
+  }
+  .mvv-label{
+    color:var(--vermelho);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .mvv-card p{
+    color:var(--branco);
+    font-family:'Manrope',sans-serif;
+    font-size:21px;
+    font-weight:700;
+    line-height:1.55;
+  }
+  .valores-titulo{
+    color:var(--vermelho);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .valores-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  @media(min-width:700px){
+    .valores-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media(min-width:980px){
+    .valores-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .valor-card{
+    background:#111213;
+    border:1px solid var(--linha);
+    border-radius:14px;
+    padding:22px 20px;
+  }
+  .valor-card h3{
+    font-family:'Manrope',sans-serif;
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  .valor-card p{
+    color:#b9b4ae;
+    font-size:14px;
+    line-height:1.7;
+  }
+  @media(max-width:639px){
+    .mvv-card p{font-size:18px;}
+  }
+
 </style>
 </head>
 <body>
@@ -414,6 +486,7 @@
     </div>
     <nav class="principal">
       <a href="#produtos">Loja</a>
+      <a href="#mvv">Missão e Valores</a>
       <a href="#calculadora">Tamanho</a>
       <a href="#avatar3d">Avatar 3D</a>
       <a href="#avaliacoes">Avaliações</a>
@@ -476,6 +549,60 @@
             <div class="assinatura">Compra confirmada na loja</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="mvv" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Missão, visão e valores</div>
+    <h2 class="titulo-secao">O que a Cerberus defende.</h2>
+
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <div class="mvv-label">Missão</div>
+        <p>Guardar a evolução de cada aluno: oferecer estrutura de verdade, acompanhamento honesto e um ambiente em que força, disciplina e resistência andam juntas — da primeira série ao shape de palco.</p>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-label">Visão</div>
+        <p>Ser a academia de referência em Rio Verde: o lugar em que treino sério, família e competição cabem no mesmo espaço — com estrutura Hammer, área kids e sala de poses.</p>
+      </div>
+    </div>
+
+    <div class="valores-titulo">Valores</div>
+
+    <div class="valores-grid">
+      <div class="valor-card">
+        <h3>Respeito</h3>
+        <p>Iniciante ou avançado, cada pessoa ocupa o mesmo espaço. Aqui ninguém é menor por estar começando.</p>
+      </div>
+
+      <div class="valor-card">
+        <h3>Honestidade</h3>
+        <p>Sem milagre, sem treino de revista. A gente fala o que funciona — e o que vai exigir consistência.</p>
+      </div>
+
+      <div class="valor-card">
+        <h3>Disciplina</h3>
+        <p>Resultado vem de frequência e técnica, não de atalho. O padrão da casa é treinar de verdade.</p>
+      </div>
+
+      <div class="valor-card">
+        <h3>Segurança</h3>
+        <p>Execução vem antes da carga. Professor no salão para corrigir, não só para bater ponto.</p>
+      </div>
+
+      <div class="valor-card">
+        <h3>Cuidado</h3>
+        <p>Avaliação, bioimpedância e treino alinhado ao seu corpo. Evolução medida, não chutada.</p>
+      </div>
+
+      <div class="valor-card">
+        <h3>Comunidade</h3>
+        <p>Ambiente de treino, não de palco. Família na área kids, gente no ferro e respeito no meio.</p>
       </div>
     </div>
   </div>
