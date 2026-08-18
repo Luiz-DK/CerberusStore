@@ -549,6 +549,47 @@
     .cor-btn{padding:8px 9px 8px 7px;}
   }
 
+
+  /* ---------- imagens reais dos produtos ---------- */
+  .produto-photo{
+    position:relative;
+    min-height:300px;
+    background:#0b0b0c;
+    overflow:hidden;
+  }
+  .produto-photo .produto-img{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    max-width:none;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:transform .25s ease, opacity .18s ease;
+  }
+  .produto-photo::before{
+    z-index:0;
+  }
+  .produto-photo::after{
+    z-index:0;
+    pointer-events:none;
+  }
+  .produto-interativo:hover .produto-photo .produto-img{
+    transform:scale(1.025);
+  }
+  .produto-photo .imagem-badge,
+  .produto-photo .tag-top{
+    z-index:3;
+  }
+  .produto-img.is-loading{
+    opacity:.35;
+  }
+  @media(max-width:700px){
+    .produto-photo{min-height:250px;}
+  }
+
 </style>
 </head>
 <body>
@@ -697,7 +738,7 @@
 
       <div class="produto produto-interativo" data-product="Camiseta Dry-Fit" data-price="R$ 69,90"
            data-images='{"preto":"./imagens/dry-preto.png","vermelho":"./imagens/dry-vermelho.png","branco":"./imagens/dry-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/dry-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/dry-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
@@ -719,7 +760,7 @@
 
       <div class="produto produto-interativo" data-product="Shorts e Calças de Treino" data-price="R$ 99,90"
            data-images='{"preto":"./imagens/short-preto.png","vermelho":"./imagens/short-vermelho.png","branco":"./imagens/short-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/short-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/short-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
           </div>
@@ -741,7 +782,7 @@
 
       <div class="produto destaque-produto produto-interativo" data-product="Kit Treino Completo" data-price="R$ 179,90"
            data-images='{"preto":"./imagens/kit-preto.png","vermelho":"./imagens/kit-vermelho.png","branco":"./imagens/kit-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/kit-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/kit-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <span class="tag-top">Mais vendido</span>
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
@@ -764,7 +805,7 @@
 
       <div class="produto produto-interativo" data-product="Moletom Streetwear" data-price="R$ 149,90"
            data-images='{"preto":"./imagens/hoodie-preto.png","vermelho":"./imagens/hoodie-vermelho.png","branco":"./imagens/hoodie-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/hoodie-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/hoodie-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-5.1-4.2-8.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
@@ -786,7 +827,7 @@
 
       <div class="produto produto-interativo" data-product="Camisa e Bermuda Street" data-price="R$ 89,90"
            data-images='{"preto":"./imagens/set-preto.png","vermelho":"./imagens/set-vermelho.png","branco":"./imagens/set-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/set-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/set-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9 0 .8.9 1.4 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
@@ -808,7 +849,7 @@
 
       <div class="produto produto-interativo" data-product="Bonés e Acessórios" data-price="R$ 59,90"
            data-images='{"preto":"./imagens/bone-preto.png","vermelho":"./imagens/bone-vermelho.png","branco":"./imagens/bone-branco.png"}'>
-        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/bone-vermelho.png')">
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/bone-vermelho.png" alt="Produto Cerberus" loading="lazy">
           <div class="imagem-badge">
             <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9 0 .8.9 1.4 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
@@ -1265,41 +1306,93 @@ function calcularTamanho(){
 </script>
 
 
+
 <script>
-  // Catálogo: cada botão troca a foto e registra a cor selecionada.
-  document.querySelectorAll('.produto-interativo').forEach(function(card){
-    const image = card.querySelector('.produto-photo');
-    const label = card.querySelector('.cor-selecionada');
-    const buttons = card.querySelectorAll('.cor-btn');
-    let images = {};
+  // Catálogo: cada botão troca a imagem real do produto e registra a cor.
+  (function () {
+    const nomesCores = {
+      preto: 'Preto',
+      vermelho: 'Vermelho',
+      branco: 'Branco'
+    };
 
-    try {
-      images = JSON.parse(card.dataset.images || '{}');
-    } catch (e) {
-      images = {};
-    }
+    document.querySelectorAll('.produto-interativo').forEach(function(card) {
+      const image = card.querySelector('.produto-img');
+      const label = card.querySelector('.cor-selecionada');
+      const buttons = card.querySelectorAll('.cor-btn');
 
-    buttons.forEach(function(button){
-      button.addEventListener('click', function(){
+      if (!image || !buttons.length) return;
+
+      let images = {};
+      try {
+        images = JSON.parse(card.dataset.images || '{}');
+      } catch (error) {
+        console.error('Não foi possível ler as imagens do produto:', card.dataset.product, error);
+        return;
+      }
+
+      function selecionarCor(button) {
         const color = button.dataset.color;
-        if (!images[color]) return;
+        const imageUrl = images[color];
 
-        image.style.backgroundImage = "url('" + images[color] + "')";
-        label.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+        if (!imageUrl) {
+          console.warn('Imagem não encontrada para', card.dataset.product, color);
+          return;
+        }
 
-        buttons.forEach(function(item){
-          item.classList.remove('ativo');
-          item.setAttribute('aria-pressed', 'false');
+        // Mostra visualmente que a nova imagem está carregando.
+        image.classList.add('is-loading');
+
+        const preloader = new Image();
+        preloader.onload = function() {
+          image.src = imageUrl;
+          image.alt = card.dataset.product + ' - ' + nomesCores[color];
+          image.classList.remove('is-loading');
+        };
+        preloader.onerror = function() {
+          image.classList.remove('is-loading');
+          console.error('Erro ao carregar imagem:', imageUrl);
+        };
+        preloader.src = imageUrl;
+
+        if (label) {
+          label.textContent = nomesCores[color] || color;
+        }
+
+        buttons.forEach(function(btn) {
+          const ativo = btn === button;
+          btn.classList.toggle('ativo', ativo);
+          btn.setAttribute('aria-pressed', ativo ? 'true' : 'false');
         });
-        button.classList.add('ativo');
-        button.setAttribute('aria-pressed', 'true');
+      }
+
+      buttons.forEach(function(button) {
+        button.type = 'button';
+        button.setAttribute('aria-pressed', button.classList.contains('ativo') ? 'true' : 'false');
+        button.addEventListener('click', function() {
+          selecionarCor(button);
+        });
+      });
+
+      // Garante que o estado inicial também tenha uma imagem válida.
+      const inicial = card.querySelector('.cor-btn.ativo') || buttons[0];
+      if (inicial) {
+        const color = inicial.dataset.color;
+        if (images[color]) {
+          image.src = images[color];
+          image.alt = card.dataset.product + ' - ' + (nomesCores[color] || color);
+        }
+      }
+
+      // Pré-carrega as três variações para a troca ser instantânea.
+      Object.values(images).forEach(function(url) {
+        const preload = new Image();
+        preload.src = url;
       });
     });
-
-    const active = card.querySelector('.cor-btn.ativo');
-    if (active) active.setAttribute('aria-pressed', 'true');
-  });
+  })();
 </script>
+
 
 </body>
 </html>
