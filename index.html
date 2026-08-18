@@ -469,6 +469,86 @@
     .mvv-card p{font-size:18px;}
   }
 
+
+  /* ---------- catálogo interativo por cor ---------- */
+  .produto-interativo{
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .produto-interativo:hover{
+    transform:translateY(-3px);
+  }
+  .produto-photo{
+    min-height:300px;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    transition:background-image .2s ease, transform .25s ease;
+  }
+  .produto-interativo:hover .produto-photo{
+    transform:scale(1.01);
+  }
+  .produto-opcoes{
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid var(--linha);
+  }
+  .produto-opcoes > span{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:9px;
+  }
+  .produto-opcoes strong{
+    color:var(--branco);
+  }
+  .cores{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  .cor-btn{
+    appearance:none;
+    border:1px solid #3a3a3a;
+    background:#161718;
+    color:#d9d9d9;
+    border-radius:999px;
+    padding:7px 10px 7px 7px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font:600 11px/1 'Inter',sans-serif;
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  .cor-btn:hover{
+    border-color:#777;
+    transform:translateY(-1px);
+  }
+  .cor-btn.ativo{
+    border-color:var(--vermelho);
+    background:rgba(237,28,36,.10);
+    color:#fff;
+    box-shadow:0 0 0 1px rgba(237,28,36,.18);
+  }
+  .cor-btn span{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    display:block;
+    border:1px solid #666;
+    flex:0 0 auto;
+  }
+  .cor-btn[data-color="preto"] span{background:#080808;}
+  .cor-btn[data-color="vermelho"] span{background:#d71920;}
+  .cor-btn[data-color="branco"] span{background:#f2f2f2;border-color:#aaa;}
+  .produto-interativo .imagem-badge{
+    z-index:2;
+  }
+  @media(max-width:700px){
+    .produto-photo{min-height:250px;}
+    .cor-btn{padding:8px 9px 8px 7px;}
+  }
+
 </style>
 </head>
 <body>
@@ -613,86 +693,141 @@
     <div class="rotulo">Coleção</div>
     <h2 class="titulo-secao">O que tem na loja</h2>
     <p class="intro-secao">Peças pensadas pra academia que também fecham o visual na rua. Confere tamanhos e cores disponíveis direto no WhatsApp.</p>
-    <div class="grade-produtos">
-      <div class="produto">
-        <div class="produto-imagem has-photo photo-dry">
+    <div class="grade-produtos interactive-products">
+
+      <div class="produto produto-interativo" data-product="Camiseta Dry-Fit" data-price="R$ 69,90"
+           data-images='{"preto":"./imagens/dry-preto.png","vermelho":"./imagens/dry-vermelho.png","branco":"./imagens/dry-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/dry-vermelho.png')">
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Dry Fit</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Camiseta Dry-Fit</div>
           <div class="produto-desc">Tecido leve que respira, corte que valoriza o treino.</div>
           <div class="produto-preco">R$ 69<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores da Camiseta Dry-Fit">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="produto">
-        <div class="produto-imagem has-photo photo-short">
+
+      <div class="produto produto-interativo" data-product="Shorts e Calças de Treino" data-price="R$ 99,90"
+           data-images='{"preto":"./imagens/short-preto.png","vermelho":"./imagens/short-vermelho.png","branco":"./imagens/short-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/short-vermelho.png')">
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Treino</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Shorts e Calças de Treino</div>
           <div class="produto-desc">Liberdade total de movimento, sem marcar e sem transparência.</div>
           <div class="produto-preco">R$ 99<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores dos Shorts e Calças">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="produto destaque-produto">
-        <div class="produto-imagem has-photo photo-kit">
+
+      <div class="produto destaque-produto produto-interativo" data-product="Kit Treino Completo" data-price="R$ 179,90"
+           data-images='{"preto":"./imagens/kit-preto.png","vermelho":"./imagens/kit-vermelho.png","branco":"./imagens/kit-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/kit-vermelho.png')">
           <span class="tag-top">Mais vendido</span>
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Kit Completo</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Kit Treino Completo</div>
           <div class="produto-desc">Camiseta + short + boné combinando. Sai mais barato que separado.</div>
           <div class="produto-preco">R$ 179<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do Kit Treino">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="produto">
-        <div class="produto-imagem has-photo photo-hoodie">
+
+      <div class="produto produto-interativo" data-product="Moletom Streetwear" data-price="R$ 149,90"
+           data-images='{"preto":"./imagens/hoodie-preto.png","vermelho":"./imagens/hoodie-vermelho.png","branco":"./imagens/hoodie-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/hoodie-vermelho.png')">
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-5.1-4.2-8.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Oversized</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Moletom Streetwear</div>
           <div class="produto-desc">Corte oversized, conforto de sobra pro dia a dia.</div>
           <div class="produto-preco">R$ 149<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do Moletom Streetwear">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="produto">
-        <div class="produto-imagem has-photo photo-set">
+
+      <div class="produto produto-interativo" data-product="Camisa e Bermuda Street" data-price="R$ 89,90"
+           data-images='{"preto":"./imagens/set-preto.png","vermelho":"./imagens/set-vermelho.png","branco":"./imagens/set-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/set-vermelho.png')">
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9 0 .8.9 1.4 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Street</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Camisa e Bermuda Street</div>
           <div class="produto-desc">Pra sair da academia direto pro rolê sem trocar de roupa.</div>
           <div class="produto-preco">R$ 89<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do conjunto Street">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="produto">
-        <div class="produto-imagem has-photo photo-bone">
+
+      <div class="produto produto-interativo" data-product="Bonés e Acessórios" data-price="R$ 59,90"
+           data-images='{"preto":"./imagens/bone-preto.png","vermelho":"./imagens/bone-vermelho.png","branco":"./imagens/bone-branco.png"}'>
+        <div class="produto-imagem produto-photo" style="background-image:url('./imagens/bone-vermelho.png')">
           <div class="imagem-badge">
-            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9 0 .8.9 1.4 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
           </div>
-          <div class="imagem-texto">Boné</div>
         </div>
         <div class="produto-corpo">
           <div class="produto-nome">Bonés e Acessórios</div>
           <div class="produto-desc">O detalhe que fecha o look. Vários modelos disponíveis.</div>
           <div class="produto-preco">R$ 59<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores dos Bonés">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1127,6 +1262,43 @@ function calcularTamanho(){
     });
   });
 })();
+</script>
+
+
+<script>
+  // Catálogo: cada botão troca a foto e registra a cor selecionada.
+  document.querySelectorAll('.produto-interativo').forEach(function(card){
+    const image = card.querySelector('.produto-photo');
+    const label = card.querySelector('.cor-selecionada');
+    const buttons = card.querySelectorAll('.cor-btn');
+    let images = {};
+
+    try {
+      images = JSON.parse(card.dataset.images || '{}');
+    } catch (e) {
+      images = {};
+    }
+
+    buttons.forEach(function(button){
+      button.addEventListener('click', function(){
+        const color = button.dataset.color;
+        if (!images[color]) return;
+
+        image.style.backgroundImage = "url('" + images[color] + "')";
+        label.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+
+        buttons.forEach(function(item){
+          item.classList.remove('ativo');
+          item.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('ativo');
+        button.setAttribute('aria-pressed', 'true');
+      });
+    });
+
+    const active = card.querySelector('.cor-btn.ativo');
+    if (active) active.setAttribute('aria-pressed', 'true');
+  });
 </script>
 
 </body>
