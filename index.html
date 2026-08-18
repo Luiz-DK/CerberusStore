@@ -239,17 +239,35 @@
 
   /* ---------- avatar 3d ---------- */
   .avatar3d-grid{display:grid;grid-template-columns:1fr;gap:20px;}
-  @media(min-width:900px){.avatar3d-grid{grid-template-columns:1fr 320px;align-items:start;}}
+  @media(min-width:900px){.avatar3d-grid{grid-template-columns:minmax(0,1fr) 320px;align-items:stretch;}}
   .avatar3d-canvas-wrap{
-    position:relative;background:var(--preto-2);border:1px solid var(--linha);border-radius:var(--raio);
-    overflow:hidden;height:420px;
+    position:relative;background:
+      radial-gradient(circle at 50% 28%,rgba(216,31,47,.10),transparent 38%),
+      linear-gradient(180deg,#1c1d1f 0%,#111214 100%);
+    border:1px solid var(--linha);border-radius:var(--raio);
+    overflow:hidden;height:500px;min-height:420px;
+    box-shadow:inset 0 0 80px rgba(0,0,0,.28);
   }
-  #avatar3d-canvas{width:100%;height:100%;cursor:grab;touch-action:none;}
+  #avatar3d-canvas{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:none;}
   #avatar3d-canvas:active{cursor:grabbing;}
+  #avatar3d-canvas canvas{display:block;width:100%;height:100%;}
+  .avatar3d-loading{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:10px;color:#aaa;font-size:13px;pointer-events:none;
+  }
+  .avatar3d-loading strong{color:#fff;font-size:14px;}
+  .avatar3d-status{
+    position:absolute;top:14px;left:14px;z-index:4;
+    display:inline-flex;align-items:center;gap:7px;padding:7px 10px;
+    border-radius:999px;background:rgba(0,0,0,.48);border:1px solid rgba(255,255,255,.08);
+    color:#c8c8c8;font-size:10px;letter-spacing:.04em;text-transform:uppercase;pointer-events:none;
+    backdrop-filter:blur(8px);
+  }
+  .avatar3d-status::before{content:"";width:7px;height:7px;border-radius:50%;background:#d81f2f;box-shadow:0 0 10px #d81f2f;}
   .avatar3d-hint{
-    position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+    position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:4;
     font-size:11px;color:var(--cinza);background:rgba(0,0,0,0.55);
-    padding:6px 12px;border-radius:var(--raio-pill);pointer-events:none;
+    padding:7px 12px;border-radius:var(--raio-pill);pointer-events:none;white-space:nowrap;
   }
   .avatar3d-controles{
     background:var(--preto-2);border:1px solid var(--linha);border-radius:var(--raio);
@@ -260,12 +278,17 @@
   .chip{
     background:var(--preto);border:1px solid var(--linha);color:var(--branco);
     font-size:12px;font-weight:600;padding:8px 14px;border-radius:var(--raio-pill);cursor:pointer;
-    font-family:'Inter',sans-serif;
+    font-family:'Inter',sans-serif;transition:.2s ease;
   }
-  .chip.ativo{background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));border-color:transparent;}
+  .chip:hover{border-color:rgba(216,31,47,.65);transform:translateY(-1px);}
+  .chip.ativo{background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));border-color:transparent;box-shadow:0 8px 22px rgba(216,31,47,.18);}
   .controle-botoes.cores{gap:10px;}
-  .cor{width:30px;height:30px;border-radius:50%;border:2px solid var(--linha);cursor:pointer;padding:0;}
-  .cor.ativo{border-color:var(--vermelho);}
+  .cor{width:32px;height:32px;border-radius:50%;border:2px solid var(--linha);cursor:pointer;padding:0;transition:.2s ease;position:relative;}
+  .cor:hover{transform:scale(1.08);}
+  .cor.ativo{border-color:var(--vermelho);box-shadow:0 0 0 3px rgba(216,31,47,.12);}
+  .avatar3d-summary{font-size:12px;color:var(--cinza);line-height:1.55;padding-top:2px;}
+  .avatar3d-summary b{color:var(--branco);}
+  @media(max-width:899px){.avatar3d-canvas-wrap{height:440px;}.avatar3d-controles{padding:18px;}}
 
   /* ---------- como funciona ---------- */
   .passos{display:grid;grid-template-columns:1fr;gap:14px;}
@@ -908,8 +931,14 @@
     <p class="intro-secao">Gira o avatar e testa as combinações de cor da Cerberus antes de decidir. Pré-visualização estilizada — não é a peça real.</p>
     <div class="avatar3d-grid">
       <div class="avatar3d-canvas-wrap">
-        <div id="avatar3d-canvas"></div>
-        <div class="avatar3d-hint">Arraste para girar</div>
+        <div id="avatar3d-canvas" aria-label="Avatar 3D interativo da Cerberus">
+          <div class="avatar3d-loading" id="avatar3d-loading">
+            <strong>Carregando avatar 3D...</strong>
+            <span>Preparando o provador virtual</span>
+          </div>
+        </div>
+        <div class="avatar3d-status" id="avatar3d-status">Avatar 3D</div>
+        <div class="avatar3d-hint">Arraste para girar • roda do mouse para aproximar</div>
       </div>
       <div class="avatar3d-controles">
         <div>
@@ -944,7 +973,8 @@
             <button class="chip ativo" data-bone="off">Sem boné</button>
           </div>
         </div>
-        <a class="btn btn-primario" style="width:100%;" href="https://wa.me/5564999999999?text=Oi!%20Montei%20um%20combo%20no%20avatar%203D%20do%20site%20e%20quero%20saber%20o%20pre%C3%A7o" target="_blank" rel="noopener">Quero esse combo</a>
+        <div class="avatar3d-summary" id="avatar3d-summary">Combo: <b>Dry Fit Detalhe Vermelho</b><br>Camiseta: <b>Preto</b> • Calça/short: <b>Cinza escuro</b> • Boné: <b>Sem boné</b></div>
+        <a class="btn btn-primario" id="avatar3d-whatsapp" style="width:100%;" href="#" target="_blank" rel="noopener">Quero esse combo</a>
       </div>
     </div>
   </div>
@@ -1156,155 +1186,357 @@ function calcularTamanho(){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/128/three.min.js"></script>
 <script>
-// ---------- Avatar 3D para testar combos ----------
-(function(){
+// ---------- Avatar 3D Cerberus: provador virtual interativo ----------
+(function () {
+  'use strict';
+
   const container = document.getElementById('avatar3d-canvas');
-  if(!container || typeof THREE === 'undefined') return;
+  const loading = document.getElementById('avatar3d-loading');
+  const status = document.getElementById('avatar3d-status');
+  const summary = document.getElementById('avatar3d-summary');
+  const whatsapp = document.getElementById('avatar3d-whatsapp');
+  if (!container) return;
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 100);
-  camera.position.set(0, 1.05, 5.3);
-
-  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  container.appendChild(renderer.domElement);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-  const luzDir = new THREE.DirectionalLight(0xffffff, 0.9);
-  luzDir.position.set(2, 4, 3);
-  scene.add(luzDir);
-  const luzVermelha = new THREE.PointLight(0xd81f2f, 0.7, 12);
-  luzVermelha.position.set(-2.2, 1, 2.2);
-  scene.add(luzVermelha);
-
-  const avatar = new THREE.Group();
-
-  const matPele = new THREE.MeshStandardMaterial({color:0xC79574, roughness:0.75});
-  const cabeca = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), matPele);
-  cabeca.position.y = 1.62;
-  avatar.add(cabeca);
-
-  const matCamiseta = new THREE.MeshStandardMaterial({color:0x0c0c0d, roughness:0.55});
-  const torso = new THREE.Mesh(new THREE.BoxGeometry(0.86, 1.05, 0.46), matCamiseta);
-  torso.position.y = 0.78;
-  avatar.add(torso);
-
-  const bracoGeo = new THREE.CylinderGeometry(0.11, 0.11, 0.85, 10);
-  const bracoEsq = new THREE.Mesh(bracoGeo, matCamiseta);
-  bracoEsq.position.set(-0.56, 0.78, 0);
-  avatar.add(bracoEsq);
-  const bracoDir = bracoEsq.clone();
-  bracoDir.position.x = 0.56;
-  avatar.add(bracoDir);
-
-  const maoEsq = new THREE.Mesh(new THREE.SphereGeometry(0.11, 12, 12), matPele);
-  maoEsq.position.set(-0.56, 0.3, 0);
-  avatar.add(maoEsq);
-  const maoDir = maoEsq.clone();
-  maoDir.position.x = 0.56;
-  avatar.add(maoDir);
-
-  const matCalca = new THREE.MeshStandardMaterial({color:0x2a2b2e, roughness:0.6});
-  const pernaGeo = new THREE.BoxGeometry(0.33, 0.95, 0.4);
-  const pernaEsq = new THREE.Mesh(pernaGeo, matCalca);
-  pernaEsq.position.set(-0.21, -0.28, 0);
-  avatar.add(pernaEsq);
-  const pernaDir = pernaEsq.clone();
-  pernaDir.position.x = 0.21;
-  avatar.add(pernaDir);
-
-  const bone = new THREE.Mesh(
-    new THREE.CylinderGeometry(0.34, 0.34, 0.16, 20),
-    new THREE.MeshStandardMaterial({color:0xd81f2f, roughness:0.5})
-  );
-  bone.position.y = 1.85;
-  bone.visible = false;
-  avatar.add(bone);
-
-  avatar.position.y = -0.5;
-  scene.add(avatar);
-
-  // rotacao por arraste (mouse e toque)
-  let arrastando = false;
-  let ultimoX = 0;
-  let rotacaoAlvo = 0.4;
-  avatar.rotation.y = rotacaoAlvo;
-
-  container.addEventListener('pointerdown', e => { arrastando = true; ultimoX = e.clientX; });
-  window.addEventListener('pointerup', () => arrastando = false);
-  window.addEventListener('pointermove', e => {
-    if(!arrastando) return;
-    const delta = e.clientX - ultimoX;
-    rotacaoAlvo += delta * 0.008;
-    ultimoX = e.clientX;
-  });
-
-  function animar(){
-    requestAnimationFrame(animar);
-    if(!arrastando) rotacaoAlvo += 0.0025;
-    avatar.rotation.y += (rotacaoAlvo - avatar.rotation.y) * 0.15;
-    renderer.render(scene, camera);
-  }
-  animar();
-
-  window.addEventListener('resize', () => {
-    if(!container.clientWidth || !container.clientHeight) return;
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(container.clientWidth, container.clientHeight);
-  });
-
-  // combos pre-definidos
-  const combos = {
-    'dryfit-vermelho': {camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
-    'dryfit-preto':    {camiseta:'#0c0c0d', calca:'#0c0c0d', bone:false},
-    'oversized':       {camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
-    'kit':             {camiseta:'#0c0c0d', calca:'#0c0c0d', bone:true}
+  const nomes = {
+    '#0c0c0d': 'Preto',
+    '#d81f2f': 'Vermelho',
+    '#f5f5f4': 'Branco',
+    '#2a2b2e': 'Cinza escuro'
   };
 
-  function marcarAtivo(lista, elAtivo){
-    lista.forEach(b => b.classList.remove('ativo'));
-    elAtivo.classList.add('ativo');
+  const estado = {
+    combo: 'dryfit-vermelho',
+    camiseta: '#d81f2f',
+    calca: '#2a2b2e',
+    bone: false
+  };
+
+  const combos = {
+    'dryfit-vermelho': {nome:'Dry Fit Detalhe Vermelho', camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
+    'dryfit-preto':    {nome:'Dry Fit Preto', camiseta:'#0c0c0d', calca:'#0c0c0d', bone:false},
+    'oversized':       {nome:'Oversized', camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
+    'kit':             {nome:'Kit Completo', camiseta:'#d81f2f', calca:'#d81f2f', bone:true}
+  };
+
+  function setLoading(show) {
+    if (loading) loading.style.display = show ? 'flex' : 'none';
   }
 
+  function marcarAtivo(lista, elAtivo) {
+    lista.forEach(function (b) {
+      b.classList.toggle('ativo', b === elAtivo);
+    });
+  }
+
+  function syncUI() {
+    const combo = combos[estado.combo];
+    const comboName = combo ? combo.nome : 'Personalizado';
+    if (summary) {
+      summary.innerHTML =
+        'Combo: <b>' + comboName + '</b><br>' +
+        'Camiseta: <b>' + (nomes[estado.camiseta] || estado.camiseta) + '</b> • ' +
+        'Calça/short: <b>' + (nomes[estado.calca] || estado.calca) + '</b> • ' +
+        'Boné: <b>' + (estado.bone ? 'Com boné' : 'Sem boné') + '</b>';
+    }
+
+    const text = encodeURIComponent(
+      'Oi! Montei um combo no avatar 3D da Cerberus. ' +
+      'Combo: ' + comboName + '. ' +
+      'Camiseta: ' + (nomes[estado.camiseta] || estado.camiseta) + '. ' +
+      'Calça/short: ' + (nomes[estado.calca] || estado.calca) + '. ' +
+      'Boné: ' + (estado.bone ? 'com boné' : 'sem boné') + '. Quero saber o preço.'
+    );
+    if (whatsapp) {
+      whatsapp.href = 'https://wa.me/5564999999999?text=' + text;
+    }
+  }
+
+  // Se Three.js não carregar ou WebGL estiver indisponível, mostramos um
+  // fallback CSS 3D em vez de deixar o espaço vazio.
+  function fallback() {
+    setLoading(false);
+    if (status) status.textContent = 'Modo 3D compatível';
+    container.innerHTML = `
+      <div class="avatar-fallback-3d" id="avatar-fallback-3d">
+        <div class="fb-shadow"></div>
+        <div class="fb-avatar">
+          <div class="fb-cap" data-fb-bone></div>
+          <div class="fb-head"></div>
+          <div class="fb-neck"></div>
+          <div class="fb-body" data-fb-shirt>
+            <div class="fb-logo">C</div>
+          </div>
+          <div class="fb-arm fb-arm-l" data-fb-shirt></div>
+          <div class="fb-arm fb-arm-r" data-fb-shirt></div>
+          <div class="fb-short" data-fb-pants></div>
+          <div class="fb-leg fb-leg-l"></div>
+          <div class="fb-leg fb-leg-r"></div>
+          <div class="fb-shoe fb-shoe-l"></div>
+          <div class="fb-shoe fb-shoe-r"></div>
+        </div>
+        <div class="fb-label">CERBERUS</div>
+      </div>`;
+    const fb = document.getElementById('avatar-fallback-3d');
+    if (fb) {
+      let dragging = false, last = 0, rot = -12;
+      fb.addEventListener('pointerdown', e => { dragging = true; last = e.clientX; fb.setPointerCapture(e.pointerId); });
+      fb.addEventListener('pointerup', () => dragging = false);
+      fb.addEventListener('pointermove', e => {
+        if (!dragging) return;
+        rot += (e.clientX - last) * .45;
+        last = e.clientX;
+        fb.querySelector('.fb-avatar').style.transform = 'rotateY(' + rot + 'deg)';
+      });
+    }
+    return {
+      setColors: function () {
+        const shirt = document.querySelectorAll('[data-fb-shirt]');
+        const pants = document.querySelectorAll('[data-fb-pants]');
+        const cap = document.querySelector('[data-fb-bone]');
+        shirt.forEach(x => x.style.background = estado.camiseta);
+        pants.forEach(x => x.style.background = estado.calca);
+        if (cap) cap.style.display = estado.bone ? 'block' : 'none';
+      }
+    };
+  }
+
+  // CSS fallback styling injected once.
+  const style = document.createElement('style');
+  style.textContent = `
+    .avatar-fallback-3d{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;
+      background:radial-gradient(circle at 50% 28%,rgba(216,31,47,.12),transparent 40%);}
+    .fb-avatar{position:relative;width:190px;height:360px;transform-style:preserve-3d;
+      transform:rotateY(-12deg);transition:transform .12s linear;filter:drop-shadow(0 25px 20px rgba(0,0,0,.35));}
+    .fb-head{position:absolute;width:70px;height:78px;border-radius:48% 48% 45% 45%;background:#b8795d;left:60px;top:8px;
+      box-shadow:inset -10px -8px 0 rgba(90,42,30,.12);transform:translateZ(18px);}
+    .fb-neck{position:absolute;width:34px;height:34px;background:#b8795d;left:78px;top:70px;transform:translateZ(14px);}
+    .fb-body{position:absolute;width:112px;height:142px;left:39px;top:88px;border-radius:34px 34px 18px 18px;
+      transform:translateZ(10px);box-shadow:inset -14px -12px 0 rgba(0,0,0,.16);}
+    .fb-logo{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:34px;height:34px;border:2px solid rgba(255,255,255,.8);
+      border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;}
+    .fb-arm{position:absolute;width:30px;height:118px;top:102px;border-radius:18px;transform-origin:top center;box-shadow:inset -8px -7px 0 rgba(0,0,0,.14);}
+    .fb-arm-l{left:17px;transform:rotate(8deg) translateZ(3px);}
+    .fb-arm-r{right:17px;transform:rotate(-8deg) translateZ(3px);}
+    .fb-short{position:absolute;width:118px;height:74px;left:36px;top:222px;border-radius:14px 14px 22px 22px;transform:translateZ(8px);box-shadow:inset -12px -10px 0 rgba(0,0,0,.18);}
+    .fb-leg{position:absolute;width:43px;height:86px;top:281px;background:#b8795d;border-radius:0 0 18px 18px;box-shadow:inset -8px 0 rgba(0,0,0,.08);}
+    .fb-leg-l{left:52px}.fb-leg-r{right:52px}
+    .fb-shoe{position:absolute;width:58px;height:25px;top:346px;background:#08090a;border-radius:16px 22px 9px 9px;}
+    .fb-shoe-l{left:36px}.fb-shoe-r{right:36px}
+    .fb-cap{position:absolute;width:86px;height:35px;left:51px;top:0;background:#0c0c0d;border-radius:50% 50% 35% 35%;z-index:5;
+      transform:translateZ(30px) rotate(-3deg);display:none;box-shadow:inset -8px -6px 0 rgba(0,0,0,.2);}
+    .fb-cap:after{content:"";position:absolute;width:54px;height:10px;background:#0c0c0d;left:45px;top:22px;border-radius:50%;transform:rotate(5deg);}
+    .fb-label{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:#888;}
+  `;
+  document.head.appendChild(style);
+
+  let fallbackApi = null;
+
+  function initThree() {
+    if (typeof THREE === 'undefined') {
+      fallbackApi = fallback();
+      return false;
+    }
+
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'high-performance'});
+    } catch (e) {
+      console.warn('WebGL indisponível:', e);
+      fallbackApi = fallback();
+      return false;
+    }
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setClearColor(0x000000, 0);
+    container.innerHTML = '';
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+    camera.position.set(0, 1.25, 5.6);
+
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x161616, 1.35));
+    const key = new THREE.DirectionalLight(0xffffff, 1.55);
+    key.position.set(3, 5, 4);
+    scene.add(key);
+    const rim = new THREE.PointLight(0xd81f2f, 1.1, 10);
+    rim.position.set(-3, 2, 2);
+    scene.add(rim);
+
+    const avatar = new THREE.Group();
+    avatar.position.y = -1.15;
+    scene.add(avatar);
+
+    const matSkin = new THREE.MeshStandardMaterial({color:0xb8795d, roughness:.72});
+    const matHair = new THREE.MeshStandardMaterial({color:0x171311, roughness:.85});
+    const matShirt = new THREE.MeshStandardMaterial({color:0xd81f2f, roughness:.55});
+    const matPants = new THREE.MeshStandardMaterial({color:0x2a2b2e, roughness:.62});
+    const matShoe = new THREE.MeshStandardMaterial({color:0x070708, roughness:.48});
+    const matWhite = new THREE.MeshStandardMaterial({color:0xf5f5f4, roughness:.5});
+    const matRed = new THREE.MeshStandardMaterial({color:0xd81f2f, roughness:.5});
+
+    function add(mesh, x, y, z, parent=avatar) {
+      mesh.position.set(x,y,z); parent.add(mesh); return mesh;
+    }
+    function box(w,h,d,mat,round=false) {
+      return new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
+    }
+    function cyl(r1,r2,h,mat) {
+      return new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,h,20),mat);
+    }
+
+    // Cabeça, cabelo, pescoço.
+    add(new THREE.Mesh(new THREE.SphereGeometry(.36,28,22),matSkin),0,2.25,0);
+    add(new THREE.Mesh(new THREE.SphereGeometry(.375,24,14,0,Math.PI*2,0,Math.PI*.52),matHair),0,2.39,0);
+    add(cyl(.13,.13,.30,matSkin),0,1.92,0);
+
+    // Tronco e braços.
+    add(box(.92,1.15,.48,matShirt),0,1.30,0);
+    add(cyl(.13,.115,.94,matShirt),-.60,1.30,0);
+    add(cyl(.13,.115,.94,matShirt),.60,1.30,0);
+    add(new THREE.Mesh(new THREE.SphereGeometry(.13,16,16),matSkin),-.60,.81,0);
+    add(new THREE.Mesh(new THREE.SphereGeometry(.13,16,16),matSkin),.60,.81,0);
+
+    // Peitoral/logo estilizado.
+    const emblem = new THREE.Group();
+    add(new THREE.Mesh(new THREE.CylinderGeometry(.17,.17,.025,6),matWhite),0,1.42,.255,emblem);
+    emblem.rotation.x = Math.PI/2;
+    const emblemRed = new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.03,6),matRed);
+    emblemRed.rotation.x = Math.PI/2;
+    emblem.add(emblemRed);
+    avatar.add(emblem);
+
+    // Shorts/calça e pernas.
+    add(box(.43,.72,.44,matPants),-.23,.55,0);
+    add(box(.43,.72,.44,matPants),.23,.55,0);
+    add(cyl(.14,.13,.86,matSkin),-.23,-.18,0);
+    add(cyl(.14,.13,.86,matSkin),.23,-.18,0);
+    add(box(.40,.18,.72,matShoe),-.23,-.65,.02);
+    add(box(.40,.18,.72,matShoe),.23,-.65,.02);
+
+    // Boné.
+    const cap = new THREE.Group();
+    add(new THREE.Mesh(new THREE.SphereGeometry(.39,24,12,0,Math.PI*2,0,Math.PI*.5),matShoe),0,2.52,.02,cap);
+    add(box(.40,.06,.26,matShoe),.28,2.43,.16,cap);
+    cap.visible = false;
+    avatar.add(cap);
+
+    // Plataforma.
+    const floor = new THREE.Mesh(new THREE.CylinderGeometry(1.25,1.25,.06,48),new THREE.MeshStandardMaterial({color:0x191a1c,roughness:.9}));
+    floor.position.y = -.77;
+    scene.add(floor);
+
+    function resize() {
+      const w = Math.max(container.clientWidth, 320);
+      const h = Math.max(container.clientHeight, 420);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w,h,false);
+    }
+    resize();
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
+
+    let dragging=false, lastX=0, targetRot=.22, currentRot=.22, zoom=5.6;
+    container.addEventListener('pointerdown', e => {dragging=true; lastX=e.clientX; container.setPointerCapture?.(e.pointerId);});
+    container.addEventListener('pointerup', () => dragging=false);
+    container.addEventListener('pointercancel', () => dragging=false);
+    container.addEventListener('pointermove', e => {
+      if(!dragging) return;
+      targetRot += (e.clientX-lastX)*.009;
+      lastX=e.clientX;
+    });
+    container.addEventListener('wheel', e => {
+      e.preventDefault();
+      zoom = Math.min(7.2, Math.max(4.4, zoom + e.deltaY*.0025));
+      camera.position.z = zoom;
+    }, {passive:false});
+
+    function animate() {
+      requestAnimationFrame(animate);
+      if(!dragging) targetRot += .0018;
+      currentRot += (targetRot-currentRot)*.12;
+      avatar.rotation.y = currentRot;
+      renderer.render(scene,camera);
+    }
+    animate();
+
+    setLoading(false);
+    if (status) status.textContent = 'Arraste para girar';
+    return {
+      setColors: function () {
+        matShirt.color.set(estado.camiseta);
+        matPants.color.set(estado.calca);
+        cap.visible = estado.bone;
+      }
+    };
+  }
+
+  // Carrega o avatar somente quando a página já estiver pronta.
+  function start() {
+    setLoading(true);
+    setTimeout(function () {
+      const api = initThree();
+      if (api) window.__cerberusAvatar3D = api;
+      else if (fallbackApi) window.__cerberusAvatar3D = fallbackApi;
+      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
+      syncUI();
+    }, 30);
+  }
+
+  // Combos.
   const botoesCombo = document.querySelectorAll('[data-combo]');
   botoesCombo.forEach(btn => {
-    btn.addEventListener('click', () => {
-      marcarAtivo(botoesCombo, btn);
+    btn.addEventListener('click', function() {
       const c = combos[btn.dataset.combo];
-      if(!c) return;
-      matCamiseta.color.set(c.camiseta);
-      matCalca.color.set(c.calca);
-      bone.visible = c.bone;
-      marcarAtivo(document.querySelectorAll('[data-parte="camiseta"]'),
-        document.querySelector(`[data-parte="camiseta"][data-cor="${c.camiseta}"]`) || botoesCombo[0]);
-      marcarAtivo(document.querySelectorAll('[data-parte="calca"]'),
-        document.querySelector(`[data-parte="calca"][data-cor="${c.calca}"]`) || botoesCombo[0]);
-      marcarAtivo(document.querySelectorAll('[data-bone]'),
-        document.querySelector(`[data-bone="${c.bone ? 'on' : 'off'}"]`));
+      if (!c) return;
+      estado.combo = btn.dataset.combo;
+      estado.camiseta = c.camiseta;
+      estado.calca = c.calca;
+      estado.bone = c.bone;
+
+      marcarAtivo(botoesCombo, btn);
+
+      const shirtBtn = document.querySelector(`[data-parte="camiseta"][data-cor="${c.camiseta}"]`);
+      const pantsBtn = document.querySelector(`[data-parte="calca"][data-cor="${c.calca}"]`);
+      if (shirtBtn) marcarAtivo(document.querySelectorAll('[data-parte="camiseta"]'), shirtBtn);
+      if (pantsBtn) marcarAtivo(document.querySelectorAll('[data-parte="calca"]'), pantsBtn);
+      const capBtn = document.querySelector(`[data-bone="${c.bone ? 'on' : 'off'}"]`);
+      if (capBtn) marcarAtivo(document.querySelectorAll('[data-bone]'), capBtn);
+
+      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
+      syncUI();
     });
   });
 
   document.querySelectorAll('[data-parte]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
       const parte = btn.dataset.parte;
       const cor = btn.dataset.cor;
+      estado[parte] = cor;
+      estado.combo = 'custom';
+
       marcarAtivo(document.querySelectorAll(`[data-parte="${parte}"]`), btn);
-      if(parte === 'camiseta') matCamiseta.color.set(cor);
-      if(parte === 'calca') matCalca.color.set(cor);
+      botoesCombo.forEach(b => b.classList.remove('ativo'));
+      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
+      syncUI();
     });
   });
 
   document.querySelectorAll('[data-bone]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
+      estado.bone = btn.dataset.bone === 'on';
+      estado.combo = 'custom';
       marcarAtivo(document.querySelectorAll('[data-bone]'), btn);
-      bone.visible = btn.dataset.bone === 'on';
+      botoesCombo.forEach(b => b.classList.remove('ativo'));
+      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
+      syncUI();
     });
   });
+
+  start();
 })();
 </script>
-
 
 
 <script>
