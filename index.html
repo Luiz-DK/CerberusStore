@@ -279,99 +279,6 @@
   .tabela-tamanhos-obs{font-size:12px;color:var(--cinza);text-align:center;margin-top:12px;}
   .calc-obs{font-size:13px;color:var(--cinza);margin-top:8px;max-width:44ch;margin-left:auto;margin-right:auto;}
 
-  /* ---------- provador 3D premium ---------- */
-  .avatar3d-shell{
-    display:grid;
-    grid-template-columns:minmax(0,1.35fr) minmax(310px,.65fr);
-    gap:18px;
-    margin-top:26px;
-  }
-  .avatar3d-stage,.avatar3d-panel{
-    background:linear-gradient(145deg,#17181a,#0d0e10);
-    border:1px solid #2a2b2e;
-    border-radius:24px;
-    overflow:hidden;
-    box-shadow:0 24px 70px rgba(0,0,0,.25);
-  }
-  .avatar3d-stage{position:relative;min-height:650px;}
-  #avatar3d-canvas{
-    position:relative;
-    width:100%;
-    height:650px;
-    touch-action:none;
-    cursor:grab;
-    background:
-      radial-gradient(circle at 50% 22%,rgba(216,31,47,.16),transparent 34%),
-      radial-gradient(circle at 50% 90%,rgba(255,255,255,.035),transparent 40%);
-  }
-  #avatar3d-canvas:active{cursor:grabbing;}
-  #avatar3d-canvas canvas{display:block;width:100%;height:100%;}
-  .avatar3d-toolbar{
-    position:absolute;z-index:5;top:18px;left:18px;
-    display:flex;gap:7px;padding:6px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:999px;background:rgba(10,10,11,.75);
-    backdrop-filter:blur(12px);
-  }
-  .avatar-tool{
-    border:0;background:transparent;color:#aaa;
-    padding:8px 12px;border-radius:999px;cursor:pointer;
-    font:700 11px 'Inter',sans-serif;
-  }
-  .avatar-tool.ativo{background:#d81f2f;color:#fff;}
-  .avatar3d-status{
-    position:absolute;left:20px;bottom:46px;
-    padding:8px 11px;border-radius:999px;
-    background:rgba(10,10,11,.78);border:1px solid rgba(216,31,47,.4);
-    color:#fff;font-size:11px;font-weight:700;
-    backdrop-filter:blur(10px);
-  }
-  .avatar3d-hint{
-    position:absolute;left:20px;right:20px;bottom:18px;
-    color:#777;font-size:11px;text-align:center;
-  }
-  .avatar3d-panel{padding:24px;display:flex;flex-direction:column;gap:20px;}
-  .avatar-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
-  .avatar-panel-kicker{font-size:10px;letter-spacing:.14em;color:#d81f2f;font-weight:800;}
-  .avatar-panel-head h3{font-size:24px;margin-top:4px;}
-  .avatar-live{font-size:9px;font-weight:800;color:#d81f2f;letter-spacing:.08em;}
-  .avatar-control-group{padding-top:2px;}
-  .avatar-control-group .controle-titulo{margin-bottom:9px;}
-  .avatar3d-panel .controle-botoes{display:flex;flex-wrap:wrap;gap:7px;}
-  .avatar3d-panel .chip{
-    font-size:11px;padding:9px 11px;border-radius:11px;
-    background:#151618;border:1px solid #303135;color:#bbb;
-  }
-  .avatar3d-panel .chip.ativo{
-    background:rgba(216,31,47,.13);border-color:#d81f2f;color:#fff;
-  }
-  .avatar3d-panel .cor{
-    width:34px;height:34px;border-radius:50%;border:2px solid #3b3c3f;
-    padding:0;cursor:pointer;position:relative;
-  }
-  .avatar3d-panel .cor:nth-child(1){background:#0c0c0d;}
-  .avatar3d-panel .cor:nth-child(2){background:#d81f2f;}
-  .avatar3d-panel .cor:nth-child(3){background:#f5f5f4;}
-  .avatar3d-panel .cor.ativo{border-color:#fff;box-shadow:0 0 0 2px #d81f2f;}
-  .avatar-summary{
-    padding:16px;border-radius:16px;background:#111214;
-    border:1px solid #292a2d;
-  }
-  .avatar-summary span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777;font-weight:800;margin-bottom:7px;}
-  .avatar-summary strong{display:block;font-size:15px;color:#fff;}
-  .avatar-summary small{display:block;margin-top:4px;color:#929292;font-size:12px;}
-  .avatar3d-panel .btn{width:100%;justify-content:center;}
-  .avatar-note{font-size:10px;line-height:1.55;color:#666;margin-top:-5px;}
-  @media(max-width:900px){
-    .avatar3d-shell{grid-template-columns:1fr;}
-    #avatar3d-canvas,.avatar3d-stage{min-height:560px;height:560px;}
-  }
-  @media(max-width:600px){
-    .avatar3d-stage{border-radius:18px;}
-    #avatar3d-canvas{height:520px;min-height:520px;}
-    .avatar3d-panel{padding:18px;}
-    .avatar3d-toolbar{left:10px;top:10px;}
-  }
 
   /* ---------- como funciona ---------- */
   .passos{display:grid;grid-template-columns:1fr;gap:14px;}
@@ -502,7 +409,6 @@
   .produto-imagem.photo-hoodie{background-image:url('./imagens/hoodie-vermelho.png');}
   .produto-imagem.photo-set{background-image:url('./imagens/colecao-original.png');}
   .produto-imagem.photo-bone{background-image:url('./imagens/bone-vermelho.png');}
-
 
 
   /* ---------- roupas e acessórios: carrosséis horizontais ---------- */
@@ -896,8 +802,7 @@
       <a href="#modelos">Modelos</a>
       <a href="#mvv">Missão e Valores</a>
       <a href="#calculadora">Tamanho</a>
-      <a href="#avatar3d">Avatar 3D</a>
-      <a href="#avaliacoes">Avaliações</a>
+<a href="#avaliacoes">Avaliações</a>
       <a href="#academia">Academia</a>
       <a href="#local">Localização</a>
     </nav>
@@ -1346,88 +1251,6 @@
   </div>
 </section>
 
-<section id="avatar3d" class="faixa">
-  <div class="wrap">
-    <div class="rotulo">Provador virtual</div>
-    <h2 class="titulo-secao">Experimente a Cerberus no avatar 3D</h2>
-    <p class="intro-secao">Monte seu look com as peças do catálogo. O modelo 3D usa volumes próprios para camiseta, short, calça, moletom, conjunto street, boné e bandana.</p>
-
-    <div class="avatar3d-shell">
-      <div class="avatar3d-stage">
-        <div class="avatar3d-toolbar">
-          <button class="avatar-tool ativo" type="button" data-view="front">Frente</button>
-          <button class="avatar-tool" type="button" data-view="back">Costas</button>
-          <button class="avatar-tool" type="button" data-view="reset">Resetar</button>
-        </div>
-        <div id="avatar3d-canvas" aria-label="Provador virtual 3D da Cerberus">
-          <div class="avatar3d-loading" id="avatar3d-loading">
-            <strong>Carregando provador 3D...</strong>
-            <span>Preparando corpo e peças Cerberus</span>
-          </div>
-        </div>
-        <div class="avatar3d-status" id="avatar3d-status">Avatar 3D</div>
-        <div class="avatar3d-hint">Arraste para girar · roda do mouse para zoom · toque para interagir</div>
-      </div>
-
-      <aside class="avatar3d-panel">
-        <div class="avatar-panel-head">
-          <div>
-            <span class="avatar-panel-kicker">SEU LOOK</span>
-            <h3>Monte no avatar</h3>
-          </div>
-          <span class="avatar-live">● AO VIVO</span>
-        </div>
-
-        <div class="avatar-control-group">
-          <div class="controle-titulo">Parte de cima</div>
-          <div class="controle-botoes" id="avatar-top-options">
-            <button class="chip ativo" type="button" data-top="dryfit">Camiseta Dry Fit</button>
-            <button class="chip" type="button" data-top="oversized">Oversized</button>
-            <button class="chip" type="button" data-top="hoodie">Moletom</button>
-          </div>
-        </div>
-
-        <div class="avatar-control-group">
-          <div class="controle-titulo">Parte de baixo</div>
-          <div class="controle-botoes" id="avatar-bottom-options">
-            <button class="chip ativo" type="button" data-bottom="short">Short</button>
-            <button class="chip" type="button" data-bottom="pants">Calça</button>
-            <button class="chip" type="button" data-bottom="street">Bermuda Street</button>
-          </div>
-        </div>
-
-        <div class="avatar-control-group">
-          <div class="controle-titulo">Cor principal</div>
-          <div class="controle-botoes cores" id="avatar-color-options">
-            <button class="cor ativo" type="button" data-avatar-color="#0c0c0d" aria-label="Preto" title="Preto"></button>
-            <button class="cor" type="button" data-avatar-color="#d81f2f" aria-label="Vermelho" title="Vermelho"></button>
-            <button class="cor" type="button" data-avatar-color="#f5f5f4" aria-label="Branco" title="Branco"></button>
-          </div>
-        </div>
-
-        <div class="avatar-control-group">
-          <div class="controle-titulo">Acessórios</div>
-          <div class="controle-botoes">
-            <button class="chip" type="button" data-accessory="cap">Boné</button>
-            <button class="chip" type="button" data-accessory="bandana">Bandana</button>
-            <button class="chip" type="button" data-accessory="bottle">Garrafa</button>
-          </div>
-        </div>
-
-        <div class="avatar-summary" id="avatar3d-summary">
-          <span>Look atual</span>
-          <strong id="avatar-summary-title">Dry Fit + Short</strong>
-          <small id="avatar-summary-detail">Preto · sem acessórios</small>
-        </div>
-
-        <a class="btn btn-primario btn-grande" id="avatar3d-whatsapp" href="https://wa.me/5564999999999" target="_blank" rel="noopener">Comprar este look</a>
-        <button class="btn btn-secundario btn-grande" id="avatar-save-look" type="button">Salvar visual</button>
-
-        <p class="avatar-note">Pré-visualização 3D de modelagem. Para a versão final de produção, os modelos podem ser substituídos por arquivos GLB/GLTF das peças reais.</p>
-      </aside>
-    </div>
-  </div>
-</section>
 
 <section id="funciona" class="faixa faixa-alt">
   <div class="wrap">
@@ -1657,198 +1480,6 @@ function calcularTamanho(){
 }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/128/three.min.js"></script>
-<script>
-/* ---------- Cerberus Avatar 3D — provador virtual robusto ---------- */
-(function(){
-  'use strict';
-
-  const container = document.getElementById('avatar3d-canvas');
-  const loading = document.getElementById('avatar3d-loading');
-  const status = document.getElementById('avatar3d-status');
-  const summaryTitle = document.getElementById('avatar-summary-title');
-  const summaryDetail = document.getElementById('avatar-summary-detail');
-  const whatsapp = document.getElementById('avatar3d-whatsapp');
-  const saveButton = document.getElementById('avatar-save-look');
-  if(!container) return;
-
-  const state = {
-    top: 'dryfit', bottom: 'short', color: '#0c0c0d',
-    cap: false, bandana: false, bottle: false,
-    rotation: 0.18, targetRotation: 0.18, zoom: 5.7
-  };
-  const colorNames = {'#0c0c0d':'Preto','#d81f2f':'Vermelho','#f5f5f4':'Branco'};
-  const topNames = {dryfit:'Camiseta Dry Fit', oversized:'Oversized', hoodie:'Moletom'};
-  const bottomNames = {short:'Short', pants:'Calça', street:'Bermuda Street'};
-
-  function updateUI(){
-    const top=topNames[state.top], bottom=bottomNames[state.bottom], color=colorNames[state.color]||'Personalizado';
-    const acc=[];
-    if(state.cap) acc.push('boné');
-    if(state.bandana) acc.push('bandana');
-    if(state.bottle) acc.push('garrafa');
-    if(summaryTitle) summaryTitle.textContent=top+' + '+bottom;
-    if(summaryDetail) summaryDetail.textContent=color+(acc.length?' · '+acc.join(', '):' · sem acessórios');
-    if(status) status.textContent='Provador 3D · '+color;
-    if(whatsapp){
-      const msg=encodeURIComponent('Oi! Montei um look no provador 3D da Cerberus. '+top+' + '+bottom+', cor '+color+(acc.length?', acessórios: '+acc.join(', '):', sem acessórios')+'. Quero comprar este look.');
-      whatsapp.href='https://wa.me/5564999999999?text='+msg;
-    }
-    container.dataset.top=state.top;
-    container.dataset.bottom=state.bottom;
-    container.dataset.color=state.color;
-    container.dataset.rotation=String(state.targetRotation);
-    container.dataset.zoom=String(state.zoom);
-    if(window.__cerberusAvatarRender) window.__cerberusAvatarRender();
-  }
-
-  function setActive(selector, current){
-    document.querySelectorAll(selector).forEach(x=>x.classList.toggle('ativo',x===current));
-  }
-
-  // Os controles são ligados independentemente do Three.js. Assim, se a CDN/WebGL falhar,
-  // o provador continua totalmente utilizável com o avatar placeholder.
-  document.querySelectorAll('[data-top]').forEach(btn=>btn.addEventListener('click',function(){
-    state.top=this.dataset.top; setActive('[data-top]',this); updateUI();
-  }));
-  document.querySelectorAll('[data-bottom]').forEach(btn=>btn.addEventListener('click',function(){
-    state.bottom=this.dataset.bottom; setActive('[data-bottom]',this); updateUI();
-  }));
-  document.querySelectorAll('[data-avatar-color]').forEach(btn=>btn.addEventListener('click',function(){
-    state.color=this.dataset.avatarColor; setActive('[data-avatar-color]',this); updateUI();
-  }));
-  document.querySelectorAll('[data-accessory]').forEach(btn=>btn.addEventListener('click',function(){
-    const key=this.dataset.accessory; state[key]=!state[key]; this.classList.toggle('ativo',state[key]); updateUI();
-  }));
-  document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',function(){
-    setActive('[data-view]',this);
-    if(this.dataset.view==='front') state.targetRotation=0;
-    if(this.dataset.view==='back') state.targetRotation=Math.PI;
-    if(this.dataset.view==='reset'){state.targetRotation=.18;state.zoom=5.7;}
-    updateUI();
-  }));
-  if(saveButton) saveButton.addEventListener('click',function(){
-    const text=(summaryTitle?.textContent||'Look')+' — '+(summaryDetail?.textContent||'');
-    const blob=new Blob([JSON.stringify({marca:'Cerberus Store',look:text,data:new Date().toISOString()},null,2)],{type:'application/json'});
-    const url=URL.createObjectURL(blob), a=document.createElement('a');
-    a.href=url; a.download='cerberus-look.json'; a.click(); URL.revokeObjectURL(url);
-    this.textContent='Visual salvo ✓'; setTimeout(()=>this.textContent='Salvar visual',1600);
-  });
-
-  function fallbackPlaceholder(){
-    container.innerHTML='';
-    const stage=document.createElement('div'); stage.className='cerberus-avatar-placeholder';
-    stage.innerHTML=`
-      <div class="ph-floor"></div>
-      <div class="ph-avatar">
-        <div class="ph-head"><div class="ph-hair"></div></div>
-        <div class="ph-neck"></div>
-        <div class="ph-torso"><div class="ph-logo">C</div><div class="ph-zip"></div></div>
-        <div class="ph-arm ph-arm-l"></div><div class="ph-arm ph-arm-r"></div>
-        <div class="ph-leg ph-leg-l"></div><div class="ph-leg ph-leg-r"></div>
-        <div class="ph-shoe ph-shoe-l"></div><div class="ph-shoe ph-shoe-r"></div>
-        <div class="ph-cap"></div><div class="ph-bandana"></div><div class="ph-bottle"></div>
-      </div>`;
-    container.appendChild(stage);
-
-    const style=document.createElement('style');
-    style.textContent=`
-      .cerberus-avatar-placeholder{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;perspective:900px;touch-action:none;cursor:grab}
-      .cerberus-avatar-placeholder:active{cursor:grabbing}
-      .ph-avatar{position:relative;width:190px;height:470px;transform-style:preserve-3d;transform:rotateY(var(--ph-rot,10deg)) scale(var(--ph-scale,1));transition:transform .25s ease;filter:drop-shadow(0 24px 22px rgba(0,0,0,.48))}
-      .ph-head,.ph-neck,.ph-torso,.ph-arm,.ph-leg,.ph-shoe,.ph-cap,.ph-bandana,.ph-bottle{position:absolute;transform-style:preserve-3d}
-      .ph-head{width:82px;height:94px;left:54px;top:28px;border-radius:48% 48% 45% 45%;background:linear-gradient(90deg,#7f503f,#c48768 52%,#704638);box-shadow:inset -10px -4px 15px rgba(0,0,0,.18)}
-      .ph-hair{position:absolute;inset:-5px 0 auto 0;height:43px;border-radius:50% 50% 20% 25%;background:#171311}
-      .ph-neck{width:36px;height:34px;left:77px;top:110px;background:#9a604b;border-radius:0 0 12px 12px}
-      .ph-torso{width:132px;height:178px;left:29px;top:125px;border-radius:22px 22px 15px 15px;background:var(--shirt,#0c0c0d);box-shadow:inset 10px 0 20px rgba(255,255,255,.06),inset -10px 0 20px rgba(0,0,0,.25)}
-      .ph-torso:after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.06)}
-      .ph-logo{position:absolute;left:50%;top:63px;transform:translateX(-50%);width:32px;height:32px;border:3px solid #f5f5f4;border-radius:50%;display:grid;place-items:center;color:var(--logo,#d81f2f);font-weight:900;font-size:18px;z-index:2}
-      .ph-zip{position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);background:rgba(255,255,255,.08)}
-      .ph-arm{width:34px;height:151px;top:139px;border-radius:22px;background:#9b624d;box-shadow:inset -6px 0 10px rgba(0,0,0,.18)}
-      .ph-arm-l{left:7px;transform:rotate(7deg)} .ph-arm-r{right:7px;transform:rotate(-7deg)}
-      .ph-leg{width:55px;height:154px;top:292px;border-radius:13px 13px 18px 18px;background:var(--bottom,#0c0c0d)}
-      .ph-leg-l{left:38px}.ph-leg-r{right:38px}
-      .ph-shoe{width:66px;height:31px;top:431px;border-radius:12px 25px 9px 9px;background:#070708;box-shadow:0 6px 7px rgba(0,0,0,.3)}
-      .ph-shoe-l{left:27px}.ph-shoe-r{right:27px;transform:scaleX(-1)}
-      .ph-cap{display:none;width:91px;height:35px;left:49px;top:16px;background:#070708;border-radius:50% 50% 15% 15%;z-index:5;box-shadow:0 7px 0 -1px #070708}
-      .ph-cap:after{content:"";position:absolute;width:52px;height:10px;right:-31px;bottom:-5px;border-radius:50%;background:#070708;transform:rotate(-4deg)}
-      .ph-bandana{display:none;width:86px;height:25px;left:52px;top:102px;background:#111214;border-radius:50%;z-index:6;transform:rotateX(10deg)}
-      .ph-bottle{display:none;width:22px;height:84px;right:-14px;top:295px;background:linear-gradient(90deg,#111,#d81f2f,#111);border-radius:8px;z-index:7;box-shadow:0 8px 12px rgba(0,0,0,.3)}
-      .ph-bottle:before{content:"";position:absolute;width:14px;height:12px;left:4px;top:-8px;border-radius:4px;background:#070708}
-      .ph-floor{position:absolute;width:310px;height:55px;bottom:20px;border-radius:50%;background:radial-gradient(ellipse,rgba(216,31,47,.18),rgba(0,0,0,.55) 55%,transparent 72%);transform:rotateX(65deg)}
-    `;
-    document.head.appendChild(style);
-
-    window.__cerberusAvatarRender=function(){
-      const avatar=stage.querySelector('.ph-avatar');
-      if(!avatar)return;
-      const color=state.color;
-      avatar.style.setProperty('--shirt',color);
-      avatar.style.setProperty('--bottom',color);
-      avatar.style.setProperty('--logo',color==='#f5f5f4'?'#d81f2f':'#f5f5f4');
-      avatar.style.setProperty('--ph-rot',(state.targetRotation*57.2958)+'deg');
-      avatar.style.setProperty('--ph-scale',Math.max(.88,Math.min(1.14,6.3/state.zoom)));
-      stage.querySelector('.ph-cap').style.display=state.cap?'block':'none';
-      stage.querySelector('.ph-bandana').style.display=state.bandana?'block':'none';
-      stage.querySelector('.ph-bottle').style.display=state.bottle?'block':'none';
-      stage.classList.toggle('ph-hoodie',state.top==='hoodie');
-      stage.classList.toggle('ph-oversized',state.top==='oversized');
-      const torso=stage.querySelector('.ph-torso');
-      if(state.top==='hoodie'){torso.style.borderRadius='24px 24px 17px 17px';torso.style.height='184px';}
-      else if(state.top==='oversized'){torso.style.width='151px';torso.style.left='19px';torso.style.height='187px';}
-      else {torso.style.width='132px';torso.style.left='29px';torso.style.height='178px';}
-      const legs=stage.querySelectorAll('.ph-leg');
-      legs.forEach(l=>{l.style.height=state.bottom==='pants'?'170px':state.bottom==='street'?'135px':'154px';l.style.top=state.bottom==='pants'?'276px':state.bottom==='street'?'311px':'292px';});
-      if(loading) loading.style.display='none';
-    };
-    let drag=false,lastX=0;
-    container.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;container.setPointerCapture?.(e.pointerId);});
-    container.addEventListener('pointerup',()=>drag=false); container.addEventListener('pointercancel',()=>drag=false);
-    container.addEventListener('pointermove',e=>{if(!drag)return;state.targetRotation+=(e.clientX-lastX)*.009;lastX=e.clientX;updateUI();});
-    container.addEventListener('wheel',e=>{e.preventDefault();state.zoom=Math.min(7.1,Math.max(4.25,state.zoom+e.deltaY*.0026));updateUI();},{passive:false});
-    if(loading) loading.style.display='none';
-    updateUI();
-  }
-
-  function initThree(){
-    const scene=new THREE.Scene();
-    const camera=new THREE.PerspectiveCamera(31,1,.1,100); camera.position.set(0,1.15,state.zoom);
-    let renderer;
-    try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});}catch(e){fallbackPlaceholder();return;}
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2)); renderer.setClearColor(0,0); renderer.outputEncoding=THREE.sRGBEncoding;
-    container.innerHTML=''; container.appendChild(renderer.domElement);
-    scene.add(new THREE.HemisphereLight(0xffffff,0x111216,1.45));
-    const key=new THREE.DirectionalLight(0xffffff,1.65);key.position.set(3.5,5.5,4.5);scene.add(key);
-    const fill=new THREE.DirectionalLight(0xd81f2f,.65);fill.position.set(-4,2.5,2);scene.add(fill);
-    const avatar=new THREE.Group();avatar.position.y=-1.18;scene.add(avatar);
-    const mat=(hex,rough=.55,metal=0)=>new THREE.MeshStandardMaterial({color:hex,roughness:rough,metalness:metal});
-    const skin=mat(0xb8795d,.78),hair=mat(0x171311,.88),shoe=mat(0x070708,.42),white=mat(0xf5f5f4,.5),red=mat(0xd81f2f,.48),black=mat(0x0c0c0d,.55);
-    const garment=new THREE.Group(),accessory=new THREE.Group();avatar.add(garment,accessory);
-    const mesh=(geo,material,x=0,y=0,z=0,parent=garment)=>{const m=new THREE.Mesh(geo,material);m.position.set(x,y,z);parent.add(m);return m;};
-    const capsule=(r,l,m,x,y,z,p=garment)=>mesh(new THREE.CapsuleGeometry(r,l,8,18),m,x,y,z,p);
-    const roundedBox=(w,h,d,m,x,y,z,p=garment)=>mesh(new THREE.BoxGeometry(w,h,d,4,4,4),m,x,y,z,p);
-    const cyl=(r1,r2,h,m,x,y,z,p=garment)=>mesh(new THREE.CylinderGeometry(r1,r2,h,32),m,x,y,z,p);
-    mesh(new THREE.SphereGeometry(.37,32,24),skin,0,2.22,0,avatar);mesh(new THREE.SphereGeometry(.38,32,18,0,Math.PI*2,0,Math.PI*.52),hair,0,2.36,0,avatar);cyl(.13,.13,.28,skin,0,1.91,0,avatar);
-    roundedBox(.86,1.12,.46,skin,0,1.30,0,avatar);const la=capsule(.115,.72,skin,-.55,1.27,0,avatar),ra=capsule(.115,.72,skin,.55,1.27,0,avatar);la.rotation.z=.08;ra.rotation.z=-.08;capsule(.13,.70,skin,-.22,.02,0,avatar);capsule(.13,.70,skin,.22,.02,0,avatar);roundedBox(.39,.18,.68,shoe,-.22,-.69,.03,avatar);roundedBox(.39,.18,.68,shoe,.22,-.69,.03,avatar);
-    const shirtGroup=new THREE.Group(),bottomGroup=new THREE.Group(),capGroup=new THREE.Group(),bandanaGroup=new THREE.Group(),bottleGroup=new THREE.Group();garment.add(shirtGroup,bottomGroup);accessory.add(capGroup,bandanaGroup,bottleGroup);
-    function clearGroup(g){while(g.children.length){const c=g.children.pop();c.geometry?.dispose?.();if(Array.isArray(c.material))c.material.forEach(x=>x.dispose?.());else c.material?.dispose?.();}}
-    function createTop(){clearGroup(shirtGroup);const c=new THREE.Color(state.color),m=mat(c,.54),accent=mat(0xd81f2f,.45);let width=.96,height=1.13,depth=.52,sleeve=.46;if(state.top==='oversized'){width=1.16;height=1.20;depth=.58;sleeve=.58}if(state.top==='hoodie'){width=1.12;height=1.22;depth=.62;sleeve=.60}roundedBox(width,height,depth,m,0,1.30,0,shirtGroup);capsule(.13,sleeve,m,-(width*.5+.13),1.31,0,shirtGroup);capsule(.13,sleeve,m,(width*.5+.13),1.31,0,shirtGroup);if(state.top==='dryfit'){roundedBox(.035,.96,.035,accent,-width*.37,1.30,.28,shirtGroup);roundedBox(.035,.96,.035,accent,width*.37,1.30,.28,shirtGroup)}if(state.top==='hoodie'){const hood=new THREE.Mesh(new THREE.TorusGeometry(.25,.09,14,32,Math.PI*1.35),m);hood.rotation.x=Math.PI/2;hood.position.set(0,1.68,-.02);shirtGroup.add(hood);roundedBox(.22,.50,.035,m,0,1.02,.33,shirtGroup)}const logo=new THREE.Group(),ring=new THREE.Mesh(new THREE.TorusGeometry(.15,.025,8,24),white),core=new THREE.Mesh(new THREE.ConeGeometry(.07,.18,3),state.color==='#f5f5f4'?black:red);logo.add(ring);core.rotation.z=Math.PI;core.position.y=-.015;logo.add(core);logo.position.set(0,1.39,depth*.5+.012);shirtGroup.add(logo);}
-    function createBottom(){clearGroup(bottomGroup);const m=mat(state.color,.58);if(state.bottom==='pants'){roundedBox(.43,1,.48,m,-.23,.40,0,bottomGroup);roundedBox(.43,1,.48,m,.23,.40,0,bottomGroup)}else if(state.bottom==='street'){roundedBox(.48,.62,.50,m,-.25,.55,0,bottomGroup);roundedBox(.48,.62,.50,m,.25,.55,0,bottomGroup)}else{roundedBox(.45,.62,.48,m,-.24,.54,0,bottomGroup);roundedBox(.45,.62,.48,m,.24,.54,0,bottomGroup)}const accent=mat(0xd81f2f,.45);if(state.color!=='#d81f2f'){roundedBox(.035,.45,.025,accent,-.47,.54,.26,bottomGroup);roundedBox(.035,.45,.025,accent,.47,.54,.26,bottomGroup)}}
-    function createAccessories(){clearGroup(capGroup);clearGroup(bandanaGroup);clearGroup(bottleGroup);if(state.cap){const cm=black,dome=new THREE.Mesh(new THREE.SphereGeometry(.39,32,16,0,Math.PI*2,0,Math.PI*.5),cm);dome.position.set(0,2.51,.02);capGroup.add(dome);const brim=roundedBox(.44,.055,.25,cm,.27,2.42,.16,capGroup);brim.rotation.y=-.08;const capLogo=new THREE.Mesh(new THREE.TorusGeometry(.08,.018,8,20),red);capLogo.rotation.x=Math.PI/2;capLogo.position.set(0,2.52,.34);capGroup.add(capLogo)}if(state.bandana){const bm=mat(0x111214,.7),band=new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.16,32),bm);band.rotation.x=Math.PI/2;band.position.set(0,1.72,.01);band.scale.y=.58;bandanaGroup.add(band);const knot=roundedBox(.10,.10,.16,bm,.32,1.72,.02,bandanaGroup);knot.rotation.z=.35}if(state.bottle){const bottleMat=mat(state.color==='#f5f5f4'?0x161718:state.color,.35,.1),bottle=new THREE.Mesh(new THREE.CylinderGeometry(.105,.12,.58,24),bottleMat);bottle.position.set(.82,-.18,.12);bottle.rotation.z=-.05;bottleGroup.add(bottle);const lid=new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,.10,24),black);lid.position.set(.82,.16,.12);bottleGroup.add(lid)}}
-    const floor=new THREE.Mesh(new THREE.CylinderGeometry(1.35,1.35,.06,64),mat(0x191a1c,.92));floor.position.y=-.78;scene.add(floor);
-    window.__cerberusAvatarRender=function(){createTop();createBottom();createAccessories();camera.position.z=state.zoom;avatar.rotation.y=state.targetRotation;};
-    function resize(){const w=Math.max(container.clientWidth,320),h=Math.max(container.clientHeight,480);camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false)}
-    if(window.ResizeObserver)new ResizeObserver(resize).observe(container);window.addEventListener('resize',resize);resize();
-    let dragging=false,lastX=0;container.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;container.setPointerCapture?.(e.pointerId)});container.addEventListener('pointerup',()=>dragging=false);container.addEventListener('pointercancel',()=>dragging=false);container.addEventListener('pointermove',e=>{if(!dragging)return;state.targetRotation+=(e.clientX-lastX)*.009;lastX=e.clientX;updateUI()});container.addEventListener('wheel',e=>{e.preventDefault();state.zoom=Math.min(7.1,Math.max(4.25,state.zoom+e.deltaY*.0026));updateUI()},{passive:false});
-    if(loading)loading.style.display='none';updateUI();
-    function animate(){requestAnimationFrame(animate);state.rotation+=(state.targetRotation-state.rotation)*.12;avatar.rotation.y=state.rotation;renderer.render(scene,camera)}animate();
-  }
-
-  updateUI();
-  if(typeof THREE!=='undefined') initThree(); else fallbackPlaceholder();
-})();
-</script>
-
 
 <script>
   // Catálogo: cada botão troca a imagem real do produto e registra a cor.
@@ -1935,9 +1566,6 @@ function calcularTamanho(){
     });
   })();
 </script>
-
-
-
 
 
 <script>
