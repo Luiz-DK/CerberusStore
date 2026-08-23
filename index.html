@@ -623,6 +623,101 @@
     .produto-photo{min-height:250px;}
   }
 
+
+  /* ---------- provador 3D premium ---------- */
+  .avatar3d-shell{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(310px,.65fr);
+    gap:18px;
+    margin-top:26px;
+  }
+  .avatar3d-stage,.avatar3d-panel{
+    background:linear-gradient(145deg,#17181a,#0d0e10);
+    border:1px solid #2a2b2e;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.25);
+  }
+  .avatar3d-stage{position:relative;min-height:650px;}
+  #avatar3d-canvas{
+    position:relative;
+    width:100%;
+    height:650px;
+    touch-action:none;
+    cursor:grab;
+    background:
+      radial-gradient(circle at 50% 22%,rgba(216,31,47,.16),transparent 34%),
+      radial-gradient(circle at 50% 90%,rgba(255,255,255,.035),transparent 40%);
+  }
+  #avatar3d-canvas:active{cursor:grabbing;}
+  #avatar3d-canvas canvas{display:block;width:100%;height:100%;}
+  .avatar3d-toolbar{
+    position:absolute;z-index:5;top:18px;left:18px;
+    display:flex;gap:7px;padding:6px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:999px;background:rgba(10,10,11,.75);
+    backdrop-filter:blur(12px);
+  }
+  .avatar-tool{
+    border:0;background:transparent;color:#aaa;
+    padding:8px 12px;border-radius:999px;cursor:pointer;
+    font:700 11px 'Inter',sans-serif;
+  }
+  .avatar-tool.ativo{background:#d81f2f;color:#fff;}
+  .avatar3d-status{
+    position:absolute;left:20px;bottom:46px;
+    padding:8px 11px;border-radius:999px;
+    background:rgba(10,10,11,.78);border:1px solid rgba(216,31,47,.4);
+    color:#fff;font-size:11px;font-weight:700;
+    backdrop-filter:blur(10px);
+  }
+  .avatar3d-hint{
+    position:absolute;left:20px;right:20px;bottom:18px;
+    color:#777;font-size:11px;text-align:center;
+  }
+  .avatar3d-panel{padding:24px;display:flex;flex-direction:column;gap:20px;}
+  .avatar-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
+  .avatar-panel-kicker{font-size:10px;letter-spacing:.14em;color:#d81f2f;font-weight:800;}
+  .avatar-panel-head h3{font-size:24px;margin-top:4px;}
+  .avatar-live{font-size:9px;font-weight:800;color:#d81f2f;letter-spacing:.08em;}
+  .avatar-control-group{padding-top:2px;}
+  .avatar-control-group .controle-titulo{margin-bottom:9px;}
+  .avatar3d-panel .controle-botoes{display:flex;flex-wrap:wrap;gap:7px;}
+  .avatar3d-panel .chip{
+    font-size:11px;padding:9px 11px;border-radius:11px;
+    background:#151618;border:1px solid #303135;color:#bbb;
+  }
+  .avatar3d-panel .chip.ativo{
+    background:rgba(216,31,47,.13);border-color:#d81f2f;color:#fff;
+  }
+  .avatar3d-panel .cor{
+    width:34px;height:34px;border-radius:50%;border:2px solid #3b3c3f;
+    padding:0;cursor:pointer;position:relative;
+  }
+  .avatar3d-panel .cor:nth-child(1){background:#0c0c0d;}
+  .avatar3d-panel .cor:nth-child(2){background:#d81f2f;}
+  .avatar3d-panel .cor:nth-child(3){background:#f5f5f4;}
+  .avatar3d-panel .cor.ativo{border-color:#fff;box-shadow:0 0 0 2px #d81f2f;}
+  .avatar-summary{
+    padding:16px;border-radius:16px;background:#111214;
+    border:1px solid #292a2d;
+  }
+  .avatar-summary span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777;font-weight:800;margin-bottom:7px;}
+  .avatar-summary strong{display:block;font-size:15px;color:#fff;}
+  .avatar-summary small{display:block;margin-top:4px;color:#929292;font-size:12px;}
+  .avatar3d-panel .btn{width:100%;justify-content:center;}
+  .avatar-note{font-size:10px;line-height:1.55;color:#666;margin-top:-5px;}
+  @media(max-width:900px){
+    .avatar3d-shell{grid-template-columns:1fr;}
+    #avatar3d-canvas,.avatar3d-stage{min-height:560px;height:560px;}
+  }
+  @media(max-width:600px){
+    .avatar3d-stage{border-radius:18px;}
+    #avatar3d-canvas{height:520px;min-height:520px;}
+    .avatar3d-panel{padding:18px;}
+    .avatar3d-toolbar{left:10px;top:10px;}
+  }
+
 </style>
 </head>
 <body>
@@ -934,56 +1029,83 @@
 
 <section id="avatar3d" class="faixa">
   <div class="wrap">
-    <div class="rotulo">Experimente</div>
-    <h2 class="titulo-secao">Monte seu combo no avatar 3D</h2>
-    <p class="intro-secao">Gira o avatar e testa as combinações de cor da Cerberus antes de decidir. Pré-visualização estilizada — não é a peça real.</p>
-    <div class="avatar3d-grid">
-      <div class="avatar3d-canvas-wrap">
-        <div id="avatar3d-canvas" aria-label="Avatar 3D interativo da Cerberus">
+    <div class="rotulo">Provador virtual</div>
+    <h2 class="titulo-secao">Experimente a Cerberus no avatar 3D</h2>
+    <p class="intro-secao">Monte seu look com as peças do catálogo. O modelo 3D usa volumes próprios para camiseta, short, calça, moletom, conjunto street, boné e bandana.</p>
+
+    <div class="avatar3d-shell">
+      <div class="avatar3d-stage">
+        <div class="avatar3d-toolbar">
+          <button class="avatar-tool ativo" type="button" data-view="front">Frente</button>
+          <button class="avatar-tool" type="button" data-view="back">Costas</button>
+          <button class="avatar-tool" type="button" data-view="reset">Resetar</button>
+        </div>
+        <div id="avatar3d-canvas" aria-label="Provador virtual 3D da Cerberus">
           <div class="avatar3d-loading" id="avatar3d-loading">
-            <strong>Carregando avatar 3D...</strong>
-            <span>Preparando o provador virtual</span>
+            <strong>Carregando provador 3D...</strong>
+            <span>Preparando corpo e peças Cerberus</span>
           </div>
         </div>
         <div class="avatar3d-status" id="avatar3d-status">Avatar 3D</div>
-        <div class="avatar3d-hint">Arraste para girar • roda do mouse para aproximar</div>
+        <div class="avatar3d-hint">Arraste para girar · roda do mouse para zoom · toque para interagir</div>
       </div>
-      <div class="avatar3d-controles">
-        <div>
-          <div class="controle-titulo">Combo</div>
+
+      <aside class="avatar3d-panel">
+        <div class="avatar-panel-head">
+          <div>
+            <span class="avatar-panel-kicker">SEU LOOK</span>
+            <h3>Monte no avatar</h3>
+          </div>
+          <span class="avatar-live">● AO VIVO</span>
+        </div>
+
+        <div class="avatar-control-group">
+          <div class="controle-titulo">Parte de cima</div>
+          <div class="controle-botoes" id="avatar-top-options">
+            <button class="chip ativo" type="button" data-top="dryfit">Camiseta Dry Fit</button>
+            <button class="chip" type="button" data-top="oversized">Oversized</button>
+            <button class="chip" type="button" data-top="hoodie">Moletom</button>
+          </div>
+        </div>
+
+        <div class="avatar-control-group">
+          <div class="controle-titulo">Parte de baixo</div>
+          <div class="controle-botoes" id="avatar-bottom-options">
+            <button class="chip ativo" type="button" data-bottom="short">Short</button>
+            <button class="chip" type="button" data-bottom="pants">Calça</button>
+            <button class="chip" type="button" data-bottom="street">Bermuda Street</button>
+          </div>
+        </div>
+
+        <div class="avatar-control-group">
+          <div class="controle-titulo">Cor principal</div>
+          <div class="controle-botoes cores" id="avatar-color-options">
+            <button class="cor ativo" type="button" data-avatar-color="#0c0c0d" aria-label="Preto" title="Preto"></button>
+            <button class="cor" type="button" data-avatar-color="#d81f2f" aria-label="Vermelho" title="Vermelho"></button>
+            <button class="cor" type="button" data-avatar-color="#f5f5f4" aria-label="Branco" title="Branco"></button>
+          </div>
+        </div>
+
+        <div class="avatar-control-group">
+          <div class="controle-titulo">Acessórios</div>
           <div class="controle-botoes">
-            <button class="chip ativo" data-combo="dryfit-vermelho">Dry Fit Detalhe Vermelho</button>
-            <button class="chip" data-combo="dryfit-preto">Dry Fit Preto</button>
-            <button class="chip" data-combo="oversized">Oversized</button>
-            <button class="chip" data-combo="kit">Kit Completo</button>
+            <button class="chip" type="button" data-accessory="cap">Boné</button>
+            <button class="chip" type="button" data-accessory="bandana">Bandana</button>
+            <button class="chip" type="button" data-accessory="bottle">Garrafa</button>
           </div>
         </div>
-        <div>
-          <div class="controle-titulo">Camiseta</div>
-          <div class="controle-botoes cores">
-            <button class="cor ativo" style="background:#0c0c0d" data-parte="camiseta" data-cor="#0c0c0d" aria-label="Preto"></button>
-            <button class="cor" style="background:#d81f2f" data-parte="camiseta" data-cor="#d81f2f" aria-label="Vermelho"></button>
-            <button class="cor" style="background:#f5f5f4" data-parte="camiseta" data-cor="#f5f5f4" aria-label="Branco"></button>
-          </div>
+
+        <div class="avatar-summary" id="avatar3d-summary">
+          <span>Look atual</span>
+          <strong id="avatar-summary-title">Dry Fit + Short</strong>
+          <small id="avatar-summary-detail">Preto · sem acessórios</small>
         </div>
-        <div>
-          <div class="controle-titulo">Calça / Short</div>
-          <div class="controle-botoes cores">
-            <button class="cor" style="background:#0c0c0d" data-parte="calca" data-cor="#0c0c0d" aria-label="Preto"></button>
-            <button class="cor ativo" style="background:#2a2b2e" data-parte="calca" data-cor="#2a2b2e" aria-label="Cinza escuro"></button>
-            <button class="cor" style="background:#d81f2f" data-parte="calca" data-cor="#d81f2f" aria-label="Vermelho"></button>
-          </div>
-        </div>
-        <div>
-          <div class="controle-titulo">Boné</div>
-          <div class="controle-botoes">
-            <button class="chip" data-bone="on">Com boné</button>
-            <button class="chip ativo" data-bone="off">Sem boné</button>
-          </div>
-        </div>
-        <div class="avatar3d-summary" id="avatar3d-summary">Combo: <b>Dry Fit Detalhe Vermelho</b><br>Camiseta: <b>Preto</b> • Calça/short: <b>Cinza escuro</b> • Boné: <b>Sem boné</b></div>
-        <a class="btn btn-primario" id="avatar3d-whatsapp" style="width:100%;" href="#" target="_blank" rel="noopener">Quero esse combo</a>
-      </div>
+
+        <a class="btn btn-primario btn-grande" id="avatar3d-whatsapp" href="https://wa.me/5564999999999" target="_blank" rel="noopener">Comprar este look</a>
+        <button class="btn btn-secundario btn-grande" id="avatar-save-look" type="button">Salvar visual</button>
+
+        <p class="avatar-note">Pré-visualização 3D de modelagem. Para a versão final de produção, os modelos podem ser substituídos por arquivos GLB/GLTF das peças reais.</p>
+      </aside>
     </div>
   </div>
 </section>
@@ -1192,359 +1314,365 @@ function calcularTamanho(){
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/128/three.min.js"></script>
 <script>
-// ---------- Avatar 3D Cerberus: provador virtual interativo ----------
-(function () {
+/* ---------- Cerberus Avatar 3D — provador virtual ---------- */
+(function(){
   'use strict';
 
   const container = document.getElementById('avatar3d-canvas');
   const loading = document.getElementById('avatar3d-loading');
   const status = document.getElementById('avatar3d-status');
-  const summary = document.getElementById('avatar3d-summary');
+  const summaryTitle = document.getElementById('avatar-summary-title');
+  const summaryDetail = document.getElementById('avatar-summary-detail');
   const whatsapp = document.getElementById('avatar3d-whatsapp');
-  if (!container) return;
+  if(!container || typeof THREE === 'undefined') return;
 
-  const nomes = {
+  const state = {
+    top: 'dryfit',
+    bottom: 'short',
+    color: '#0c0c0d',
+    cap: false,
+    bandana: false,
+    bottle: false,
+    rotation: 0.18,
+    targetRotation: 0.18
+  };
+
+  const colorNames = {
     '#0c0c0d': 'Preto',
     '#d81f2f': 'Vermelho',
-    '#f5f5f4': 'Branco',
-    '#2a2b2e': 'Cinza escuro'
+    '#f5f5f4': 'Branco'
   };
+  const topNames = {dryfit:'Camiseta Dry Fit', oversized:'Oversized', hoodie:'Moletom'};
+  const bottomNames = {short:'Short', pants:'Calça', street:'Bermuda Street'};
 
-  const estado = {
-    combo: 'dryfit-vermelho',
-    camiseta: '#d81f2f',
-    calca: '#2a2b2e',
-    bone: false
-  };
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(31, 1, 0.1, 100);
+  camera.position.set(0, 1.15, 5.7);
 
-  const combos = {
-    'dryfit-vermelho': {nome:'Dry Fit Detalhe Vermelho', camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
-    'dryfit-preto':    {nome:'Dry Fit Preto', camiseta:'#0c0c0d', calca:'#0c0c0d', bone:false},
-    'oversized':       {nome:'Oversized', camiseta:'#0c0c0d', calca:'#2a2b2e', bone:false},
-    'kit':             {nome:'Kit Completo', camiseta:'#d81f2f', calca:'#d81f2f', bone:true}
-  };
-
-  function setLoading(show) {
-    if (loading) loading.style.display = show ? 'flex' : 'none';
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'high-performance'});
+  } catch(e) {
+    loading.innerHTML = '<strong>Seu navegador não liberou WebGL.</strong><span>O restante da loja continua funcionando normalmente.</span>';
+    return;
   }
 
-  function marcarAtivo(lista, elAtivo) {
-    lista.forEach(function (b) {
-      b.classList.toggle('ativo', b === elAtivo);
-    });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  container.innerHTML = '';
+  container.appendChild(renderer.domElement);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x111216, 1.45));
+  const key = new THREE.DirectionalLight(0xffffff, 1.65);
+  key.position.set(3.5, 5.5, 4.5);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0xd81f2f, 0.65);
+  fill.position.set(-4, 2.5, 2);
+  scene.add(fill);
+
+  const avatar = new THREE.Group();
+  avatar.position.y = -1.18;
+  scene.add(avatar);
+
+  const mat = (hex, rough=.55, metal=0) =>
+    new THREE.MeshStandardMaterial({color:hex, roughness:rough, metalness:metal});
+
+  const skin = mat(0xb8795d,.78);
+  const hair = mat(0x171311,.88);
+  const shoe = mat(0x070708,.42);
+  const white = mat(0xf5f5f4,.5);
+  const red = mat(0xd81f2f,.48);
+  const black = mat(0x0c0c0d,.55);
+
+  const garment = new THREE.Group();
+  const accessory = new THREE.Group();
+  avatar.add(garment, accessory);
+
+  function mesh(geo, material, x=0,y=0,z=0, parent=garment){
+    const m = new THREE.Mesh(geo, material);
+    m.position.set(x,y,z);
+    parent.add(m);
+    return m;
+  }
+  function capsule(radius, length, material, x,y,z, parent=garment){
+    const g = new THREE.CapsuleGeometry(radius, length, 8, 18);
+    return mesh(g, material, x,y,z,parent);
+  }
+  function roundedBox(w,h,d,material,x,y,z,parent=garment){
+    const g = new THREE.BoxGeometry(w,h,d,4,4,4);
+    return mesh(g,material,x,y,z,parent);
+  }
+  function cyl(r1,r2,h,material,x,y,z,parent=garment){
+    const g = new THREE.CylinderGeometry(r1,r2,h,32);
+    return mesh(g,material,x,y,z,parent);
   }
 
-  function syncUI() {
-    const combo = combos[estado.combo];
-    const comboName = combo ? combo.nome : 'Personalizado';
-    if (summary) {
-      summary.innerHTML =
-        'Combo: <b>' + comboName + '</b><br>' +
-        'Camiseta: <b>' + (nomes[estado.camiseta] || estado.camiseta) + '</b> • ' +
-        'Calça/short: <b>' + (nomes[estado.calca] || estado.calca) + '</b> • ' +
-        'Boné: <b>' + (estado.bone ? 'Com boné' : 'Sem boné') + '</b>';
+  // Corpo base.
+  mesh(new THREE.SphereGeometry(.37,32,24),skin,0,2.22,0,avatar);
+  mesh(new THREE.SphereGeometry(.38,32,18,0,Math.PI*2,0,Math.PI*.52),hair,0,2.36,0,avatar);
+  cyl(.13,.13,.28,skin,0,1.91,0,avatar);
+
+  const baseBody = roundedBox(.86,1.12,.46,skin,0,1.30,0,avatar);
+  const leftArm = capsule(.115,.72,skin,-.55,1.27,0,avatar);
+  const rightArm = capsule(.115,.72,skin,.55,1.27,0,avatar);
+  leftArm.rotation.z = .08; rightArm.rotation.z = -.08;
+  capsule(.13,.70,skin,-.22,.02,0,avatar);
+  capsule(.13,.70,skin,.22,.02,0,avatar);
+  roundedBox(.39,.18,.68,shoe,-.22,-.69,.03,avatar);
+  roundedBox(.39,.18,.68,shoe,.22,-.69,.03,avatar);
+
+  // Peça superior.
+  const shirtGroup = new THREE.Group();
+  garment.add(shirtGroup);
+
+  function clearGroup(g){
+    while(g.children.length){
+      const c=g.children.pop();
+      c.geometry?.dispose?.();
+      if(Array.isArray(c.material)) c.material.forEach(x=>x.dispose?.());
+      else c.material?.dispose?.();
+    }
+  }
+
+  function createTop(){
+    clearGroup(shirtGroup);
+    const c = new THREE.Color(state.color);
+    const m = mat(c,.54);
+    const accent = mat(state.color === '#f5f5f4' ? 0xd81f2f : 0xd81f2f,.45);
+
+    let width=.96, height=1.13, depth=.52, sleeve=.46;
+    if(state.top==='oversized'){ width=1.16; height=1.20; depth=.58; sleeve=.58; }
+    if(state.top==='hoodie'){ width=1.12; height=1.22; depth=.62; sleeve=.60; }
+
+    roundedBox(width,height,depth,m,0,1.30,0,shirtGroup);
+    capsule(.13,sleeve,m,-(width*.5+.13),1.31,0,shirtGroup);
+    capsule(.13,sleeve,m,(width*.5+.13),1.31,0,shirtGroup);
+
+    if(state.top==='dryfit'){
+      roundedBox(.035,.96,.035,accent,-width*.37,1.30,.28,shirtGroup);
+      roundedBox(.035,.96,.035,accent,width*.37,1.30,.28,shirtGroup);
+    }
+    if(state.top==='hoodie'){
+      const hood = new THREE.Mesh(new THREE.TorusGeometry(.25,.09,14,32,Math.PI*1.35),m);
+      hood.rotation.x=Math.PI/2;
+      hood.position.set(0,1.68,-.02);
+      shirtGroup.add(hood);
+      roundedBox(.22,.50,.035,m,0,1.02,.33,shirtGroup);
+    }
+    // Logo Cerberus estilizado.
+    const logo = new THREE.Group();
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(.15,.025,8,24),white);
+    logo.add(ring);
+    const core = new THREE.Mesh(new THREE.ConeGeometry(.07,.18,3), state.color==='#f5f5f4'?black:red);
+    core.rotation.z=Math.PI;
+    core.position.y=-.015;
+    logo.add(core);
+    logo.position.set(0,1.39,depth*.5+.012);
+    shirtGroup.add(logo);
+  }
+
+  // Parte inferior.
+  const bottomGroup = new THREE.Group();
+  garment.add(bottomGroup);
+
+  function createBottom(){
+    clearGroup(bottomGroup);
+    const m = mat(state.color,.58);
+    if(state.bottom==='pants'){
+      roundedBox(.43,1.00,.48,m,-.23,.40,0,bottomGroup);
+      roundedBox(.43,1.00,.48,m,.23,.40,0,bottomGroup);
+    } else if(state.bottom==='street'){
+      roundedBox(.48,.62,.50,m,-.25,.55,0,bottomGroup);
+      roundedBox(.48,.62,.50,m,.25,.55,0,bottomGroup);
+    } else {
+      roundedBox(.45,.62,.48,m,-.24,.54,0,bottomGroup);
+      roundedBox(.45,.62,.48,m,.24,.54,0,bottomGroup);
+    }
+    // Detalhe lateral vermelho.
+    const accent = mat(0xd81f2f,.45);
+    if(state.color !== '#d81f2f'){
+      roundedBox(.035,.45,.025,accent,-.47,.54,.26,bottomGroup);
+      roundedBox(.035,.45,.025,accent,.47,.54,.26,bottomGroup);
+    }
+  }
+
+  // Acessórios.
+  const capGroup = new THREE.Group();
+  const bandanaGroup = new THREE.Group();
+  const bottleGroup = new THREE.Group();
+  accessory.add(capGroup,bandanaGroup,bottleGroup);
+
+  function createAccessories(){
+    clearGroup(capGroup); clearGroup(bandanaGroup); clearGroup(bottleGroup);
+
+    if(state.cap){
+      const cm=black;
+      const dome = new THREE.Mesh(new THREE.SphereGeometry(.39,32,16,0,Math.PI*2,0,Math.PI*.5),cm);
+      dome.position.set(0,2.51,.02);
+      capGroup.add(dome);
+      const brim = roundedBox(.44,.055,.25,cm,.27,2.42,.16,capGroup);
+      brim.rotation.y=-.08;
+      const capLogo = new THREE.Mesh(new THREE.TorusGeometry(.08,.018,8,20),red);
+      capLogo.rotation.x=Math.PI/2; capLogo.position.set(0,2.52,.34);
+      capGroup.add(capLogo);
     }
 
-    const text = encodeURIComponent(
-      'Oi! Montei um combo no avatar 3D da Cerberus. ' +
-      'Combo: ' + comboName + '. ' +
-      'Camiseta: ' + (nomes[estado.camiseta] || estado.camiseta) + '. ' +
-      'Calça/short: ' + (nomes[estado.calca] || estado.calca) + '. ' +
-      'Boné: ' + (estado.bone ? 'com boné' : 'sem boné') + '. Quero saber o preço.'
+    if(state.bandana){
+      const bm = mat(0x111214,.7);
+      const band = new THREE.Mesh(new THREE.CylinderGeometry(.39,.39,.16,32),bm);
+      band.rotation.x=Math.PI/2;
+      band.position.set(0,1.72,.01);
+      band.scale.y=.58;
+      bandanaGroup.add(band);
+      const knot = roundedBox(.10,.10,.16,bm,.32,1.72,.02,bandanaGroup);
+      knot.rotation.z=.35;
+    }
+
+    if(state.bottle){
+      const bottleMat = mat(state.color==='#f5f5f4'?0x161718:state.color,.35,.1);
+      const bottle = new THREE.Mesh(new THREE.CylinderGeometry(.105,.12,.58,24),bottleMat);
+      bottle.position.set(.82,-.18,.12);
+      bottle.rotation.z=-.05;
+      bottleGroup.add(bottle);
+      const lid = new THREE.Mesh(new THREE.CylinderGeometry(.08,.08,.10,24),black);
+      lid.position.set(.82,.16,.12);
+      bottleGroup.add(lid);
+    }
+  }
+
+  // Piso.
+  const floor = new THREE.Mesh(
+    new THREE.CylinderGeometry(1.35,1.35,.06,64),
+    mat(0x191a1c,.92)
+  );
+  floor.position.y=-.78;
+  scene.add(floor);
+
+  function applyState(){
+    createTop();
+    createBottom();
+    createAccessories();
+
+    const top = topNames[state.top];
+    const bottom = bottomNames[state.bottom];
+    const color = colorNames[state.color] || 'Personalizado';
+    const accessories=[];
+    if(state.cap) accessories.push('boné');
+    if(state.bandana) accessories.push('bandana');
+    if(state.bottle) accessories.push('garrafa');
+    summaryTitle.textContent = top + ' + ' + bottom;
+    summaryDetail.textContent = color + (accessories.length ? ' · ' + accessories.join(', ') : ' · sem acessórios');
+
+    const msg = encodeURIComponent(
+      'Oi! Montei um look no provador 3D da Cerberus. ' +
+      top + ' + ' + bottom + ', cor ' + color +
+      (accessories.length ? ', acessórios: ' + accessories.join(', ') : ', sem acessórios') +
+      '. Quero comprar este look.'
     );
-    if (whatsapp) {
-      whatsapp.href = 'https://wa.me/5564999999999?text=' + text;
-    }
+    whatsapp.href = 'https://wa.me/5564999999999?text=' + msg;
+    status.textContent = 'Provador 3D · ' + color;
   }
 
-  // Se Three.js não carregar ou WebGL estiver indisponível, mostramos um
-  // fallback CSS 3D em vez de deixar o espaço vazio.
-  function fallback() {
-    setLoading(false);
-    if (status) status.textContent = 'Modo 3D compatível';
-    container.innerHTML = `
-      <div class="avatar-fallback-3d" id="avatar-fallback-3d">
-        <div class="fb-shadow"></div>
-        <div class="fb-avatar">
-          <div class="fb-cap" data-fb-bone></div>
-          <div class="fb-head"></div>
-          <div class="fb-neck"></div>
-          <div class="fb-body" data-fb-shirt>
-            <div class="fb-logo">C</div>
-          </div>
-          <div class="fb-arm fb-arm-l" data-fb-shirt></div>
-          <div class="fb-arm fb-arm-r" data-fb-shirt></div>
-          <div class="fb-short" data-fb-pants></div>
-          <div class="fb-leg fb-leg-l"></div>
-          <div class="fb-leg fb-leg-r"></div>
-          <div class="fb-shoe fb-shoe-l"></div>
-          <div class="fb-shoe fb-shoe-r"></div>
-        </div>
-        <div class="fb-label">CERBERUS</div>
-      </div>`;
-    const fb = document.getElementById('avatar-fallback-3d');
-    if (fb) {
-      let dragging = false, last = 0, rot = -12;
-      fb.addEventListener('pointerdown', e => { dragging = true; last = e.clientX; fb.setPointerCapture(e.pointerId); });
-      fb.addEventListener('pointerup', () => dragging = false);
-      fb.addEventListener('pointermove', e => {
-        if (!dragging) return;
-        rot += (e.clientX - last) * .45;
-        last = e.clientX;
-        fb.querySelector('.fb-avatar').style.transform = 'rotateY(' + rot + 'deg)';
-      });
-    }
-    return {
-      setColors: function () {
-        const shirt = document.querySelectorAll('[data-fb-shirt]');
-        const pants = document.querySelectorAll('[data-fb-pants]');
-        const cap = document.querySelector('[data-fb-bone]');
-        shirt.forEach(x => x.style.background = estado.camiseta);
-        pants.forEach(x => x.style.background = estado.calca);
-        if (cap) cap.style.display = estado.bone ? 'block' : 'none';
+  function resize(){
+    const w=Math.max(container.clientWidth,320);
+    const h=Math.max(container.clientHeight,480);
+    camera.aspect=w/h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w,h,false);
+  }
+  new ResizeObserver(resize).observe(container);
+  resize();
+
+  let dragging=false,lastX=0;
+  container.addEventListener('pointerdown',e=>{
+    dragging=true; lastX=e.clientX;
+    container.setPointerCapture?.(e.pointerId);
+  });
+  container.addEventListener('pointerup',()=>dragging=false);
+  container.addEventListener('pointercancel',()=>dragging=false);
+  container.addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    state.targetRotation += (e.clientX-lastX)*.009;
+    lastX=e.clientX;
+  });
+  container.addEventListener('wheel',e=>{
+    e.preventDefault();
+    camera.position.z=Math.min(7.1,Math.max(4.25,camera.position.z+e.deltaY*.0026));
+  },{passive:false});
+
+  document.querySelectorAll('[data-top]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      state.top=btn.dataset.top;
+      document.querySelectorAll('[data-top]').forEach(x=>x.classList.toggle('ativo',x===btn));
+      applyState();
+    });
+  });
+  document.querySelectorAll('[data-bottom]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      state.bottom=btn.dataset.bottom;
+      document.querySelectorAll('[data-bottom]').forEach(x=>x.classList.toggle('ativo',x===btn));
+      applyState();
+    });
+  });
+  document.querySelectorAll('[data-avatar-color]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      state.color=btn.dataset.avatarColor;
+      document.querySelectorAll('[data-avatar-color]').forEach(x=>x.classList.toggle('ativo',x===btn));
+      applyState();
+    });
+  });
+  document.querySelectorAll('[data-accessory]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const key=btn.dataset.accessory;
+      state[key]=!state[key];
+      btn.classList.toggle('ativo',state[key]);
+      applyState();
+    });
+  });
+
+  document.querySelectorAll('[data-view]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('ativo',x===btn));
+      if(btn.dataset.view==='front') state.targetRotation=0;
+      if(btn.dataset.view==='back') state.targetRotation=Math.PI;
+      if(btn.dataset.view==='reset'){
+        state.targetRotation=.18;
+        camera.position.z=5.7;
       }
-    };
-  }
-
-  // CSS fallback styling injected once.
-  const style = document.createElement('style');
-  style.textContent = `
-    .avatar-fallback-3d{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;
-      background:radial-gradient(circle at 50% 28%,rgba(216,31,47,.12),transparent 40%);}
-    .fb-avatar{position:relative;width:190px;height:360px;transform-style:preserve-3d;
-      transform:rotateY(-12deg);transition:transform .12s linear;filter:drop-shadow(0 25px 20px rgba(0,0,0,.35));}
-    .fb-head{position:absolute;width:70px;height:78px;border-radius:48% 48% 45% 45%;background:#b8795d;left:60px;top:8px;
-      box-shadow:inset -10px -8px 0 rgba(90,42,30,.12);transform:translateZ(18px);}
-    .fb-neck{position:absolute;width:34px;height:34px;background:#b8795d;left:78px;top:70px;transform:translateZ(14px);}
-    .fb-body{position:absolute;width:112px;height:142px;left:39px;top:88px;border-radius:34px 34px 18px 18px;
-      transform:translateZ(10px);box-shadow:inset -14px -12px 0 rgba(0,0,0,.16);}
-    .fb-logo{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:34px;height:34px;border:2px solid rgba(255,255,255,.8);
-      border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;}
-    .fb-arm{position:absolute;width:30px;height:118px;top:102px;border-radius:18px;transform-origin:top center;box-shadow:inset -8px -7px 0 rgba(0,0,0,.14);}
-    .fb-arm-l{left:17px;transform:rotate(8deg) translateZ(3px);}
-    .fb-arm-r{right:17px;transform:rotate(-8deg) translateZ(3px);}
-    .fb-short{position:absolute;width:118px;height:74px;left:36px;top:222px;border-radius:14px 14px 22px 22px;transform:translateZ(8px);box-shadow:inset -12px -10px 0 rgba(0,0,0,.18);}
-    .fb-leg{position:absolute;width:43px;height:86px;top:281px;background:#b8795d;border-radius:0 0 18px 18px;box-shadow:inset -8px 0 rgba(0,0,0,.08);}
-    .fb-leg-l{left:52px}.fb-leg-r{right:52px}
-    .fb-shoe{position:absolute;width:58px;height:25px;top:346px;background:#08090a;border-radius:16px 22px 9px 9px;}
-    .fb-shoe-l{left:36px}.fb-shoe-r{right:36px}
-    .fb-cap{position:absolute;width:86px;height:35px;left:51px;top:0;background:#0c0c0d;border-radius:50% 50% 35% 35%;z-index:5;
-      transform:translateZ(30px) rotate(-3deg);display:none;box-shadow:inset -8px -6px 0 rgba(0,0,0,.2);}
-    .fb-cap:after{content:"";position:absolute;width:54px;height:10px;background:#0c0c0d;left:45px;top:22px;border-radius:50%;transform:rotate(5deg);}
-    .fb-label{position:absolute;bottom:38px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;color:#888;}
-  `;
-  document.head.appendChild(style);
-
-  let fallbackApi = null;
-
-  function initThree() {
-    if (typeof THREE === 'undefined') {
-      fallbackApi = fallback();
-      return false;
-    }
-
-    let renderer;
-    try {
-      renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'high-performance'});
-    } catch (e) {
-      console.warn('WebGL indisponível:', e);
-      fallbackApi = fallback();
-      return false;
-    }
-
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setClearColor(0x000000, 0);
-    container.innerHTML = '';
-    container.appendChild(renderer.domElement);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
-    camera.position.set(0, 1.25, 5.6);
-
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x161616, 1.35));
-    const key = new THREE.DirectionalLight(0xffffff, 1.55);
-    key.position.set(3, 5, 4);
-    scene.add(key);
-    const rim = new THREE.PointLight(0xd81f2f, 1.1, 10);
-    rim.position.set(-3, 2, 2);
-    scene.add(rim);
-
-    const avatar = new THREE.Group();
-    avatar.position.y = -1.15;
-    scene.add(avatar);
-
-    const matSkin = new THREE.MeshStandardMaterial({color:0xb8795d, roughness:.72});
-    const matHair = new THREE.MeshStandardMaterial({color:0x171311, roughness:.85});
-    const matShirt = new THREE.MeshStandardMaterial({color:0xd81f2f, roughness:.55});
-    const matPants = new THREE.MeshStandardMaterial({color:0x2a2b2e, roughness:.62});
-    const matShoe = new THREE.MeshStandardMaterial({color:0x070708, roughness:.48});
-    const matWhite = new THREE.MeshStandardMaterial({color:0xf5f5f4, roughness:.5});
-    const matRed = new THREE.MeshStandardMaterial({color:0xd81f2f, roughness:.5});
-
-    function add(mesh, x, y, z, parent=avatar) {
-      mesh.position.set(x,y,z); parent.add(mesh); return mesh;
-    }
-    function box(w,h,d,mat,round=false) {
-      return new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);
-    }
-    function cyl(r1,r2,h,mat) {
-      return new THREE.Mesh(new THREE.CylinderGeometry(r1,r2,h,20),mat);
-    }
-
-    // Cabeça, cabelo, pescoço.
-    add(new THREE.Mesh(new THREE.SphereGeometry(.36,28,22),matSkin),0,2.25,0);
-    add(new THREE.Mesh(new THREE.SphereGeometry(.375,24,14,0,Math.PI*2,0,Math.PI*.52),matHair),0,2.39,0);
-    add(cyl(.13,.13,.30,matSkin),0,1.92,0);
-
-    // Tronco e braços.
-    add(box(.92,1.15,.48,matShirt),0,1.30,0);
-    add(cyl(.13,.115,.94,matShirt),-.60,1.30,0);
-    add(cyl(.13,.115,.94,matShirt),.60,1.30,0);
-    add(new THREE.Mesh(new THREE.SphereGeometry(.13,16,16),matSkin),-.60,.81,0);
-    add(new THREE.Mesh(new THREE.SphereGeometry(.13,16,16),matSkin),.60,.81,0);
-
-    // Peitoral/logo estilizado.
-    const emblem = new THREE.Group();
-    add(new THREE.Mesh(new THREE.CylinderGeometry(.17,.17,.025,6),matWhite),0,1.42,.255,emblem);
-    emblem.rotation.x = Math.PI/2;
-    const emblemRed = new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,.03,6),matRed);
-    emblemRed.rotation.x = Math.PI/2;
-    emblem.add(emblemRed);
-    avatar.add(emblem);
-
-    // Shorts/calça e pernas.
-    add(box(.43,.72,.44,matPants),-.23,.55,0);
-    add(box(.43,.72,.44,matPants),.23,.55,0);
-    add(cyl(.14,.13,.86,matSkin),-.23,-.18,0);
-    add(cyl(.14,.13,.86,matSkin),.23,-.18,0);
-    add(box(.40,.18,.72,matShoe),-.23,-.65,.02);
-    add(box(.40,.18,.72,matShoe),.23,-.65,.02);
-
-    // Boné.
-    const cap = new THREE.Group();
-    add(new THREE.Mesh(new THREE.SphereGeometry(.39,24,12,0,Math.PI*2,0,Math.PI*.5),matShoe),0,2.52,.02,cap);
-    add(box(.40,.06,.26,matShoe),.28,2.43,.16,cap);
-    cap.visible = false;
-    avatar.add(cap);
-
-    // Plataforma.
-    const floor = new THREE.Mesh(new THREE.CylinderGeometry(1.25,1.25,.06,48),new THREE.MeshStandardMaterial({color:0x191a1c,roughness:.9}));
-    floor.position.y = -.77;
-    scene.add(floor);
-
-    function resize() {
-      const w = Math.max(container.clientWidth, 320);
-      const h = Math.max(container.clientHeight, 420);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w,h,false);
-    }
-    resize();
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(container);
-
-    let dragging=false, lastX=0, targetRot=.22, currentRot=.22, zoom=5.6;
-    container.addEventListener('pointerdown', e => {dragging=true; lastX=e.clientX; container.setPointerCapture?.(e.pointerId);});
-    container.addEventListener('pointerup', () => dragging=false);
-    container.addEventListener('pointercancel', () => dragging=false);
-    container.addEventListener('pointermove', e => {
-      if(!dragging) return;
-      targetRot += (e.clientX-lastX)*.009;
-      lastX=e.clientX;
-    });
-    container.addEventListener('wheel', e => {
-      e.preventDefault();
-      zoom = Math.min(7.2, Math.max(4.4, zoom + e.deltaY*.0025));
-      camera.position.z = zoom;
-    }, {passive:false});
-
-    function animate() {
-      requestAnimationFrame(animate);
-      if(!dragging) targetRot += .0018;
-      currentRot += (targetRot-currentRot)*.12;
-      avatar.rotation.y = currentRot;
-      renderer.render(scene,camera);
-    }
-    animate();
-
-    setLoading(false);
-    if (status) status.textContent = 'Arraste para girar';
-    return {
-      setColors: function () {
-        matShirt.color.set(estado.camiseta);
-        matPants.color.set(estado.calca);
-        cap.visible = estado.bone;
-      }
-    };
-  }
-
-  // Carrega o avatar somente quando a página já estiver pronta.
-  function start() {
-    setLoading(true);
-    setTimeout(function () {
-      const api = initThree();
-      if (api) window.__cerberusAvatar3D = api;
-      else if (fallbackApi) window.__cerberusAvatar3D = fallbackApi;
-      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
-      syncUI();
-    }, 30);
-  }
-
-  // Combos.
-  const botoesCombo = document.querySelectorAll('[data-combo]');
-  botoesCombo.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const c = combos[btn.dataset.combo];
-      if (!c) return;
-      estado.combo = btn.dataset.combo;
-      estado.camiseta = c.camiseta;
-      estado.calca = c.calca;
-      estado.bone = c.bone;
-
-      marcarAtivo(botoesCombo, btn);
-
-      const shirtBtn = document.querySelector(`[data-parte="camiseta"][data-cor="${c.camiseta}"]`);
-      const pantsBtn = document.querySelector(`[data-parte="calca"][data-cor="${c.calca}"]`);
-      if (shirtBtn) marcarAtivo(document.querySelectorAll('[data-parte="camiseta"]'), shirtBtn);
-      if (pantsBtn) marcarAtivo(document.querySelectorAll('[data-parte="calca"]'), pantsBtn);
-      const capBtn = document.querySelector(`[data-bone="${c.bone ? 'on' : 'off'}"]`);
-      if (capBtn) marcarAtivo(document.querySelectorAll('[data-bone]'), capBtn);
-
-      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
-      syncUI();
     });
   });
 
-  document.querySelectorAll('[data-parte]').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const parte = btn.dataset.parte;
-      const cor = btn.dataset.cor;
-      estado[parte] = cor;
-      estado.combo = 'custom';
-
-      marcarAtivo(document.querySelectorAll(`[data-parte="${parte}"]`), btn);
-      botoesCombo.forEach(b => b.classList.remove('ativo'));
-      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
-      syncUI();
+  const saveButton=document.getElementById('avatar-save-look');
+  if(saveButton){
+    saveButton.addEventListener('click',()=>{
+      const text = summaryTitle.textContent + ' — ' + summaryDetail.textContent;
+      const blob = new Blob([JSON.stringify({
+        marca:'Cerberus Store',
+        look:text,
+        data:new Date().toISOString()
+      },null,2)],{type:'application/json'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url; a.download='cerberus-look.json'; a.click();
+      URL.revokeObjectURL(url);
+      saveButton.textContent='Visual salvo ✓';
+      setTimeout(()=>saveButton.textContent='Salvar visual',1600);
     });
-  });
+  }
 
-  document.querySelectorAll('[data-bone]').forEach(btn => {
-    btn.addEventListener('click', function() {
-      estado.bone = btn.dataset.bone === 'on';
-      estado.combo = 'custom';
-      marcarAtivo(document.querySelectorAll('[data-bone]'), btn);
-      botoesCombo.forEach(b => b.classList.remove('ativo'));
-      if (window.__cerberusAvatar3D) window.__cerberusAvatar3D.setColors();
-      syncUI();
-    });
-  });
+  loading.style.display='none';
+  applyState();
 
-  start();
+  function animate(){
+    requestAnimationFrame(animate);
+    state.rotation += (state.targetRotation-state.rotation)*.12;
+    avatar.rotation.y=state.rotation;
+    renderer.render(scene,camera);
+  }
+  animate();
 })();
 </script>
-
-
 <script>
   // Catálogo: cada botão troca a imagem real do produto e registra a cor.
   (function () {
