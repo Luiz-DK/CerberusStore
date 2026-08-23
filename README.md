@@ -1,292 +1,70 @@
-🐺 Cerberus Store
+# Cerberus Store — Site de Loja de Roupas (Projeto Acadêmico)
 
-Site oficial da Cerberus Store, desenvolvido para apresentar a coleção de roupas esportivas e streetwear da marca Cerberus.
+[![UniRV](https://img.shields.io/badge/UniRV-Universidade%20de%20Rio%20Verde-red?style=for-the-badge)](#)
+[![Disciplina](https://img.shields.io/badge/Disciplina-Empreendedorismo-blue?style=for-the-badge)](#)
+[![Evento](https://img.shields.io/badge/Feira-Negócios%20Digitais-orange?style=for-the-badge)](#)
+[![Valor](https://img.shields.io/badge/Avaliação-40%20Pontos-brightgreen?style=for-the-badge)](#)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](#)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
+[![Status](https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge)](#)
 
-O projeto foi desenvolvido em HTML, CSS e JavaScript, com uma interface moderna em preto, vermelho e branco, seguindo a identidade visual da Cerberus.
+Este repositório contém o código da **Cerberus Store**, uma solução digital desenvolvida para o segmento de **Loja de Roupas** como parte do trabalho prático da disciplina de **Empreendedorismo** da **Universidade de Rio Verde (UniRV)** para a **Feira de Negócios Digitais**.
 
-🛍️ Sobre o projeto
+---
 
-A Cerberus Store é uma vitrine digital para produtos esportivos e streetwear.
+## 📌 Contexto Acadêmico
 
-O site apresenta:
+- **Instituição:** Universidade de Rio Verde (UniRV) — Campus Rio Verde
+- **Disciplina:** Empreendedorismo
+- **Atividade:** Feira de Negócios Digitais (Simulação de Empresa de Soluções Digitais)
+- **Segmento Atendido por este Site:** Loja de Roupas (1 dos 4 segmentos obrigatórios do projeto)
+- **Objetivo da Atividade:** Desenvolver sites para pequenos negócios aplicando conceitos de empreendedorismo, inovação, design responsivo, identificação de público-alvo e estratégias de vendas para apresentação em estande.
 
-Camisetas Dry Fit
+---
 
-Shorts de treino
+## 🎯 Solução Proposta: Cerberus Store
 
-Calças de treino
+A **Cerberus Store** é a extensão de moda esportiva e *streetwear* da **Academia Cerberus**, localizada em Rio Verde - GO. O projeto une vestuário de treino de alta performance ao estilo urbano, oferecendo uma vitrine digital completa e interativa para o comércio local.
 
-Moletons Street Wear
+### 💡 Problemas que o site resolve:
+- **Dificuldade de escolha de tamanho online:** Resolve o problema de trocas através de uma **Calculadora de Tamanho Ideal** interativa.
+- **Visualização limitada de variações:** Permite ao cliente alternar e visualizar em tempo real as fotos do produto por cor (Preto, Vermelho, Branco).
+- **Atendimento lento:** Direciona a jornada do cliente diretamente para conversas pré-formatadas no WhatsApp para fechamento rápido de vendas.
+- **Falta de sinergia entre negócios:** Integra a loja de roupas à Academia Cerberus via o **Combo Cerberus** (descontos cruzados na matrícula/compras).
 
-Conjuntos Streetwear
+---
 
-Bonés
+## ✨ Requisitos do Edital Atendidos
 
-Bandanas
+| Requisito do Trabalho | Implementação na Cerberus Store | Status |
+| :--- | :--- | :---: |
+| **Página Inicial / Hero Section** | Apresentação do conceito *"Treino pesado. Rua com atitude."* com prova social e indicadores. | ✅ |
+| **Quem Somos / MVV** | Seção com Missão, Visão e Valores alinhados à proposta de marca. | ✅ |
+| **Produtos / Serviços** | Catálogo interativo de roupas (dry-fit, shorts, moletom) e acessórios (bonés, bandanas, garrafas). | ✅ |
+| **Galeria de Imagens / Lookbook** | Carrossel horizontal automático estilo *Lookbook* apresentando os modelos em movimento. | ✅ |
+| **Informações de Contato** | Endereço físico em Rio Verde - GO, horários de atendimento e telefone. | ✅ |
+| **Botão para WhatsApp (Simulado)** | Links dinâmicos com mensagens pré-formatadas para simulação de vendas no estande. | ✅ |
+| **Localização (Simulada)** | Mapa interativo do Google Maps focado em Rio Verde - GO. | ✅ |
+| **Layout Responsivo** | Adaptação completa para mobile, tablet e desktop com menu hambúrguer e breakpoints dinâmicos. | ✅ |
 
-Garrafas
+---
 
-Stickers
+## 🛠️ Tecnologias Utilizadas
 
-Informações sobre a Academia Cerberus
+- **HTML5 Semântico:** Estruturação otimizada para acessibilidade e SEO.
+- **CSS3 Moderno:** Flexbox, CSS Grid, Variáveis CSS, Glassmorphism e animações suaves com suporte a `prefers-reduced-motion`.
+- **JavaScript (Vanilla ES6+):** 
+  - Lógica de alternância dinâmica das cores dos produtos.
+  - Carrosséis autônomos com tempo de transição de 3 segundos e pausa em *hover/focus*.
+  - Algoritmo da Calculadora de Tamanhos baseada em medidas corporais.
 
-Localização da loja
+---
 
-Avaliações de clientes
+## 📁 Estrutura de Arquivos
 
-Calculadora de tamanho
-
-Avatar 3D para combinação de peças
-
-Atendimento e pedidos pelo WhatsApp
-
-🎨 Identidade visual
-
-O projeto utiliza como cores principais:
-
-Cor
-
-Uso
-
-⚫ Preto
-
-Fundo principal e contraste
-
-🔴 Vermelho
-
-Botões, destaques e identidade da marca
-
-⚪ Branco
-
-Textos e peças claras
-
-A interface foi criada para transmitir uma estética esportiva, urbana e agressiva, alinhada à identidade da Cerberus.
-
-📁 Estrutura do projeto
-
-CerberusStore/
-│
-├── index.html
-├── README.md
-├── cerberus-store-original.html
-│
-└── imagens/
-    ├── camiseta-dry-fit.png
-    ├── short-treino.png
-    ├── calca-treino.png
-    ├── moletom-streetwear.png
-    ├── conjunto-streetwear.png
-    ├── bone.png
-    ├── bandana.png
-    ├── garrafa.png
-    ├── sticker.png
-    └── colecao-original.png
-
-index.html
-
-Página principal do site.
-
-Contém a estrutura HTML, estilos CSS e funcionalidades JavaScript do projeto.
-
-imagens/
-
-Pasta que contém as imagens utilizadas na loja.
-
-Os caminhos utilizados no site são relativos, por exemplo:
-
-<img src="./imagens/camiseta-dry-fit.png" alt="Camiseta Dry Fit Cerberus">
-
-Isso permite que as imagens funcionem corretamente quando o projeto é publicado no GitHub ou Vercel.
-
-⚙️ Funcionalidades
-
-🛒 Catálogo de produtos
-
-O site apresenta os principais produtos da Cerberus Store, com nome, descrição e preço.
-
-📏 Calculadora de tamanho
-
-O usuário pode informar medidas como:
-
-Altura
-
-Peito/busto
-
-Cintura
-
-O JavaScript calcula uma sugestão de tamanho entre:
-
-P
-M
-G
-GG
-XG
-
-O resultado também pode ser enviado para confirmação pelo WhatsApp.
-
-🧍 Avatar 3D
-
-O site possui uma seção de avatar 3D desenvolvida utilizando Three.js, permitindo visualizar combinações de camiseta, calça/short e boné.
-
-💬 WhatsApp
-
-Os principais botões do site direcionam o usuário para o WhatsApp para:
-
-Consultar produtos
-
-Confirmar tamanho
-
-Solicitar preços
-
-Aproveitar ofertas
-
-Entrar em contato com a loja
-
-📍 Localização
-
-O site possui uma seção de localização com mapa incorporado do Google Maps.
-
-🏋️ Academia Cerberus
-
-Também existe uma seção dedicada à integração entre a Store e a Academia Cerberus, incluindo informações sobre benefícios e acesso ao site da academia.
-
-🧰 Tecnologias utilizadas
-
-HTML5
-
-Utilizado para estruturar todas as páginas e seções do site.
-
-CSS3
-
-Responsável pelo:
-
-Layout
-
-Responsividade
-
-Animações
-
-Cores
-
-Tipografia
-
-Cards
-
-Botões
-
-Efeitos visuais
-
-JavaScript
-
-Utilizado nas funcionalidades interativas, incluindo:
-
-Calculadora de tamanho
-
-Avatar 3D
-
-Seleção de cores
-
-Seleção de peças
-
-Interações da página
-
-Three.js
-
-Biblioteca utilizada para renderização do avatar 3D.
-
-Google Fonts
-
-O projeto utiliza as fontes:
-
-Manrope
-
-Inter
-
-🚀 Como executar localmente
-
-Não é necessário instalar um framework ou servidor complexo.
-
-Basta baixar/clonar o projeto e abrir:
-
-index.html
-
-no navegador.
-
-Para uma experiência melhor durante o desenvolvimento, também é possível utilizar o Live Server no Visual Studio Code.
-
-🌐 Publicando no GitHub
-
-Crie um repositório chamado:
-
-CerberusStore
-
-Envie o conteúdo do projeto para o repositório.
-
-Confirme se a estrutura está assim:
-
-index.html
-imagens/
-
-Faça o commit.
-
-O GitHub reconhecerá o index.html como página principal quando o projeto for utilizado com GitHub Pages.
-
-▲ Publicando no Vercel
-
-O projeto também pode ser publicado no Vercel.
-
-Passo 1
-
-Entre no Vercel e selecione Add New Project.
-
-Passo 2
-
-Importe o repositório:
-
-CerberusStore
-
-Passo 3
-
-Como o projeto é HTML/CSS/JavaScript puro, não é necessário utilizar um framework.
-
-Passo 4
-
-Clique em Deploy.
-
-Depois da publicação, o Vercel disponibilizará uma URL para o site.
-
-🖼️ Imagens
-
-As imagens dos produtos estão armazenadas localmente dentro da pasta:
-
-/imagens
-
-Evite alterar os nomes dos arquivos sem atualizar os caminhos correspondentes no index.html.
-
-📱 Responsividade
-
-O site foi desenvolvido para funcionar em diferentes tamanhos de tela, incluindo:
-
-💻 Desktop
-
-💻 Notebook
-
-📱 Celular
-
-📱 Tablet
-
-📞 Contato
-
-Os botões de contato do site utilizam o WhatsApp para facilitar o atendimento e a realização de pedidos.
-
-🏋️ Cerberus
-
-Treino pesado. Rua com atitude.
-
-Cerberus Store — roupas de academia e streetwear.
-
-📄 Licença
-
-Este projeto é destinado à utilização da Cerberus Store.
-
-Todos os elementos de marca, logotipo, identidade visual e imagens pertencem aos respectivos proprietários.
+```text
+cerberus-store/
+├── index.html              # Código unificado (HTML5, CSS3 e JS)
+├── imagens/                # Fotos dos produtos, acessórios e modelos do Lookbook
+└── README.md               # Documentação técnica e acadêmica do projeto
