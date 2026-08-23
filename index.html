@@ -503,22 +503,111 @@
   .produto-imagem.photo-set{background-image:url('./imagens/colecao-original.png');}
   .produto-imagem.photo-bone{background-image:url('./imagens/bone-vermelho.png');}
 
-  /* ---------- modelos / lookbook ---------- */
-  .grade-modelos{display:grid;grid-template-columns:1fr;gap:14px;}
-  @media(min-width:640px){.grade-modelos{grid-template-columns:1fr 1fr;}}
-  @media(min-width:1080px){.grade-modelos{grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;}}
+
+
+  /* ---------- roupas e acessórios: carrosséis horizontais ---------- */
+  .produtos-carrossel{
+    position:relative;
+    margin-top:24px;
+  }
+  .produtos-viewport{
+    overflow:hidden;
+    width:100%;
+  }
+  .produtos-carrossel .grade-produtos{
+    display:flex;
+    gap:16px;
+    will-change:transform;
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+  }
+  .produtos-carrossel .grade-produtos-4{display:flex;}
+  .produtos-carrossel .produto{
+    flex:0 0 calc((100% - 32px) / 3);
+    min-width:0;
+  }
+  .produto-nav{
+    position:absolute;
+    top:42%;
+    transform:translateY(-50%);
+    z-index:5;
+    width:46px;height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(10,10,11,.82);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-size:26px;
+    line-height:1;
+    box-shadow:0 10px 24px rgba(0,0,0,.28);
+  }
+  .produto-nav:hover{background:var(--vermelho);border-color:var(--vermelho);}
+  .produto-nav.prev{left:-22px;}
+  .produto-nav.next{right:-22px;}
+  .produtos-status{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+  }
+  .produtos-status button{
+    width:7px;height:7px;padding:0;border:0;border-radius:999px;
+    background:#4a4a4d;cursor:pointer;transition:width .25s ease,background .25s ease;
+  }
+  .produtos-status button.ativo{width:22px;background:var(--vermelho);}
+  @media(max-width:900px){
+    .produtos-carrossel .produto{flex-basis:calc((100% - 16px) / 2);}
+    .produto-nav.prev{left:8px;}
+    .produto-nav.next{right:8px;}
+  }
+  @media(max-width:620px){
+    .produtos-carrossel .produto{flex-basis:100%;}
+    .produto-nav{width:42px;height:42px;}
+  }
+
+  /* ---------- modelos / lookbook: carrossel horizontal ---------- */
+  .modelos-carrossel{
+    position:relative;
+    margin-top:24px;
+  }
+  .modelos-viewport{
+    overflow:hidden;
+    width:100%;
+  }
+  .grade-modelos{
+    display:flex;
+    gap:16px;
+    will-change:transform;
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+  }
   .modelo-card{
-    background:var(--preto-2);border:1px solid var(--linha);border-radius:var(--raio);
-    position:relative;overflow:hidden;
+    flex:0 0 calc((100% - 32px) / 3);
+    height:470px;
+    background:var(--preto-2);
+    border:1px solid var(--linha);
+    border-radius:var(--raio);
+    position:relative;
+    overflow:hidden;
   }
-  @media(min-width:1080px){
-    .modelo-card.destaque-modelo{grid-column:span 2;grid-row:span 2;}
+  .modelo-card.destaque-modelo,
+  .modelo-card.modelo-alto,
+  .modelo-card.modelo-largo{
+    grid-column:auto;
+    grid-row:auto;
   }
-  .modelo-foto{position:relative;height:340px;overflow:hidden;}
-  @media(min-width:1080px){
-    .modelo-foto{height:100%;min-height:100%;}
+  .modelo-foto{
+    position:absolute;
+    inset:0;
+    height:100%;
+    overflow:hidden;
   }
-  .modelo-foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s ease;}
+  .modelo-foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .45s ease;
+  }
   .modelo-card:hover .modelo-foto img{transform:scale(1.06);}
   .modelo-foto.sem-foto{
     display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;
@@ -550,11 +639,51 @@
   }
   .modelo-cta svg{width:16px;height:16px;fill:#fff;}
   .modelo-overlay{
-    position:absolute;left:0;right:0;bottom:0;padding:18px 16px 14px;z-index:2;
-    background:linear-gradient(to top, rgba(10,10,11,0.92), rgba(10,10,11,0) 78%);
+    position:absolute;left:0;right:0;bottom:0;padding:62px 16px 16px;z-index:2;
+    background:linear-gradient(to top, rgba(10,10,11,.96), rgba(10,10,11,0) 92%);
   }
   .modelo-nome{font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;margin-bottom:3px;}
   .modelo-peca{font-size:12px;color:#cfcac6;}
+
+  .modelo-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:5;
+    width:46px;height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(10,10,11,.82);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-size:26px;
+    line-height:1;
+    box-shadow:0 10px 24px rgba(0,0,0,.28);
+  }
+  .modelo-nav:hover{background:var(--vermelho);border-color:var(--vermelho);}
+  .modelo-nav.prev{left:-22px;}
+  .modelo-nav.next{right:-22px;}
+  .modelos-status{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+  }
+  .modelos-status button{
+    width:7px;height:7px;padding:0;border:0;border-radius:999px;
+    background:#4a4a4d;cursor:pointer;transition:width .25s ease,background .25s ease;
+  }
+  .modelos-status button.ativo{width:22px;background:var(--vermelho);}
+  @media(max-width:900px){
+    .modelo-card{flex-basis:calc((100% - 16px) / 2);height:440px;}
+    .modelo-nav.prev{left:8px;}
+    .modelo-nav.next{right:8px;}
+  }
+  @media(max-width:620px){
+    .modelo-card{flex-basis:100%;height:460px;}
+    .modelo-nav{width:42px;height:42px;}
+  }
 
   /* ---------- missão, visão e valores ---------- */
   .mvv-grid{
@@ -897,7 +1026,10 @@
     <div class="rotulo">Coleção</div>
     <h2 class="titulo-secao">O que tem na loja</h2>
     <p class="intro-secao">Peças pensadas pra academia que também fecham o visual na rua. Confere tamanhos e cores disponíveis direto no WhatsApp.</p>
-    <div class="grade-produtos interactive-products">
+    <div class="produtos-carrossel" aria-label="Carrossel de roupas Cerberus">
+      <button class="produto-nav prev" type="button" aria-label="Ver roupas anteriores">&#8249;</button>
+      <div class="produtos-viewport">
+        <div class="grade-produtos interactive-products">
 
       <div class="produto produto-interativo" data-product="Camiseta Dry-Fit" data-price="R$ 69,90"
            data-images='{"preto":"./imagens/dry-preto.png","vermelho":"./imagens/dry-vermelho.png","branco":"./imagens/dry-branco.png"}'>
@@ -1010,6 +1142,10 @@
         </div>
       </div>
 
+        </div>
+      </div>
+      <button class="produto-nav next" type="button" aria-label="Ver próximas roupas">&#8250;</button>
+      <div class="produtos-status" aria-label="Navegação do carrossel de roupas"></div>
     </div>
   </div>
 </section>
@@ -1019,7 +1155,10 @@
     <div class="rotulo">Detalhes que fecham o look</div>
     <h2 class="titulo-secao">Acessórios</h2>
     <p class="intro-secao">Boné, bandana, garrafa e adesivos com a identidade Cerberus. Combina com qualquer peça da coleção.</p>
-    <div class="grade-produtos grade-produtos-4">
+    <div class="produtos-carrossel" aria-label="Carrossel de acessórios Cerberus">
+      <button class="produto-nav prev" type="button" aria-label="Ver acessórios anteriores">&#8249;</button>
+      <div class="produtos-viewport">
+        <div class="grade-produtos grade-produtos-4">
 
       <div class="produto produto-interativo" data-product="Boné Cerberus" data-price="R$ 59,90"
            data-images='{"preto":"./imagens/bone-preto.png","vermelho":"./imagens/bone-vermelho.png","branco":"./imagens/bone-branco.png"}'>
@@ -1100,6 +1239,10 @@
         </div>
       </div>
 
+        </div>
+      </div>
+      <button class="produto-nav next" type="button" aria-label="Ver próximos acessórios">&#8250;</button>
+      <div class="produtos-status" aria-label="Navegação do carrossel de acessórios"></div>
     </div>
   </div>
 </section>
@@ -1108,59 +1251,71 @@
   <div class="wrap">
     <div class="rotulo">Lookbook</div>
     <h2 class="titulo-secao">Quem veste a matilha</h2>
-    <p class="intro-secao">Looks reais com peças da coleção Cerberus, da academia direto pro dia a dia. Curtiu a combinação? Chama no WhatsApp que a gente separa pra você.</p>
-    <div class="grade-modelos">
-
-      <div class="modelo-card destaque-modelo">
-        <div class="modelo-foto">
-          <img src="./imagens/modelo-look-treino.jpg" alt="Modelo usando camiseta preta e calça de treino Cerberus na academia" loading="lazy">
-        </div>
+    <p class="intro-secao">Looks da coleção Cerberus em movimento — treino, rua e lifestyle. Curtiu a combinação? Chama no WhatsApp que a gente separa pra você.</p>
+    <div class="modelos-carrossel" aria-label="Carrossel de modelos Cerberus">
+      <button class="modelo-nav prev" type="button" aria-label="Ver modelos anteriores">&#8249;</button>
+      <div class="modelos-viewport">
+        <div class="grade-modelos">
+      <article class="modelo-card destaque-modelo">
+        <div class="modelo-foto"><img src="./imagens/modelo-01-treino-preto.jpg" alt="Modelo usando camiseta preta e calça de treino Cerberus" loading="lazy"></div>
         <span class="modelo-tag">Look completo</span>
-        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi!%20Vi%20o%20Look%20Treino%20Pesado%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre esse look no WhatsApp">
-          <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
-        </a>
-        <div class="modelo-overlay">
-          <div class="modelo-nome">Look Treino Pesado</div>
-          <div class="modelo-peca">Camiseta Dry-Fit + Calça de Treino · Preto</div>
-        </div>
-      </div>
-
-      <div class="modelo-card">
-        <div class="modelo-foto sem-foto"><span>Foto do look<br>Street Vermelho</span></div>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Treino%20Pesado%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Treino Pesado no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Treino Pesado</div><div class="modelo-peca">Dry-Fit + Calça de Treino · Preto</div></div>
+      </article>
+      <article class="modelo-card modelo-alto">
+        <div class="modelo-foto"><img src="./imagens/modelo-02-street-preto.jpg" alt="Modelo usando camisa polo preta Cerberus em cenário urbano" loading="lazy"></div>
         <span class="modelo-tag">Streetwear</span>
-        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi!%20Vi%20o%20Look%20Street%20Vermelho%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre esse look no WhatsApp">
-          <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
-        </a>
-        <div class="modelo-overlay">
-          <div class="modelo-nome">Look Street Vermelho</div>
-          <div class="modelo-peca">Moletom Streetwear + Bermuda</div>
-        </div>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Street%20Urbano%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Street Urbano no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Street Urbano</div><div class="modelo-peca">Camisa polo Cerberus + Jeans · Preto</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-03-short-preto.jpg" alt="Modelo usando conjunto preto Cerberus com boné" loading="lazy"></div>
+        <span class="modelo-tag">Treino</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Performance%20Black%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Performance Black no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Performance Black</div><div class="modelo-peca">Dry-Fit + Short · Preto</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-04-short-vermelho.jpg" alt="Modelo usando camiseta preta e short vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Vermelho</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Sunset%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Sunset no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Sunset</div><div class="modelo-peca">Dry-Fit + Short · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-05-polo-street.jpg" alt="Modelo usando camisa polo Cerberus em rua com luzes neon" loading="lazy"></div>
+        <span class="modelo-tag">Night street</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Urban%20Night%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Urban Night no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Urban Night</div><div class="modelo-peca">Camisa polo Cerberus + Jeans</div></div>
+      </article>
+      <article class="modelo-card modelo-alto">
+        <div class="modelo-foto"><img src="./imagens/modelo-06-polo-grafite.jpg" alt="Modelo usando camisa polo Cerberus em rua com grafite" loading="lazy"></div>
+        <span class="modelo-tag">Streetwear</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Grafite%20Street%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Grafite Street no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Grafite Street</div><div class="modelo-peca">Camisa polo Cerberus + Jeans · Preto</div></div>
+      </article>
+      <article class="modelo-card modelo-largo">
+        <div class="modelo-foto"><img src="./imagens/modelo-07-costas-vermelho.jpg" alt="Modelo exibindo as costas do conjunto vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Costas</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Pack%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Pack no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Pack</div><div class="modelo-peca">Conjunto Cerberus · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-08-corrida.jpg" alt="Modelo correndo com camiseta preta e short vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Em movimento</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Run%20The%20Pack%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Run The Pack no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Run The Pack</div><div class="modelo-peca">Dry-Fit + Short · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-09-vermelho-bone.jpg" alt="Modelo usando camiseta vermelha e boné branco Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Detalhe</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Signature%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Signature no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Signature</div><div class="modelo-peca">Dry-Fit · Vermelho + Boné</div></div>
+      </article>        </div>
       </div>
-
-      <div class="modelo-card">
-        <div class="modelo-foto sem-foto"><span>Foto do look<br>Kit Treino Completo</span></div>
-        <span class="modelo-tag">Mais vendido</span>
-        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi!%20Vi%20o%20Look%20com%20o%20Kit%20Treino%20Completo%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre esse look no WhatsApp">
-          <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
-        </a>
-        <div class="modelo-overlay">
-          <div class="modelo-nome">Look Kit Completo</div>
-          <div class="modelo-peca">Camiseta + Short + Boné · Vermelho</div>
-        </div>
-      </div>
-
-      <div class="modelo-card">
-        <div class="modelo-foto sem-foto"><span>Foto do look<br>Academia → Rua</span></div>
-        <span class="modelo-tag">Dia a dia</span>
-        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi!%20Vi%20o%20Look%20Academia%20para%20Rua%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre esse look no WhatsApp">
-          <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
-        </a>
-        <div class="modelo-overlay">
-          <div class="modelo-nome">Look Academia → Rua</div>
-          <div class="modelo-peca">Camisa e Bermuda Street</div>
-        </div>
-      </div>
-
+      <button class="modelo-nav next" type="button" aria-label="Ver próximos modelos">&#8250;</button>
+      <div class="modelos-status" aria-label="Navegação do carrossel"></div>
+    </div>
+  </div>
+</section>
 <section id="calculadora" class="faixa faixa-alt">
   <div class="wrap">
     <div class="rotulo">Ferramenta</div>
@@ -1781,6 +1936,224 @@ function calcularTamanho(){
   })();
 </script>
 
+
+
+
+
+<script>
+  // Roupas e acessórios: fileiras horizontais com avanço automático a cada 3 segundos.
+  (function () {
+    document.querySelectorAll('.produtos-carrossel').forEach(function (carrossel) {
+      const viewport = carrossel.querySelector('.produtos-viewport');
+      const track = carrossel.querySelector('.grade-produtos');
+      const prev = carrossel.querySelector('.produto-nav.prev');
+      const next = carrossel.querySelector('.produto-nav.next');
+      const status = carrossel.querySelector('.produtos-status');
+      const cards = Array.from(track.children);
+      if (!cards.length) return;
+
+      let index = 0;
+      let timer = null;
+      let paused = false;
+
+      function getVisible() {
+        if (window.innerWidth <= 620) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+
+      function maxIndex() {
+        return Math.max(0, cards.length - getVisible());
+      }
+
+      function setupDots() {
+        const visible = getVisible();
+        const pages = Math.max(1, Math.ceil(cards.length / visible));
+        status.innerHTML = '';
+        for (let i = 0; i < pages; i++) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Ir para o grupo ' + (i + 1));
+          dot.addEventListener('click', function () {
+            index = Math.min(i * visible, maxIndex());
+            update(true);
+            restart();
+          });
+          status.appendChild(dot);
+        }
+      }
+
+      function update(animate) {
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        index = Math.max(0, Math.min(index, maxIndex()));
+        track.style.transition = animate === false ? 'none' : 'transform .65s cubic-bezier(.22,.61,.36,1)';
+        track.style.transform = 'translateX(' + (-index * (cardWidth + gap)) + 'px)';
+
+        const dots = Array.from(status.children);
+        const page = Math.min(dots.length - 1, Math.floor(index / getVisible()));
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('ativo', i === page);
+          dot.setAttribute('aria-current', i === page ? 'true' : 'false');
+        });
+      }
+
+      function goNext() {
+        index = index >= maxIndex() ? 0 : index + 1;
+        update(true);
+      }
+      function goPrev() {
+        index = index <= 0 ? maxIndex() : index - 1;
+        update(true);
+      }
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+          if (!paused) goNext();
+        }, 3000);
+      }
+      function restart() { start(); }
+
+      prev.addEventListener('click', function () { goPrev(); restart(); });
+      next.addEventListener('click', function () { goNext(); restart(); });
+      carrossel.addEventListener('mouseenter', function () { paused = true; });
+      carrossel.addEventListener('mouseleave', function () { paused = false; });
+      carrossel.addEventListener('focusin', function () { paused = true; });
+      carrossel.addEventListener('focusout', function () { paused = false; });
+
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          index = Math.min(index, maxIndex());
+          setupDots();
+          update(false);
+        }, 120);
+      });
+
+      setupDots();
+      requestAnimationFrame(function () { update(false); start(); });
+    });
+  })();
+</script>
+
+<script>
+  // Lookbook: fileira horizontal com avanço automático a cada 3 segundos.
+  (function () {
+    const carrossel = document.querySelector('#modelos .modelos-carrossel');
+    if (!carrossel) return;
+
+    const viewport = carrossel.querySelector('.modelos-viewport');
+    const track = carrossel.querySelector('.grade-modelos');
+    const prev = carrossel.querySelector('.modelo-nav.prev');
+    const next = carrossel.querySelector('.modelo-nav.next');
+    const status = carrossel.querySelector('.modelos-status');
+    const cards = Array.from(track.children);
+
+    if (!cards.length) return;
+
+    let index = 0;
+    let timer = null;
+    let visible = 3;
+    let step = 0;
+    let paused = false;
+
+    function getVisible() {
+      if (window.innerWidth <= 620) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+
+    function setupDots() {
+      visible = getVisible();
+      const pages = Math.max(1, Math.ceil(cards.length / visible));
+      status.innerHTML = '';
+
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir para o grupo de modelos ' + (i + 1));
+        dot.addEventListener('click', function () {
+          index = Math.min(i * visible, Math.max(0, cards.length - visible));
+          update(true);
+          restart();
+        });
+        status.appendChild(dot);
+      }
+    }
+
+    function update(animate) {
+      visible = getVisible();
+      const gap = parseFloat(getComputedStyle(track).gap) || 16;
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const maxIndex = Math.max(0, cards.length - visible);
+
+      index = Math.max(0, Math.min(index, maxIndex));
+      step = cardWidth + gap;
+
+      track.style.transition = animate === false ? 'none' : 'transform .65s cubic-bezier(.22,.61,.36,1)';
+      track.style.transform = 'translateX(' + (-index * step) + 'px)';
+
+      const dots = Array.from(status.children);
+      const page = Math.min(dots.length - 1, Math.floor(index / visible));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('ativo', i === page);
+        dot.setAttribute('aria-current', i === page ? 'true' : 'false');
+      });
+    }
+
+    function goNext() {
+      const maxIndex = Math.max(0, cards.length - getVisible());
+      index = index >= maxIndex ? 0 : index + 1;
+      update(true);
+    }
+
+    function goPrev() {
+      const maxIndex = Math.max(0, cards.length - getVisible());
+      index = index <= 0 ? maxIndex : index - 1;
+      update(true);
+    }
+
+    function start() {
+      clearInterval(timer);
+      timer = setInterval(function () {
+        if (!paused) goNext();
+      }, 3000);
+    }
+
+    function restart() {
+      start();
+    }
+
+    prev.addEventListener('click', function () {
+      goPrev();
+      restart();
+    });
+
+    next.addEventListener('click', function () {
+      goNext();
+      restart();
+    });
+
+    carrossel.addEventListener('mouseenter', function () { paused = true; });
+    carrossel.addEventListener('mouseleave', function () { paused = false; });
+    carrossel.addEventListener('focusin', function () { paused = true; });
+    carrossel.addEventListener('focusout', function () { paused = false; });
+
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        index = Math.min(index, Math.max(0, cards.length - getVisible()));
+        setupDots();
+        update(false);
+      }, 120);
+    });
+
+    setupDots();
+    requestAnimationFrame(function () { update(false); start(); });
+  })();
+</script>
 
 </body>
 </html>
