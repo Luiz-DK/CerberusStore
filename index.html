@@ -282,12 +282,6 @@
   .tabela-tamanhos-obs{font-size:12px;color:var(--cinza);text-align:center;margin-top:12px;}
   .calc-obs{font-size:13px;color:var(--cinza);margin-top:8px;max-width:44ch;margin-left:auto;margin-right:auto;}
   .calc-genero-label{display:block;font-size:12px;color:var(--cinza);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;}
-  .tabela-tamanho-ref{width:100%;border-collapse:collapse;font-size:13px;margin-top:22px;display:none;}
-  .tabela-tamanho-ref.ativo{display:table;}
-  .tabela-tamanho-ref caption{text-align:left;font-weight:800;color:var(--branco);margin-bottom:8px;font-family:'Manrope',sans-serif;font-size:15px;}
-  .tabela-tamanho-ref th,.tabela-tamanho-ref td{padding:8px 10px;text-align:center;border:1px solid var(--linha);}
-  .tabela-tamanho-ref th{background:var(--preto-3);color:var(--cinza);text-transform:uppercase;font-size:11px;letter-spacing:0.04em;}
-  .tabela-tamanho-ref td{color:var(--branco);}
 
 
   /* ---------- como funciona ---------- */
@@ -1259,36 +1253,6 @@
         <p id="calc-obs" class="calc-obs"></p>
         <a class="btn btn-secundario" style="width:100%;margin-top:14px;" id="calc-whats-link" href="#" target="_blank" rel="noopener">Confirmar tamanho no WhatsApp</a>
       </div>
-
-      <table id="tabela-masculino" class="tabela-tamanho-ref ativo">
-        <caption>Modelo Tradicional</caption>
-        <thead><tr><th>Tam.</th><th>Altura (A)</th><th>Largura (B)</th></tr></thead>
-        <tbody>
-          <tr><td>PP</td><td>70 cm</td><td>48 cm</td></tr>
-          <tr><td>P</td><td>74 cm</td><td>51 cm</td></tr>
-          <tr><td>M</td><td>76 cm</td><td>54 cm</td></tr>
-          <tr><td>G</td><td>78 cm</td><td>58 cm</td></tr>
-          <tr><td>GG</td><td>80 cm</td><td>61 cm</td></tr>
-          <tr><td>3G</td><td>82 cm</td><td>63 cm</td></tr>
-          <tr><td>4G</td><td>84 cm</td><td>66 cm</td></tr>
-          <tr><td>5G</td><td>86 cm</td><td>70 cm</td></tr>
-        </tbody>
-      </table>
-
-      <table id="tabela-feminino" class="tabela-tamanho-ref">
-        <caption>Baby Look</caption>
-        <thead><tr><th>Tam.</th><th>Altura (A)</th><th>Busto (B)</th><th>Cintura (C)</th></tr></thead>
-        <tbody>
-          <tr><td>PP</td><td>62 cm</td><td>42 cm</td><td>40 cm</td></tr>
-          <tr><td>P</td><td>63 cm</td><td>45 cm</td><td>43 cm</td></tr>
-          <tr><td>M</td><td>64 cm</td><td>49 cm</td><td>47 cm</td></tr>
-          <tr><td>G</td><td>67 cm</td><td>52 cm</td><td>48 cm</td></tr>
-          <tr><td>GG</td><td>68 cm</td><td>55 cm</td><td>52 cm</td></tr>
-          <tr><td>3G</td><td>70 cm</td><td>59 cm</td><td>56 cm</td></tr>
-          <tr><td>4G</td><td>73 cm</td><td>62 cm</td><td>61 cm</td></tr>
-          <tr><td>5G</td><td>73 cm</td><td>62 cm</td><td>61 cm</td></tr>
-        </tbody>
-      </table>
     </div>
 
     <p class="tabela-tamanhos-obs">Tabela de referência geral (dry-fit/streetwear). Peças de caimento mais solto podem variar — confirma com a gente no WhatsApp.</p>
@@ -1520,9 +1484,6 @@ document.querySelectorAll('.genero-btn').forEach(function(btn){
     document.querySelectorAll('.genero-btn').forEach(function(b){ b.classList.remove('ativo'); });
     btn.classList.add('ativo');
     calcGenero = btn.dataset.genero;
-
-    document.getElementById('tabela-masculino').classList.toggle('ativo', calcGenero === 'masculino');
-    document.getElementById('tabela-feminino').classList.toggle('ativo', calcGenero === 'feminino');
 
     document.getElementById('calc-resultado').style.display = 'none';
   });
