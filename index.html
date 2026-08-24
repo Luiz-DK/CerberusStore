@@ -626,41 +626,47 @@
     font-weight:700;
     line-height:1.55;
   }
-  .valores-titulo{
-    color:var(--vermelho);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    margin-bottom:14px;
-  }
-  .valores-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-  @media(min-width:700px){
-    .valores-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media(min-width:980px){
-    .valores-grid{grid-template-columns:repeat(3,1fr);}
-  }
-  .valor-card{
+  .valores-bloco{
     background:#111213;
     border:1px solid var(--linha);
     border-left:3px solid var(--vermelho);
     border-radius:14px;
-    padding:22px 20px;
+    padding:28px 26px;
   }
-  .valor-card h3{
+  .valores-bloco-titulo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--branco);
     font-family:'Manrope',sans-serif;
+    font-weight:800;
     font-size:18px;
-    margin-bottom:8px;
+    margin-bottom:18px;
   }
-  .valor-card p{
+  .valores-lista{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .valores-lista li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .valores-lista .check{
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .valores-lista span{
     color:#b9b4ae;
     font-size:14px;
     line-height:1.7;
+  }
+  .valores-lista strong{
+    color:var(--branco);
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
   }
   @media(max-width:639px){
     .mvv-card p{font-size:18px;}
@@ -883,38 +889,37 @@
       </div>
     </div>
 
-    <div class="valores-titulo">Valores</div>
-
-    <div class="valores-grid">
-      <div class="valor-card">
-        <h3>Identidade</h3>
-        <p>Cada pessoa tem sua própria jornada. Nossas peças são feitas para representar quem você é e a evolução que escolheu buscar.</p>
+    <div class="valores-bloco">
+      <div class="valores-bloco-titulo">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="var(--vermelho)" d="M12 21s-6.7-4.35-9.3-8.1C1.1 10.7 1.5 7.9 3.6 6.2c1.9-1.55 4.6-1.25 6.2.5L12 9l2.2-2.3c1.6-1.75 4.3-2.05 6.2-.5 2.1 1.7 2.5 4.5.9 6.7C18.7 16.65 12 21 12 21z"/></svg>
+        Valores
       </div>
-
-      <div class="valor-card">
-        <h3>Qualidade</h3>
-        <p>Materiais, acabamento e conforto importam. Criamos peças para serem usadas de verdade, com atenção aos detalhes.</p>
-      </div>
-
-      <div class="valor-card">
-        <h3>Performance</h3>
-        <p>Roupas pensadas para acompanhar movimento, treino intenso e rotina, sem abrir mão do estilo.</p>
-      </div>
-
-      <div class="valor-card">
-        <h3>Confiança</h3>
-        <p>Vestir Cerberus é carregar uma identidade forte. Queremos que cada peça faça você se sentir preparado para o próximo desafio.</p>
-      </div>
-
-      <div class="valor-card">
-        <h3>Evolução</h3>
-        <p>A evolução está nos detalhes. A cada coleção, buscamos melhorar design, modelagem, materiais e experiência.</p>
-      </div>
-
-      <div class="valor-card">
-        <h3>Atitude</h3>
-        <p>Do treino à rua, Cerberus é mais que roupa: é atitude, presença e conexão com quem escolhe não ficar parado.</p>
-      </div>
+      <ul class="valores-lista">
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Identidade</strong> — Cada pessoa tem sua própria jornada. Nossas peças representam quem você é.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Qualidade</strong> — Materiais e acabamento pensados para uso real, com atenção aos detalhes.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Performance</strong> — Roupas feitas para acompanhar o movimento e o treino intenso.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Confiança</strong> — Vestir a marca é carregar uma identidade forte.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Evolução</strong> — Cada coleção melhora design, modelagem, materiais e experiência.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Atitude</strong> — Presença e conexão para quem escolhe não ficar parado.</span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
