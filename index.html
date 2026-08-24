@@ -281,6 +281,13 @@
 
   .tabela-tamanhos-obs{font-size:12px;color:var(--cinza);text-align:center;margin-top:12px;}
   .calc-obs{font-size:13px;color:var(--cinza);margin-top:8px;max-width:44ch;margin-left:auto;margin-right:auto;}
+  .calc-genero-label{display:block;font-size:12px;color:var(--cinza);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;}
+  .tabela-tamanho-ref{width:100%;border-collapse:collapse;font-size:13px;margin-top:22px;display:none;}
+  .tabela-tamanho-ref.ativo{display:table;}
+  .tabela-tamanho-ref caption{text-align:left;font-weight:800;color:var(--branco);margin-bottom:8px;font-family:'Manrope',sans-serif;font-size:15px;}
+  .tabela-tamanho-ref th,.tabela-tamanho-ref td{padding:8px 10px;text-align:center;border:1px solid var(--linha);}
+  .tabela-tamanho-ref th{background:var(--preto-3);color:var(--cinza);text-transform:uppercase;font-size:11px;letter-spacing:0.04em;}
+  .tabela-tamanho-ref td{color:var(--branco);}
 
 
   /* ---------- como funciona ---------- */
@@ -1229,6 +1236,11 @@
     <h2 class="titulo-secao">Calculadora de tamanho</h2>
     <p class="intro-secao">Informa sua altura e medidas e a gente sugere o tamanho ideal. É uma estimativa — confirma sempre com a gente no WhatsApp antes de fechar a compra.</p>
     <div class="calc-card card">
+      <span class="calc-genero-label">Gênero</span>
+      <div class="cores" role="group" aria-label="Selecione o gênero" id="calc-genero-grupo" style="margin-bottom:18px;">
+        <button type="button" class="cor-btn genero-btn ativo" data-genero="masculino">Masculino</button>
+        <button type="button" class="cor-btn genero-btn" data-genero="feminino">Feminino</button>
+      </div>
       <div class="calc-grid">
         <label>Altura (cm)
           <input type="number" id="calc-altura" placeholder="Ex: 175">
@@ -1247,6 +1259,36 @@
         <p id="calc-obs" class="calc-obs"></p>
         <a class="btn btn-secundario" style="width:100%;margin-top:14px;" id="calc-whats-link" href="#" target="_blank" rel="noopener">Confirmar tamanho no WhatsApp</a>
       </div>
+
+      <table id="tabela-masculino" class="tabela-tamanho-ref ativo">
+        <caption>Modelo Tradicional</caption>
+        <thead><tr><th>Tam.</th><th>Altura (A)</th><th>Largura (B)</th></tr></thead>
+        <tbody>
+          <tr><td>PP</td><td>70 cm</td><td>48 cm</td></tr>
+          <tr><td>P</td><td>74 cm</td><td>51 cm</td></tr>
+          <tr><td>M</td><td>76 cm</td><td>54 cm</td></tr>
+          <tr><td>G</td><td>78 cm</td><td>58 cm</td></tr>
+          <tr><td>GG</td><td>80 cm</td><td>61 cm</td></tr>
+          <tr><td>3G</td><td>82 cm</td><td>63 cm</td></tr>
+          <tr><td>4G</td><td>84 cm</td><td>66 cm</td></tr>
+          <tr><td>5G</td><td>86 cm</td><td>70 cm</td></tr>
+        </tbody>
+      </table>
+
+      <table id="tabela-feminino" class="tabela-tamanho-ref">
+        <caption>Baby Look</caption>
+        <thead><tr><th>Tam.</th><th>Altura (A)</th><th>Busto (B)</th><th>Cintura (C)</th></tr></thead>
+        <tbody>
+          <tr><td>PP</td><td>62 cm</td><td>42 cm</td><td>40 cm</td></tr>
+          <tr><td>P</td><td>63 cm</td><td>45 cm</td><td>43 cm</td></tr>
+          <tr><td>M</td><td>64 cm</td><td>49 cm</td><td>47 cm</td></tr>
+          <tr><td>G</td><td>67 cm</td><td>52 cm</td><td>48 cm</td></tr>
+          <tr><td>GG</td><td>68 cm</td><td>55 cm</td><td>52 cm</td></tr>
+          <tr><td>3G</td><td>70 cm</td><td>59 cm</td><td>56 cm</td></tr>
+          <tr><td>4G</td><td>73 cm</td><td>62 cm</td><td>61 cm</td></tr>
+          <tr><td>5G</td><td>73 cm</td><td>62 cm</td><td>61 cm</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <p class="tabela-tamanhos-obs">Tabela de referência geral (dry-fit/streetwear). Peças de caimento mais solto podem variar — confirma com a gente no WhatsApp.</p>
@@ -1448,26 +1490,80 @@
 })();
 
 // ---------- Calculadora de tamanho ----------
+const tabelaTamanhos = {
+  masculino: [
+    { tam:'PP', busto:48 },
+    { tam:'P',  busto:51 },
+    { tam:'M',  busto:54 },
+    { tam:'G',  busto:58 },
+    { tam:'GG', busto:61 },
+    { tam:'3G', busto:63 },
+    { tam:'4G', busto:66 },
+    { tam:'5G', busto:70 }
+  ],
+  feminino: [
+    { tam:'PP', busto:42, cintura:40 },
+    { tam:'P',  busto:45, cintura:43 },
+    { tam:'M',  busto:49, cintura:47 },
+    { tam:'G',  busto:52, cintura:48 },
+    { tam:'GG', busto:55, cintura:52 },
+    { tam:'3G', busto:59, cintura:56 },
+    { tam:'4G', busto:62, cintura:61 },
+    { tam:'5G', busto:62, cintura:61 }
+  ]
+};
+
+let calcGenero = 'masculino';
+
+document.querySelectorAll('.genero-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.genero-btn').forEach(function(b){ b.classList.remove('ativo'); });
+    btn.classList.add('ativo');
+    calcGenero = btn.dataset.genero;
+
+    document.getElementById('tabela-masculino').classList.toggle('ativo', calcGenero === 'masculino');
+    document.getElementById('tabela-feminino').classList.toggle('ativo', calcGenero === 'feminino');
+
+    document.getElementById('calc-resultado').style.display = 'none';
+  });
+});
+
 function calcularTamanho(){
   const altura = parseFloat(document.getElementById('calc-altura').value);
   const peito = parseFloat(document.getElementById('calc-peito').value);
   const cintura = parseFloat(document.getElementById('calc-cintura').value);
 
-  if(!altura || !peito){
-    alert('Preenche pelo menos a altura e o peito/busto pra calcular.');
+  if(!peito){
+    alert('Preenche pelo menos a medida de peito/busto pra calcular.');
     return;
   }
 
-  let tamanho = 'M';
-  if(peito < 88) tamanho = 'P';
-  else if(peito < 96) tamanho = 'M';
-  else if(peito < 104) tamanho = 'G';
-  else if(peito < 112) tamanho = 'GG';
-  else tamanho = 'XG';
+  // as tabelas trazem a peça medida "de lado" (plana), que equivale a
+  // aproximadamente metade da circunferência do corpo
+  const tabela = tabelaTamanhos[calcGenero];
+  const bustoPlano = peito / 2;
+  const cinturaPlana = cintura ? cintura / 2 : null;
 
-  let obs = 'Cálculo baseado na medida de peito/busto. Se quiser um caimento mais solto, tipo oversized, considera um tamanho acima.';
-  if(cintura && cintura > peito * 0.92){
-    obs = 'Sua cintura está próxima da medida de peito — pode valer a pena considerar um tamanho acima pro conforto na região do abdômen.';
+  let escolhido = tabela[tabela.length - 1];
+  for(const linha of tabela){
+    const cabeNoBusto = bustoPlano <= linha.busto;
+    const cabeNaCintura = (calcGenero === 'feminino' && cinturaPlana != null)
+      ? cinturaPlana <= linha.cintura
+      : true;
+    if(cabeNoBusto && cabeNaCintura){
+      escolhido = linha;
+      break;
+    }
+  }
+
+  const tamanho = escolhido.tam;
+
+  let obs = calcGenero === 'feminino'
+    ? 'Cálculo baseado na tabela Baby Look (busto e cintura). Se preferir um caimento mais solto, considera um tamanho acima.'
+    : 'Cálculo baseado na tabela do modelo tradicional (peito). Se preferir um caimento mais solto, considera um tamanho acima.';
+
+  if(altura >= 185){
+    obs += ' Como sua altura está acima da média, vale considerar um tamanho acima pro comprimento da peça.';
   }
 
   document.getElementById('calc-tamanho-valor').textContent = tamanho;
@@ -1475,7 +1571,8 @@ function calcularTamanho(){
   document.getElementById('calc-resultado').style.display = 'block';
   document.getElementById('calc-resultado').scrollIntoView({behavior:'smooth', block:'nearest'});
 
-  const partes = [`altura ${altura}cm`, `peito/busto ${peito}cm`];
+  const partes = [`gênero ${calcGenero}`, `peito/busto ${peito}cm`];
+  if(altura) partes.push(`altura ${altura}cm`);
   if(cintura) partes.push(`cintura ${cintura}cm`);
   const msg = encodeURIComponent(`Oi! Fiz o cálculo de tamanho no site (${partes.join(', ')}) e o resultado foi ${tamanho}. Quero confirmar antes de comprar.`);
   document.getElementById('calc-whats-link').href = `https://wa.me/5564999999999?text=${msg}`;
