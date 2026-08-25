@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Cerberus Store — Roupas de Academia e Streetwear em Rio Verde</title>
+  <link rel="icon" type="image/png" href="./imagens/logo-cerberus.png">
+<meta name="description" content="Cerberus Store: roupas de academia e streetwear em Rio Verde - GO, extensão oficial da Academia Cerberus. Peça no WhatsApp.">
+<meta name="theme-color" content="#111213">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto: #111213;
+    --preto-2: #1a1b1d;
+    --preto-3: #202225;
+    --vermelho: #d81f2f;
+    --vermelho-2: #a01522;
+    --vermelho-escuro: #7a0f18;
+    --branco: #f5f5f4;
+    --cinza: #9a9a97;
+    --cinza-2: #6d6d6a;
+    --linha: #2a2b2e;
+    --raio: 20px;
+    --raio-pill: 999px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--preto);
+    color:var(--branco);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3,.display{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- header ---------- */
+  header.topo{
+    position:sticky;top:0;z-index:50;
+    background:rgba(17,18,19,0.9);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linha);
+  }
+  header.topo .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:14px;padding-bottom:14px;
+  }
+  .marca{display:flex;align-items:center;gap:10px;}
+  .emblema{
+    width:58px;height:50px;border-radius:0;
+    background:transparent;
+    border:0;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    overflow:visible;
+  }
+
+  .emblema img{
+    width:100%;height:100%;object-fit:contain;
+    display:block;
+  }
+
+  .academia-emblema .emblema{
+    width:64px;height:56px;
+  }
+
+  /* Logo oficial Cerberus: usada no topo, seção da academia e favicon. */
+  .emblema img{object-fit:contain;}
+  .marca-texto{line-height:1.1;}
+  .marca-nome{font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;}
+  .marca-sub{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--cinza);}
+
+  .nav-toggle{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:40px;height:40px;background:transparent;border:1px solid var(--linha);
+    border-radius:10px;cursor:pointer;flex-shrink:0;
+  }
+  .nav-toggle span{display:block;width:19px;height:2px;background:var(--branco);border-radius:2px;transition:transform .25s,opacity .2s;}
+  .nav-toggle.aberto span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.aberto span:nth-child(2){opacity:0;}
+  .nav-toggle.aberto span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  @media(min-width:900px){.nav-toggle{display:none;}}
+
+  nav.principal{display:none;}
+  @media(min-width:900px){
+    nav.principal{
+      display:flex;gap:26px;font-size:14px;font-weight:600;color:#cfcfcd;
+    }
+    nav.principal a{text-decoration:none;opacity:0.85;transition:opacity .15s;}
+    nav.principal a:hover{opacity:1;}
+  }
+  @media(max-width:899px){
+    nav.principal{
+      display:flex;flex-direction:column;
+      position:absolute;top:100%;left:0;right:0;
+      background:var(--preto-2);border-bottom:1px solid var(--linha);
+      padding:0 24px;max-height:0;overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    nav.principal.aberto{max-height:480px;padding:8px 24px 18px;}
+    nav.principal a{
+      text-decoration:none;color:var(--branco);font-weight:600;font-size:15px;
+      padding:13px 4px;border-bottom:1px solid var(--linha);
+    }
+    nav.principal a:last-child{border-bottom:none;}
+  }
+  @media(max-width:420px){
+    header.topo .btn-primario{padding:10px 14px;font-size:12px;}
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Inter',sans-serif;font-weight:700;font-size:14px;
+    padding:12px 22px;border-radius:var(--raio-pill);
+    text-decoration:none;border:1px solid transparent;
+    white-space:nowrap;
+  }
+  .btn-primario{
+    background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    color:#fff;
+    box-shadow:0 8px 20px -6px rgba(216,31,47,0.55);
+  }
+  .btn-secundario{
+    background:transparent;
+    border:1px solid var(--linha);
+    color:var(--branco);
+  }
+  .btn-grande{padding:18px 28px;font-size:16px;}
+
+  /* ---------- hero ---------- */
+  section.hero{
+    padding:52px 0 0;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    padding-bottom:44px;
+  }
+  @media(min-width:980px){
+    .hero-grid{grid-template-columns:1.15fr 0.85fr;align-items:start;}
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--vermelho);margin-bottom:16px;
+  }
+  h1.headline{font-size:46px;color:var(--branco);}
+  .sub{margin-top:16px;font-size:17px;color:#cfcac6;max-width:52ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .fatos{
+    display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;
+    padding-top:28px;border-top:1px solid var(--linha);
+  }
+  .fato b{display:block;font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;}
+  .fato span{display:block;font-size:12px;color:var(--cinza);margin-top:2px;}
+
+  /* recomendações no hero */
+  .recomenda-titulo{font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--vermelho);margin-bottom:14px;}
+  .recomenda-lista{display:flex;flex-direction:column;gap:14px;}
+  .card{
+    background:var(--preto-2);
+    border:1px solid var(--linha);
+    border-radius:var(--raio);
+    padding:22px;
+  }
+  .avatar-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg, var(--vermelho-2), var(--preto-3));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:14px;color:#fff;
+    flex-shrink:0;
+    border:1px solid rgba(216,31,47,0.5);
+  }
+  .avatar-nome{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;}
+  .avatar-nome svg{width:14px;height:14px;fill:var(--vermelho);}
+  .avatar-handle{font-size:12px;color:var(--cinza);}
+  .card p.quote{font-size:14px;color:#d8d5d1;margin-bottom:14px;}
+  .card .assinatura{font-size:12px;font-weight:700;color:var(--vermelho);}
+
+  .aviso-ficticio{
+    font-size:11px;color:var(--cinza-2);margin-top:8px;line-height:1.5;
+  }
+
+  /* ---------- secoes gerais ---------- */
+  section{padding:64px 0;}
+  .rotulo{font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--vermelho);margin-bottom:10px;}
+  .titulo-secao{font-size:30px;margin-bottom:10px;}
+  .intro-secao{color:var(--cinza);font-size:15px;max-width:56ch;margin-bottom:36px;}
+  .faixa{border-top:1px solid var(--linha);}
+  .faixa-alt{background:var(--preto-2);}
+
+  /* ---------- produtos ---------- */
+  .grade-produtos{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media(min-width:640px){.grade-produtos{grid-template-columns:1fr 1fr;}}
+  @media(min-width:980px){.grade-produtos{grid-template-columns:repeat(3,1fr);}}
+  @media(min-width:980px){.grade-produtos-4{grid-template-columns:repeat(4,1fr);}}
+  .produto{
+    background:var(--preto-2);border:1px solid var(--linha);border-radius:var(--raio);
+    position:relative;overflow:hidden;
+  }
+  .produto.destaque-produto{
+    border-color:rgba(216,31,47,0.5);
+  }
+
+  /* poster preto/vermelho com garras, no padrao das artes da loja */
+  .produto-imagem{
+    position:relative;height:172px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#1c0304 0%,#0a0a0a 60%,#000 100%);
+  }
+  .produto-imagem::before{
+    content:"";position:absolute;inset:-30% -20%;
+    background:repeating-linear-gradient(112deg,
+      rgba(216,31,47,0.55) 0 5px,
+      transparent 5px 30px,
+      rgba(0,0,0,0.5) 30px 34px,
+      transparent 34px 64px);
+    opacity:0.65;
+  }
+  .produto-imagem::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 85%, rgba(216,31,47,0.35), transparent 62%);
+  }
+  .produto-imagem.var-b{background:linear-gradient(160deg,#0c0c0d 0%,#050506 60%,#000 100%);}
+  .produto-imagem.var-b::before{opacity:0.4;}
+  .produto-imagem.var-c{background:linear-gradient(160deg,#220406 0%,#0a0a0a 55%,#000 100%);}
+  .produto-imagem.var-c::before{opacity:0.8;}
+  .imagem-badge{
+    position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #2a2b2e, #0c0c0d 75%);
+    border:1px solid rgba(216,31,47,0.6);
+    display:flex;align-items:center;justify-content:center;z-index:2;
+  }
+  .imagem-badge svg{width:17px;height:17px;fill:var(--vermelho);}
+  .imagem-texto{
+    position:relative;z-index:2;font-family:'Manrope',sans-serif;font-weight:800;
+    font-size:25px;color:#fff;text-transform:uppercase;line-height:1.05;
+    text-shadow:0 3px 14px rgba(0,0,0,0.65);text-align:center;padding:0 18px;
+  }
+  .produto .tag-top{
+    position:absolute;top:12px;left:12px;font-size:10px;font-weight:800;z-index:3;
+    letter-spacing:0.06em;text-transform:uppercase;
+    background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    color:#fff;padding:5px 10px;border-radius:var(--raio-pill);
+  }
+  .produto-corpo{padding:20px 22px 22px;}
+  .produto-nome{font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;margin-bottom:6px;}
+  .produto-desc{font-size:14px;color:#b9b4ae;margin-bottom:16px;min-height:38px;}
+  .produto-preco{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:var(--branco);}
+  .produto-preco small{font-family:'Inter',sans-serif;font-size:12px;color:var(--cinza);font-weight:600;}
+
+  /* ---------- calculadora de tamanho ---------- */
+  .calc-card{max-width:640px;width:100%;box-sizing:border-box;padding:26px;}
+  .calc-grid{display:grid;grid-template-columns:1fr;gap:14px;width:100%;}
+  @media(min-width:640px){.calc-grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+  .calc-grid label{display:flex;flex-direction:column;min-width:0;gap:6px;font-size:12px;color:var(--cinza);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
+  .calc-grid input{
+    background:var(--preto);border:1px solid var(--linha);border-radius:10px;
+    width:100%;min-width:0;box-sizing:border-box;padding:12px 14px;color:var(--branco);font-size:15px;font-family:'Inter',sans-serif;
+  }
+  .calc-grid input:focus{outline:none;border-color:var(--vermelho);}
+  .calc-resultado{margin-top:24px;padding-top:22px;border-top:1px solid var(--linha);text-align:center;}
+  .calc-tamanho-label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--cinza);margin-bottom:6px;}
+  .calc-tamanho-valor{font-family:'Manrope',sans-serif;font-weight:800;font-size:44px;color:var(--vermelho);}
+
+  .tabela-tamanhos-obs{font-size:12px;color:var(--cinza);text-align:center;margin-top:12px;}
+  .calc-obs{font-size:13px;color:var(--cinza);margin-top:8px;max-width:44ch;margin-left:auto;margin-right:auto;}
+  .calc-genero-label{display:block;font-size:12px;color:var(--cinza);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;}
+
+
+  /* ---------- como funciona ---------- */
+  .passos{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media(min-width:768px){.passos{grid-template-columns:repeat(3,1fr);}}
+  .passo{
+    background:var(--preto-2);border:1px solid var(--linha);border-radius:var(--raio);
+    padding:24px;
+  }
+  .passo-num{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:13px;
+    color:var(--vermelho);letter-spacing:0.05em;margin-bottom:14px;
+  }
+  .passo h3{font-family:'Inter',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px;}
+  .passo p{font-size:14px;color:var(--cinza);}
+
+  /* ---------- avaliacoes ---------- */
+  .avaliacoes{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media(min-width:768px){.avaliacoes{grid-template-columns:repeat(3,1fr);}}
+
+  /* ---------- acesso academia ---------- */
+  section.academia{
+    background:
+      radial-gradient(circle at 15% 20%, rgba(216,31,47,0.16), transparent 55%),
+      var(--preto-2);
+    border-top:1px solid var(--linha);
+    border-bottom:1px solid var(--linha);
+  }
+  .academia-grid{
+    display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
+  }
+  @media(min-width:980px){.academia-grid{grid-template-columns:1.1fr 0.9fr;}}
+  .academia-emblema{
+    display:flex;align-items:center;gap:12px;margin-bottom:18px;
+  }
+  .academia-emblema .emblema{width:46px;height:46px;}
+  .academia-emblema span{font-family:'Manrope',sans-serif;font-weight:800;font-size:15px;}
+  .academia h2{font-size:28px;margin-bottom:14px;}
+  .academia p.texto{color:#cfcac6;font-size:15px;max-width:52ch;margin-bottom:24px;}
+  .beneficios{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  .beneficios li{
+    display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#d8d5d1;
+  }
+  .beneficios li svg{width:16px;height:16px;fill:var(--vermelho);margin-top:3px;flex-shrink:0;}
+  .academia-ctas{display:flex;flex-wrap:wrap;gap:12px;}
+
+  .oferta-card{
+    background:var(--preto);
+    border:1px solid rgba(216,31,47,0.35);
+    border-radius:var(--raio);
+    padding:28px;
+  }
+  .oferta-tag{
+    display:inline-block;font-size:11px;font-weight:800;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--vermelho);margin-bottom:12px;
+  }
+  .oferta-card h3{font-size:20px;margin-bottom:10px;}
+  .oferta-card p{font-size:14px;color:var(--cinza);margin-bottom:18px;}
+  .oferta-linha{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 0;border-top:1px solid var(--linha);font-size:13px;
+  }
+  .oferta-linha:last-of-type{border-bottom:1px solid var(--linha);margin-bottom:20px;}
+  .oferta-linha b{font-family:'Manrope',sans-serif;font-weight:800;color:var(--branco);}
+
+  /* ---------- localizacao ---------- */
+  .local-grid{display:grid;grid-template-columns:1fr;gap:24px;}
+  @media(min-width:768px){.local-grid{grid-template-columns:1fr 1fr;align-items:start;}}
+  .local-item{display:flex;gap:14px;margin-bottom:18px;}
+  .local-icon{
+    width:34px;height:34px;border-radius:50%;background:var(--preto-2);
+    border:1px solid var(--linha);display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;font-size:15px;
+  }
+  .local-item h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:3px;color:var(--cinza);}
+  .local-item p{font-size:14px;color:var(--branco);}
+  .mapa-frame{
+    border:1px solid var(--linha);border-radius:var(--raio);
+    filter:grayscale(1) invert(0.92) contrast(0.9);
+    width:100%;height:280px;
+  }
+
+  /* ---------- fecho ---------- */
+  section.fecho{
+    text-align:center;padding:76px 0;
+    background:radial-gradient(circle at 50% 0%, rgba(216,31,47,0.20), transparent 60%);
+  }
+  section.fecho h2{font-size:36px;margin-bottom:14px;}
+  section.fecho p{color:#cfcac6;font-size:16px;max-width:42ch;margin:0 auto 30px;}
+  .fecho-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+
+  footer{
+    padding:32px 0 44px;border-top:1px solid var(--linha);
+    display:flex;flex-direction:column;gap:6px;align-items:center;
+    text-align:center;font-size:12px;color:var(--cinza);
+  }
+  footer a{color:var(--cinza);text-decoration:underline;text-underline-offset:2px;}
+
+  .whats-fixo{
+    position:fixed;bottom:18px;right:18px;z-index:60;
+    background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(216,31,47,0.6);
+    text-decoration:none;
+  }
+  .whats-fixo svg{width:26px;height:26px;fill:#fff;}
+
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+
+  /* ---------- imagens reais da coleção Cerberus ---------- */
+  .produto-imagem.has-photo{
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:230px;
+  }
+  .produto-imagem.has-photo::before,
+  .produto-imagem.has-photo::after{
+    display:none;
+  }
+  .produto-imagem.has-photo .imagem-texto{
+    display:none;
+  }
+  .produto-imagem.photo-dry{background-image:url('./imagens/dry-vermelho.png');}
+  .produto-imagem.photo-short{background-image:url('./imagens/short-vermelho.png');}
+  .produto-imagem.photo-kit{background-image:url('./imagens/dry-vermelho.png');}
+  .produto-imagem.photo-hoodie{background-image:url('./imagens/hoodie-vermelho.png');}
+  .produto-imagem.photo-set{background-image:url('./imagens/colecao-original.png');}
+  .produto-imagem.photo-bone{background-image:url('./imagens/bone-vermelho.png');}
+
+
+  /* ---------- roupas e acessórios: carrosséis horizontais ---------- */
+  .produtos-carrossel{
+    position:relative;
+    margin-top:24px;
+  }
+  .produtos-viewport{
+    overflow:hidden;
+    width:100%;
+  }
+  .produtos-carrossel .grade-produtos{
+    display:flex;
+    gap:16px;
+    will-change:transform;
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+  }
+  .produtos-carrossel .grade-produtos-4{display:flex;}
+  .produtos-carrossel .produto{
+    flex:0 0 calc((100% - 32px) / 3);
+    min-width:0;
+  }
+  .produto-nav{
+    position:absolute;
+    top:42%;
+    transform:translateY(-50%);
+    z-index:5;
+    width:46px;height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(10,10,11,.82);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-size:26px;
+    line-height:1;
+    box-shadow:0 10px 24px rgba(0,0,0,.28);
+  }
+  .produto-nav:hover{background:var(--vermelho);border-color:var(--vermelho);}
+  .produto-nav.prev{left:-22px;}
+  .produto-nav.next{right:-22px;}
+  .produtos-status{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+  }
+  .produtos-status button{
+    width:7px;height:7px;padding:0;border:0;border-radius:999px;
+    background:#4a4a4d;cursor:pointer;transition:width .25s ease,background .25s ease;
+  }
+  .produtos-status button.ativo{width:22px;background:var(--vermelho);}
+  @media(max-width:900px){
+    .produtos-carrossel .produto{flex-basis:calc((100% - 16px) / 2);}
+    .produto-nav.prev{left:8px;}
+    .produto-nav.next{right:8px;}
+  }
+  @media(max-width:620px){
+    .produtos-carrossel .produto{flex-basis:100%;}
+    .produto-nav{width:42px;height:42px;}
+  }
+
+  /* ---------- modelos / lookbook: carrossel horizontal ---------- */
+  .modelos-carrossel{
+    position:relative;
+    margin-top:24px;
+  }
+  .modelos-viewport{
+    overflow:hidden;
+    width:100%;
+  }
+  .grade-modelos{
+    display:flex;
+    gap:16px;
+    will-change:transform;
+    transition:transform .65s cubic-bezier(.22,.61,.36,1);
+  }
+  .modelo-card{
+    flex:0 0 calc((100% - 32px) / 3);
+    height:470px;
+    background:var(--preto-2);
+    border:1px solid var(--linha);
+    border-radius:var(--raio);
+    position:relative;
+    overflow:hidden;
+  }
+  .modelo-card.destaque-modelo,
+  .modelo-card.modelo-alto,
+  .modelo-card.modelo-largo{
+    grid-column:auto;
+    grid-row:auto;
+  }
+  .modelo-foto{
+    position:absolute;
+    inset:0;
+    height:100%;
+    overflow:hidden;
+  }
+  .modelo-foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .45s ease;
+  }
+  .modelo-card:hover .modelo-foto img{transform:scale(1.06);}
+  .modelo-foto.sem-foto{
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;
+    background:linear-gradient(160deg,#1c0304 0%,#0a0a0a 60%,#000 100%);
+  }
+  .modelo-foto.sem-foto::before{
+    content:"";position:absolute;inset:-30% -20%;
+    background:repeating-linear-gradient(112deg,
+      rgba(216,31,47,0.5) 0 5px,
+      transparent 5px 30px,
+      rgba(0,0,0,0.5) 30px 34px,
+      transparent 34px 64px);
+    opacity:0.5;
+  }
+  .modelo-foto.sem-foto span{
+    position:relative;z-index:2;font-family:'Manrope',sans-serif;font-weight:800;font-size:12px;
+    color:#cfcac6;text-transform:uppercase;letter-spacing:.06em;line-height:1.5;
+  }
+  .modelo-tag{
+    position:absolute;top:12px;left:12px;font-size:10px;font-weight:800;z-index:3;
+    letter-spacing:0.06em;text-transform:uppercase;
+    background:linear-gradient(135deg, var(--vermelho), var(--vermelho-escuro));
+    color:#fff;padding:5px 10px;border-radius:var(--raio-pill);
+  }
+  .modelo-cta{
+    position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;
+    background:rgba(10,10,11,.75);border:1px solid rgba(216,31,47,.6);
+    display:flex;align-items:center;justify-content:center;z-index:3;text-decoration:none;
+  }
+  .modelo-cta svg{width:16px;height:16px;fill:#fff;}
+  .modelo-overlay{
+    position:absolute;left:0;right:0;bottom:0;padding:62px 16px 16px;z-index:2;
+    background:linear-gradient(to top, rgba(10,10,11,.96), rgba(10,10,11,0) 92%);
+  }
+  .modelo-nome{font-family:'Manrope',sans-serif;font-weight:800;font-size:16px;color:#fff;margin-bottom:3px;}
+  .modelo-peca{font-size:12px;color:#cfcac6;}
+
+  .modelo-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:5;
+    width:46px;height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(10,10,11,.82);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-size:26px;
+    line-height:1;
+    box-shadow:0 10px 24px rgba(0,0,0,.28);
+  }
+  .modelo-nav:hover{background:var(--vermelho);border-color:var(--vermelho);}
+  .modelo-nav.prev{left:-22px;}
+  .modelo-nav.next{right:-22px;}
+  .modelos-status{
+    display:flex;
+    justify-content:center;
+    gap:7px;
+    margin-top:14px;
+  }
+  .modelos-status button{
+    width:7px;height:7px;padding:0;border:0;border-radius:999px;
+    background:#4a4a4d;cursor:pointer;transition:width .25s ease,background .25s ease;
+  }
+  .modelos-status button.ativo{width:22px;background:var(--vermelho);}
+  @media(max-width:900px){
+    .modelo-card{flex-basis:calc((100% - 16px) / 2);height:440px;}
+    .modelo-nav.prev{left:8px;}
+    .modelo-nav.next{right:8px;}
+  }
+  @media(max-width:620px){
+    .modelo-card{flex-basis:100%;height:460px;}
+    .modelo-nav{width:42px;height:42px;}
+  }
+
+  /* ---------- missão, visão e valores ---------- */
+  .mvv-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-bottom:38px;
+  }
+  @media(min-width:820px){
+    .mvv-grid{grid-template-columns:1fr 1fr;}
+  }
+  .mvv-card{
+    background:#111213;
+    border:1px solid var(--linha);
+    border-left:3px solid var(--vermelho);
+    border-radius:14px;
+    padding:28px;
+  }
+  .mvv-label{
+    color:var(--vermelho);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+  .mvv-card p{
+    color:var(--branco);
+    font-family:'Manrope',sans-serif;
+    font-size:21px;
+    font-weight:700;
+    line-height:1.55;
+  }
+  .valores-bloco{
+    background:#111213;
+    border:1px solid var(--linha);
+    border-left:3px solid var(--vermelho);
+    border-radius:14px;
+    padding:28px 26px;
+  }
+  .valores-bloco-titulo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--branco);
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:18px;
+    margin-bottom:18px;
+  }
+  .valores-lista{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .valores-lista li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .valores-lista .check{
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .valores-lista span{
+    color:#b9b4ae;
+    font-size:14px;
+    line-height:1.7;
+  }
+  .valores-lista strong{
+    color:var(--branco);
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+  }
+  @media(max-width:639px){
+    .mvv-card p{font-size:18px;}
+  }
+  section#mvv{
+    position:relative;
+    overflow:hidden;
+  }
+  section#mvv::before{
+    content:"";
+    position:absolute;
+    inset:-10% -10%;
+    background:repeating-linear-gradient(112deg,
+      rgba(216,31,47,0.12) 0 5px,
+      transparent 5px 30px,
+      rgba(0,0,0,0.25) 30px 34px,
+      transparent 34px 64px);
+    opacity:0.5;
+    pointer-events:none;
+    z-index:0;
+  }
+  section#mvv .wrap{
+    position:relative;
+    z-index:1;
+  }
+
+
+  /* ---------- catálogo interativo por cor ---------- */
+  .produto-interativo{
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .produto-interativo:hover{
+    transform:translateY(-3px);
+  }
+  .produto-photo{
+    min-height:300px;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    transition:background-image .2s ease, transform .25s ease;
+  }
+  .produto-interativo:hover .produto-photo{
+    transform:scale(1.01);
+  }
+  .produto-opcoes{
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid var(--linha);
+  }
+  .produto-opcoes > span{
+    display:block;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:9px;
+  }
+  .produto-opcoes strong{
+    color:var(--branco);
+  }
+  .cores{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  .cor-btn{
+    appearance:none;
+    border:1px solid #3a3a3a;
+    background:#161718;
+    color:#d9d9d9;
+    border-radius:999px;
+    padding:7px 10px 7px 7px;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font:600 11px/1 'Inter',sans-serif;
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  .cor-btn:hover{
+    border-color:#777;
+    transform:translateY(-1px);
+  }
+  .cor-btn.ativo{
+    border-color:var(--vermelho);
+    background:rgba(237,28,36,.10);
+    color:#fff;
+    box-shadow:0 0 0 1px rgba(237,28,36,.18);
+  }
+  .cor-btn span{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    display:block;
+    border:1px solid #666;
+    flex:0 0 auto;
+  }
+  .cor-btn[data-color="preto"] span{background:#080808;}
+  .cor-btn[data-color="vermelho"] span{background:#d71920;}
+  .cor-btn[data-color="branco"] span{background:#f2f2f2;border-color:#aaa;}
+  .produto-interativo .imagem-badge{
+    z-index:2;
+  }
+  @media(max-width:700px){
+    .produto-photo{min-height:250px;}
+    .cor-btn{padding:8px 9px 8px 7px;}
+  }
+
+
+  /* ---------- imagens reais dos produtos ---------- */
+  .produto-photo{
+    position:relative;
+    min-height:300px;
+    background:#0b0b0c;
+    overflow:hidden;
+  }
+  .produto-photo .produto-img{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    max-width:none;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transition:transform .25s ease, opacity .18s ease;
+  }
+  .produto-photo::before{
+    z-index:0;
+  }
+  .produto-photo::after{
+    z-index:0;
+    pointer-events:none;
+  }
+  .produto-interativo:hover .produto-photo .produto-img{
+    transform:scale(1.025);
+  }
+  .produto-photo .imagem-badge,
+  .produto-photo .tag-top{
+    z-index:3;
+  }
+  .produto-img.is-loading{
+    opacity:.35;
+  }
+  @media(max-width:700px){
+    .produto-photo{min-height:250px;}
+  }
+
+  /* ---------- cesta de compras ---------- */
+  .cesta-adicionar{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--linha);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .cesta-qtd-label{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-size:10px;
+    color:var(--cinza);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .cesta-qtd-input{
+    width:56px;
+    background:var(--preto);
+    border:1px solid var(--linha);
+    border-radius:8px;
+    padding:8px 8px;
+    color:var(--branco);
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+    text-align:center;
+  }
+  .cesta-qtd-input:focus{outline:none;border-color:var(--vermelho);}
+  .cesta-add-btn{
+    flex:1;
+    padding:11px 16px;
+    font-size:13px;
+  }
+  .cesta-add-btn.adicionado{
+    background:linear-gradient(135deg,#2f8f4e,#1f6a38);
+    box-shadow:none;
+  }
+
+  .cesta-fixo{
+    position:fixed;
+    bottom:18px;
+    right:86px;
+    z-index:60;
+    background:var(--preto-2);
+    border:1px solid var(--linha);
+    width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(0,0,0,0.6);
+    cursor:pointer;
+  }
+  .cesta-fixo svg{width:24px;height:24px;fill:var(--branco);}
+  .cesta-contador{
+    position:absolute;
+    top:-4px;right:-4px;
+    min-width:20px;height:20px;
+    padding:0 5px;
+    border-radius:999px;
+    background:var(--vermelho);
+    color:#fff;
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:11px;
+    display:flex;align-items:center;justify-content:center;
+    border:2px solid var(--preto);
+  }
+  .cesta-contador.vazio{display:none;}
+
+  .cesta-overlay{
+    position:fixed;inset:0;z-index:70;
+    background:rgba(0,0,0,0.6);
+    opacity:0;pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .cesta-overlay.aberta{opacity:1;pointer-events:auto;}
+
+  .cesta-painel{
+    position:fixed;
+    top:0;right:0;bottom:0;
+    z-index:71;
+    width:100%;
+    max-width:400px;
+    background:var(--preto-2);
+    border-left:1px solid var(--linha);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+  }
+  .cesta-painel.aberta{transform:translateX(0);}
+  .cesta-cabecalho{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 22px;
+    border-bottom:1px solid var(--linha);
+  }
+  .cesta-cabecalho h3{font-size:18px;}
+  .cesta-fechar{
+    background:transparent;border:1px solid var(--linha);color:var(--branco);
+    width:34px;height:34px;border-radius:50%;
+    font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cesta-lista{
+    flex:1;overflow-y:auto;
+    padding:16px 22px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .cesta-vazia{
+    color:var(--cinza);
+    font-size:14px;
+    text-align:center;
+    padding:40px 0;
+  }
+  .cesta-item{
+    display:flex;
+    gap:12px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--linha);
+  }
+  .cesta-item-info{flex:1;min-width:0;}
+  .cesta-item-nome{font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;margin-bottom:2px;}
+  .cesta-item-cor{font-size:12px;color:var(--cinza);margin-bottom:8px;}
+  .cesta-item-preco{font-size:13px;color:var(--vermelho);font-weight:700;margin-bottom:8px;}
+  .cesta-item-controles{display:flex;align-items:center;gap:10px;}
+  .cesta-qtd-btn{
+    width:26px;height:26px;border-radius:50%;
+    border:1px solid var(--linha);background:var(--preto);color:var(--branco);
+    font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    line-height:1;
+  }
+  .cesta-qtd-valor{font-size:14px;font-weight:700;min-width:18px;text-align:center;}
+  .cesta-item-remover{
+    align-self:flex-start;
+    background:transparent;border:0;color:var(--cinza);
+    font-size:12px;text-decoration:underline;cursor:pointer;
+    padding:2px 0;
+  }
+  .cesta-item-remover:hover{color:var(--vermelho);}
+  .cesta-rodape{
+    padding:18px 22px 24px;
+    border-top:1px solid var(--linha);
+  }
+  .cesta-total-linha{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:16px;
+  }
+  .cesta-total-label{font-size:13px;color:var(--cinza);text-transform:uppercase;letter-spacing:0.06em;}
+  .cesta-total-valor{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:var(--branco);}
+  .cesta-finalizar{width:100%;}
+  @media(max-width:420px){
+    .cesta-fixo{right:80px;bottom:16px;width:50px;height:50px;}
+    .cesta-fixo svg{width:21px;height:21px;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <div class="marca">
+      <div class="emblema"><img src="./imagens/logo-cerberus.png" alt="Logo Cerberus"></div>
+      <div class="marca-texto">
+        <div class="marca-nome">Cerberus</div>
+        <div class="marca-sub">Store</div>
+      </div>
+    </div>
+    <nav class="principal" id="navPrincipal">
+      <a href="#produtos">Loja</a>
+      <a href="#acessorios">Acessórios</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#mvv">Missão e Valores</a>
+      <a href="#calculadora">Tamanho</a>
+<a href="#avaliacoes">Avaliações</a>
+      <a href="#academia">Academia</a>
+      <a href="#local">Localização</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <a class="btn btn-primario" href="https://wa.me/5564999999999?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20pe%C3%A7as%20da%20Cerberus%20Store" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navPrincipal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div>
+        <div class="eyebrow">Streetwear · Academia Cerberus</div>
+        <h1 class="headline">Cerberus Store</h1>
+        <p class="sub" style="font-family:'Manrope',sans-serif;font-weight:700;font-size:19px;color:var(--branco);margin-top:6px;">Treino pesado. Rua com atitude.</p>
+        <p class="sub">Roupas de academia e streetwear pra quem não troca de estilo entre o treino e a rua. Extensão oficial da Academia Cerberus — mesmo padrão, mesma família.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primario btn-grande" href="https://wa.me/5564999999999?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20pe%C3%A7as%20da%20Cerberus%20Store" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
+            Chamar no WhatsApp
+          </a>
+          <a class="btn btn-secundario btn-grande" href="#produtos">Ver produtos</a>
+        </div>
+        <div class="fatos">
+          <div class="fato"><b>6+</b><span>Anos em Rio Verde</span></div>
+          <div class="fato"><b>2mil+</b><span>Clientes atendidos</span></div>
+          <div class="fato"><b>4.9★</b><span>Nota nas avaliações</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="mvv" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Missão, visão e valores</div>
+    <h2 class="titulo-secao">O que a Cerberus representa.</h2>
+
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <div class="mvv-label">Missão</div>
+        <p>Criar roupas que acompanhem quem escolhe evoluir todos os dias, unindo performance, conforto e identidade em peças feitas para o treino e para a rua.</p>
+      </div>
+
+      <div class="mvv-card">
+        <div class="mvv-label">Visão</div>
+        <p>Ser uma marca de referência em moda esportiva e streetwear, reconhecida por transformar força, disciplina e atitude em uma identidade que se veste dentro e fora da academia.</p>
+      </div>
+    </div>
+
+    <div class="valores-bloco">
+      <div class="valores-bloco-titulo">
+        Valores
+      </div>
+      <ul class="valores-lista">
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Identidade</strong> — Cada pessoa tem sua própria jornada. Nossas peças representam quem você é.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Qualidade</strong> — Materiais e acabamento pensados para uso real, com atenção aos detalhes.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Performance</strong> — Roupas feitas para acompanhar o movimento e o treino intenso.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Confiança</strong> — Vestir a marca é carregar uma identidade forte.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Evolução</strong> — Cada coleção melhora design, modelagem, materiais e experiência.</span>
+        </li>
+        <li>
+          <svg class="check" viewBox="0 0 24 24" width="16" height="16"><path fill="var(--vermelho)" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
+          <span><strong>Atitude</strong> — Presença e conexão para quem escolhe não ficar parado.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="produtos" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Coleção</div>
+    <h2 class="titulo-secao">O que tem na loja</h2>
+    <p class="intro-secao">Peças pensadas pra academia que também fecham o visual na rua. Confere tamanhos e cores disponíveis direto no WhatsApp.</p>
+    <div class="produtos-carrossel" aria-label="Carrossel de roupas Cerberus">
+      <button class="produto-nav prev" type="button" aria-label="Ver roupas anteriores">&#8249;</button>
+      <div class="produtos-viewport">
+        <div class="grade-produtos interactive-products">
+
+      <div class="produto produto-interativo" data-product="Camiseta Dry-Fit" data-price="R$ 69,90"
+           data-images='{"preto":"./imagens/dry-preto.png","vermelho":"./imagens/dry-vermelho.png","branco":"./imagens/dry-branco.png"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/dry-vermelho.png" alt="Produto Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Camiseta Dry-Fit</div>
+          <div class="produto-desc">Tecido leve que respira, corte que valoriza o treino.</div>
+          <div class="produto-preco">R$ 69<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores da Camiseta Dry-Fit">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Shorts e Calças de Treino" data-price="R$ 99,90"
+           data-images='{"preto":"./imagens/short-preto.png","vermelho":"./imagens/short-vermelho.png","branco":"./imagens/short-branco.png"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/short-vermelho.png" alt="Produto Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Shorts e Calças de Treino</div>
+          <div class="produto-desc">Liberdade total de movimento, sem marcar e sem transparência.</div>
+          <div class="produto-preco">R$ 99<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores dos Shorts e Calças">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto destaque-produto produto-interativo" data-product="Kit Treino Completo" data-price="R$ 179,90"
+           data-images='{"preto":"./imagens/kit-preto.jpg","vermelho":"./imagens/kit-vermelho.jpg","branco":"./imagens/kit-branco.jpg"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/kit-vermelho.jpg" alt="Kit Treino Completo Cerberus" loading="lazy">
+          <span class="tag-top">Mais vendido</span>
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Kit Treino Completo</div>
+          <div class="produto-desc">Camiseta + short + boné combinando. Sai mais barato que separado.</div>
+          <div class="produto-preco">R$ 179<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do Kit Treino">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Moletom Streetwear" data-price="R$ 149,90"
+           data-images='{"preto":"./imagens/hoodie-preto.png","vermelho":"./imagens/hoodie-vermelho.png","branco":"./imagens/hoodie-branco.png"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/hoodie-vermelho.png" alt="Produto Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-5.1-4.2-8.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Moletom Streetwear</div>
+          <div class="produto-desc">Corte oversized, conforto de sobra pro dia a dia.</div>
+          <div class="produto-preco">R$ 149<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do Moletom Streetwear">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Camisa e Bermuda Street" data-price="R$ 89,90"
+           data-images='{"preto":"./imagens/street-preto.jpg","vermelho":"./imagens/street-vermelho.jpg","branco":"./imagens/street-branco.jpg"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/street-vermelho.jpg" alt="Camisa e Bermuda Street Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9 0 .8.9 1.4 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6.5-.1.9-.4 1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Camisa e Bermuda Street</div>
+          <div class="produto-desc">Pra sair da academia direto pro rolê sem trocar de roupa.</div>
+          <div class="produto-preco">R$ 89<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do conjunto Street">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+      <button class="produto-nav next" type="button" aria-label="Ver próximas roupas">&#8250;</button>
+      <div class="produtos-status" aria-label="Navegação do carrossel de roupas"></div>
+    </div>
+  </div>
+</section>
+
+<section id="acessorios" class="faixa faixa-alt">
+  <div class="wrap">
+    <div class="rotulo">Detalhes que fecham o look</div>
+    <h2 class="titulo-secao">Acessórios</h2>
+    <p class="intro-secao">Boné, bandana, garrafa e adesivos com a identidade Cerberus. Combina com qualquer peça da coleção.</p>
+    <div class="produtos-carrossel" aria-label="Carrossel de acessórios Cerberus">
+      <button class="produto-nav prev" type="button" aria-label="Ver acessórios anteriores">&#8249;</button>
+      <div class="produtos-viewport">
+        <div class="grade-produtos grade-produtos-4">
+
+      <div class="produto produto-interativo" data-product="Boné Cerberus" data-price="R$ 59,90"
+           data-images='{"preto":"./imagens/bone-preto.png","vermelho":"./imagens/bone-vermelho.png","branco":"./imagens/bone-branco.png"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/bone-vermelho.png" alt="Boné Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Boné Cerberus</div>
+          <div class="produto-desc">Aba curva, bordado da matilha na frente.</div>
+          <div class="produto-preco">R$ 59<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores do Boné">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Bandana Cerberus" data-price="R$ 34,90"
+           data-images='{"preto":"./imagens/bandana-preto.jpg","vermelho":"./imagens/bandana-vermelho.jpg","branco":"./imagens/bandana-branco.jpg"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/bandana-vermelho.jpg" alt="Bandana Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Bandana Cerberus</div>
+          <div class="produto-desc">Tecido leve, ideal pra treino pesado ou pro visual na rua.</div>
+          <div class="produto-preco">R$ 34<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores da Bandana">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+              <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Garrafa Cerberus" data-price="R$ 44,90"
+           data-images='{"preto":"./imagens/garrafa-preto.jpg","vermelho":"./imagens/garrafa-vermelho.jpg"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/garrafa-vermelho.jpg" alt="Garrafa Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Garrafa Cerberus</div>
+          <div class="produto-desc">660ml, à prova de vazamento. Não pode faltar na academia.</div>
+          <div class="produto-preco">R$ 44<small>,90</small></div>
+          <div class="produto-opcoes">
+            <span>Cor: <strong class="cor-selecionada">Vermelho</strong></span>
+            <div class="cores" role="group" aria-label="Cores da Garrafa">
+              <button class="cor-btn" data-color="preto" aria-label="Preto"><span></span>Preto</button>
+              <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
+            </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="produto produto-interativo" data-product="Kit Stickers Cerberus" data-price="R$ 14,90"
+           data-images='{"preto":"./imagens/sticker.jpg","vermelho":"./imagens/sticker.jpg","branco":"./imagens/sticker.jpg"}'>
+        <div class="produto-imagem produto-photo"><img class="produto-img" src="./imagens/sticker.jpg" alt="Kit de Adesivos Cerberus" loading="lazy">
+          <div class="imagem-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 2c-.6 0-1.1.4-1.3 1L9.4 6.5c-1.6.3-2.9 1.5-3.3 3.1L4.9 13c-.9 3.5.9 7.2 4.2 8.6l1.7.7c.7.3 1.5.3 2.2 0l1.7-.7c3.3-1.4 5.1-5.1 4.2-8.6l-1.2-3.4c-.4-1.6-1.7-2.8-3.3-3.1L13.3 3c-.2-.6-.7-1-1.3-1zm0 3.4 1 2.6c.2.5.6.8 1.1.9.8.2 1.5.8 1.7 1.6l1.2 3.4c.6 2.3-.6 4.7-2.7 5.6l-1.7.7c-.4.1-.8.1-1.2 0l-1.7-.7c-2.1-.9-3.3-3.3-2.7-5.6l1.2-3.4c.2-.8.9-1.4 1.7-1.6l1.1-.9L12 5.4z"/></svg>
+          </div>
+        </div>
+        <div class="produto-corpo">
+          <div class="produto-nome">Kit Stickers Cerberus</div>
+          <div class="produto-desc">Kit com 3 adesivos pra colar na garrafa, notebook ou bolsa de treino.</div>
+          <div class="produto-preco">R$ 14<small>,90</small></div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+      <button class="produto-nav next" type="button" aria-label="Ver próximos acessórios">&#8250;</button>
+      <div class="produtos-status" aria-label="Navegação do carrossel de acessórios"></div>
+    </div>
+  </div>
+</section>
+
+<section id="modelos" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Lookbook</div>
+    <h2 class="titulo-secao">Quem veste a matilha</h2>
+    <p class="intro-secao">Looks da coleção Cerberus em movimento — treino, rua e lifestyle. Curtiu a combinação? Chama no WhatsApp que a gente separa pra você.</p>
+    <div class="modelos-carrossel" aria-label="Carrossel de modelos Cerberus">
+      <button class="modelo-nav prev" type="button" aria-label="Ver modelos anteriores">&#8249;</button>
+      <div class="modelos-viewport">
+        <div class="grade-modelos">
+      <article class="modelo-card destaque-modelo">
+        <div class="modelo-foto"><img src="./imagens/modelo-01-treino-preto.jpg" alt="Modelo usando camiseta preta e calça de treino Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Look completo</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Treino%20Pesado%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Treino Pesado no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Treino Pesado</div><div class="modelo-peca">Dry-Fit + Calça de Treino · Preto</div></div>
+      </article>
+      <article class="modelo-card modelo-alto">
+        <div class="modelo-foto"><img src="./imagens/modelo-02-street-preto.jpg" alt="Modelo usando camisa polo preta Cerberus em cenário urbano" loading="lazy"></div>
+        <span class="modelo-tag">Streetwear</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Street%20Urbano%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Street Urbano no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Street Urbano</div><div class="modelo-peca">Camisa polo Cerberus + Jeans · Preto</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-03-short-preto.jpg" alt="Modelo usando conjunto preto Cerberus com boné" loading="lazy"></div>
+        <span class="modelo-tag">Treino</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Performance%20Black%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Performance Black no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Performance Black</div><div class="modelo-peca">Dry-Fit + Short · Preto</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-04-short-vermelho.jpg" alt="Modelo usando camiseta preta e short vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Vermelho</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Sunset%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Sunset no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Sunset</div><div class="modelo-peca">Dry-Fit + Short · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-05-polo-street.jpg" alt="Modelo usando camisa polo Cerberus em rua com luzes neon" loading="lazy"></div>
+        <span class="modelo-tag">Night street</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Urban%20Night%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Urban Night no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Urban Night</div><div class="modelo-peca">Camisa polo Cerberus + Jeans</div></div>
+      </article>
+      <article class="modelo-card modelo-alto">
+        <div class="modelo-foto"><img src="./imagens/modelo-06-polo-grafite.jpg" alt="Modelo usando camisa polo Cerberus em rua com grafite" loading="lazy"></div>
+        <span class="modelo-tag">Streetwear</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Grafite%20Street%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Grafite Street no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Grafite Street</div><div class="modelo-peca">Camisa polo Cerberus + Jeans · Preto</div></div>
+      </article>
+      <article class="modelo-card modelo-largo">
+        <div class="modelo-foto"><img src="./imagens/modelo-07-costas-vermelho.jpg" alt="Modelo exibindo as costas do conjunto vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Costas</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Pack%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Pack no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Pack</div><div class="modelo-peca">Conjunto Cerberus · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-08-corrida.jpg" alt="Modelo correndo com camiseta preta e short vermelho Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Em movimento</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Run%20The%20Pack%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Run The Pack no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Run The Pack</div><div class="modelo-peca">Dry-Fit + Short · Vermelho</div></div>
+      </article>
+      <article class="modelo-card">
+        <div class="modelo-foto"><img src="./imagens/modelo-09-vermelho-bone.jpg" alt="Modelo usando camiseta vermelha e boné branco Cerberus" loading="lazy"></div>
+        <span class="modelo-tag">Detalhe</span>
+        <a class="modelo-cta" href="https://wa.me/5564999999999?text=Oi%21%20Vi%20o%20look%20Red%20Signature%20no%20site%20e%20quero%20saber%20mais" target="_blank" rel="noopener" aria-label="Perguntar sobre o look Red Signature no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg></a>
+        <div class="modelo-overlay"><div class="modelo-nome">Red Signature</div><div class="modelo-peca">Dry-Fit · Vermelho + Boné</div></div>
+      </article>        </div>
+      </div>
+      <button class="modelo-nav next" type="button" aria-label="Ver próximos modelos">&#8250;</button>
+      <div class="modelos-status" aria-label="Navegação do carrossel"></div>
+    </div>
+  </div>
+</section>
+<section id="calculadora" class="faixa faixa-alt">
+  <div class="wrap">
+    <div class="rotulo">Ferramenta</div>
+    <h2 class="titulo-secao">Calculadora de tamanho</h2>
+    <p class="intro-secao">Informa sua altura e medidas e a gente sugere o tamanho ideal. É uma estimativa — confirma sempre com a gente no WhatsApp antes de fechar a compra.</p>
+    <div class="calc-card card">
+      <span class="calc-genero-label">Gênero</span>
+      <div class="cores" role="group" aria-label="Selecione o gênero" id="calc-genero-grupo" style="margin-bottom:18px;">
+        <button type="button" class="cor-btn genero-btn ativo" data-genero="masculino">Masculino</button>
+        <button type="button" class="cor-btn genero-btn" data-genero="feminino">Feminino</button>
+      </div>
+      <div class="calc-grid">
+        <label>Altura (cm)
+          <input type="number" id="calc-altura" placeholder="Ex: 175">
+        </label>
+        <label>Peito / Busto (cm)
+          <input type="number" id="calc-peito" placeholder="Ex: 96">
+        </label>
+        <label>Cintura (cm)
+          <input type="number" id="calc-cintura" placeholder="Ex: 82">
+        </label>
+      </div>
+      <button class="btn btn-primario" style="width:100%;margin-top:18px;" onclick="calcularTamanho()">Calcular tamanho</button>
+      <div id="calc-resultado" class="calc-resultado" style="display:none;">
+        <div class="calc-tamanho-label">Tamanho sugerido</div>
+        <div class="calc-tamanho-valor" id="calc-tamanho-valor">M</div>
+        <p id="calc-obs" class="calc-obs"></p>
+        <a class="btn btn-secundario" style="width:100%;margin-top:14px;" id="calc-whats-link" href="#" target="_blank" rel="noopener">Confirmar tamanho no WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="tabela-tamanhos-obs">Tabela de referência geral (dry-fit/streetwear). Peças de caimento mais solto podem variar — confirma com a gente no WhatsApp.</p>
+  </div>
+</section>
+
+
+<section id="funciona" class="faixa faixa-alt">
+  <div class="wrap">
+    <div class="rotulo">Processo</div>
+    <h2 class="titulo-secao">Como funciona</h2>
+    <p class="intro-secao">Do primeiro "oi" até a peça na sua mão, em 3 passos.</p>
+    <div class="passos">
+      <div class="passo">
+        <div class="passo-num">01</div>
+        <h3>Chama no WhatsApp</h3>
+        <p>Conta o que você procura: treino, streetwear ou os dois. Sem enrolação.</p>
+      </div>
+      <div class="passo">
+        <div class="passo-num">02</div>
+        <h3>A gente te manda as opções</h3>
+        <p>Fotos, tamanhos e cores na hora, direto do estoque da loja.</p>
+      </div>
+      <div class="passo">
+        <div class="passo-num">03</div>
+        <h3>Retira ou recebe em casa</h3>
+        <p>Combina a forma de pagamento e escolhe: busca na loja ou entrega em Rio Verde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Depoimentos</div>
+    <h2 class="titulo-secao">Quem já comprou</h2>
+    <p class="intro-secao">Avaliações de clientes da Cerberus Store.</p>
+    <div class="avaliacoes">
+      <div class="card">
+        <div class="avatar-row">
+          <div class="avatar">PH</div>
+          <div>
+            <div class="avatar-nome">Pedro Henrique
+              <svg viewBox="0 0 24 24"><path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72 3.1 5.53l.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82L8.6 22.47 12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"/></svg>
+            </div>
+            <div class="avatar-handle">Cliente Cerberus Store · desde 2022</div>
+          </div>
+        </div>
+        <p class="quote">"Melhor loja de streetwear de Rio Verde. Já é a terceira vez que compro e não erraram uma."</p>
+        <div class="assinatura">Compra confirmada na loja</div>
+      </div>
+      <div class="card">
+        <div class="avatar-row">
+          <div class="avatar">RC</div>
+          <div>
+            <div class="avatar-nome">Renata Cunha
+              <svg viewBox="0 0 24 24"><path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72 3.1 5.53l.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82L8.6 22.47 12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"/></svg>
+            </div>
+            <div class="avatar-handle">Aluna da Academia Cerberus</div>
+          </div>
+        </div>
+        <p class="quote">"Comprei a roupa na Store e já uso pra treinar na academia. Combina tudo, é a mesma pegada."</p>
+        <div class="assinatura">Compra confirmada na loja</div>
+      </div>
+      <div class="card">
+        <div class="avatar-row">
+          <div class="avatar">DS</div>
+          <div>
+            <div class="avatar-nome">Diego Sales
+              <svg viewBox="0 0 24 24"><path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72 3.1 5.53l.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82L8.6 22.47 12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"/></svg>
+            </div>
+            <div class="avatar-handle">Cliente Cerberus Store · desde 2024</div>
+          </div>
+        </div>
+        <p class="quote">"Atendimento pelo WhatsApp foi rápido, mandaram foto de tudo antes de eu decidir. Chegou certinho."</p>
+        <div class="assinatura">Compra confirmada na loja</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="academia" class="academia">
+  <div class="wrap">
+    <div class="academia-grid">
+      <div>
+        <div class="academia-emblema">
+          <div class="emblema"><img src="./imagens/logo-cerberus.png" alt="Logo Cerberus"></div>
+          <span>Academia Cerberus · UniRV, Rio Verde</span>
+        </div>
+        <h2>Você veste Cerberus.<br>Treina na Cerberus.</h2>
+        <p class="texto">A Cerberus Store é a extensão oficial da Academia Cerberus: mesma marca, mesmo padrão de exigência. Quem compra na loja tem acesso facilitado à estrutura Hammer Strength da academia.</p>
+        <ul class="beneficios">
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Apresente sua compra na loja e ganhe desconto na matrícula do plano trimestral</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Uma aula experimental gratuita na linha Hammer Strength</li>
+          <li><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Alunos da academia têm condições especiais nas peças da Store</li>
+        </ul>
+        <div class="academia-ctas">
+          <a class="btn btn-primario" href="https://cerberus-academia.vercel.app" target="_blank" rel="noopener">Conhecer a academia</a>
+          <a class="btn btn-secundario" href="https://wa.me/5564999999999?text=Oi!%20Comprei%20na%20Cerberus%20Store%20e%20quero%20saber%20sobre%20o%20desconto%20na%20Academia" target="_blank" rel="noopener">Falar sobre o desconto</a>
+        </div>
+      </div>
+
+      <div class="oferta-card">
+        <div class="oferta-tag">Loja + Academia</div>
+        <h3>Combo Cerberus</h3>
+        <p>Comprou na Store, treina com desconto. É a mesma casa, o mesmo padrão.</p>
+        <div class="oferta-linha"><span>Compra na Store</span><b>Qualquer valor</b></div>
+        <div class="oferta-linha"><span>Desconto na matrícula</span><b>Trimestral com avaliação</b></div>
+        <div class="oferta-linha"><span>Aula experimental</span><b>Grátis, 1x</b></div>
+        <a class="btn btn-primario" style="width:100%;" href="https://wa.me/5564999999999?text=Oi!%20Quero%20aproveitar%20o%20Combo%20Cerberus%20(loja%20%2B%20academia)" target="_blank" rel="noopener">Quero o combo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="local" class="faixa">
+  <div class="wrap">
+    <div class="rotulo">Visite</div>
+    <h2 class="titulo-secao">Onde estamos</h2>
+    <p class="intro-secao">Pode passar na loja ou resolver tudo pelo WhatsApp.</p>
+    <div class="local-grid">
+      <div>
+        <div class="local-item">
+          <div class="local-icon">📍</div>
+          <div>
+            <h4>Endereço</h4>
+            <p>Av. Presidente Vargas, 1200 — Centro<br>Rio Verde - GO, 75901-000</p>
+          </div>
+        </div>
+        <div class="local-item">
+          <div class="local-icon">🕒</div>
+          <div>
+            <h4>Horário</h4>
+            <p>Segunda a sábado: 9h às 19h<br>Domingo: fechado</p>
+          </div>
+        </div>
+        <div class="local-item">
+          <div class="local-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>(64) 99999-9999</p>
+          </div>
+        </div>
+      </div>
+      <iframe class="mapa-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Rio+Verde+GO&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="fecho faixa">
+  <div class="wrap">
+    <h2>Treino pesado. Rua com atitude.</h2>
+    <p>Fala com a gente agora e garante sua peça direto no WhatsApp.</p>
+    <div class="fecho-ctas">
+      <a class="btn btn-primario btn-grande" href="https://wa.me/5564999999999?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20pe%C3%A7as%20da%20Cerberus%20Store" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
+        Chamar no WhatsApp
+      </a>
+      <a class="btn btn-secundario btn-grande" href="#academia">Ver combo com a academia</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Cerberus Store — Roupas de Academia e Streetwear · Rio Verde - GO</div>
+  <div>Extensão oficial da <a href="https://cerberus-academia.vercel.app" target="_blank" rel="noopener">Academia Cerberus</a> · © 2026</div>
+</footer>
+
+<button type="button" class="cesta-fixo" id="cestaAbrirBtn" aria-label="Abrir cesta de compras">
+  <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2v1h2l3.6 7.59-1.35 2.44c-.16.28-.25.61-.25.97 0 1.1.9 2 2 2h12v-2h-11.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.31l-.95-2h-3zm14 15c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-11 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+  <span class="cesta-contador vazio" id="cestaContador">0</span>
+</button>
+
+<div class="cesta-overlay" id="cestaOverlay"></div>
+<aside class="cesta-painel" id="cestaPainel" aria-label="Cesta de compras">
+  <div class="cesta-cabecalho">
+    <h3>Sua cesta</h3>
+    <button type="button" class="cesta-fechar" id="cestaFecharBtn" aria-label="Fechar cesta">&times;</button>
+  </div>
+  <div class="cesta-lista" id="cestaLista">
+    <p class="cesta-vazia">Sua cesta está vazia. Adiciona itens da coleção pra montar seu pedido.</p>
+  </div>
+  <div class="cesta-rodape">
+    <div class="cesta-total-linha">
+      <span class="cesta-total-label">Total estimado</span>
+      <span class="cesta-total-valor" id="cestaTotalValor">R$ 0,00</span>
+    </div>
+    <a class="btn btn-primario cesta-finalizar" id="cestaFinalizarBtn" href="#" target="_blank" rel="noopener">Finalizar pedido no WhatsApp</a>
+  </div>
+</aside>
+
+<a class="whats-fixo" href="https://wa.me/5564999999999?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20pe%C3%A7as%20da%20Cerberus%20Store" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
+</a>
+
+<script>
+// ---------- Menu mobile ----------
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('navPrincipal');
+  if(!toggle || !nav) return;
+  function fechar(){
+    nav.classList.remove('aberto');
+    toggle.classList.remove('aberto');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click', function(){
+    const aberto = nav.classList.toggle('aberto');
+    toggle.classList.toggle('aberto', aberto);
+    toggle.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', fechar);
+  });
+  document.addEventListener('click', function(e){
+    if(!nav.contains(e.target) && !toggle.contains(e.target)) fechar();
+  });
+  window.addEventListener('resize', function(){
+    if(window.innerWidth >= 900) fechar();
+  });
+})();
+
+// ---------- Calculadora de tamanho ----------
+const tabelaTamanhos = {
+  masculino: [
+    { tam:'PP', busto:48 },
+    { tam:'P',  busto:51 },
+    { tam:'M',  busto:54 },
+    { tam:'G',  busto:58 },
+    { tam:'GG', busto:61 },
+    { tam:'3G', busto:63 },
+    { tam:'4G', busto:66 },
+    { tam:'5G', busto:70 }
+  ],
+  feminino: [
+    { tam:'PP', busto:42, cintura:40 },
+    { tam:'P',  busto:45, cintura:43 },
+    { tam:'M',  busto:49, cintura:47 },
+    { tam:'G',  busto:52, cintura:48 },
+    { tam:'GG', busto:55, cintura:52 },
+    { tam:'3G', busto:59, cintura:56 },
+    { tam:'4G', busto:62, cintura:61 },
+    { tam:'5G', busto:62, cintura:61 }
+  ]
+};
+
+let calcGenero = 'masculino';
+
+document.querySelectorAll('.genero-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.genero-btn').forEach(function(b){ b.classList.remove('ativo'); });
+    btn.classList.add('ativo');
+    calcGenero = btn.dataset.genero;
+
+    document.getElementById('calc-resultado').style.display = 'none';
+  });
+});
+
+function calcularTamanho(){
+  const altura = parseFloat(document.getElementById('calc-altura').value);
+  const peito = parseFloat(document.getElementById('calc-peito').value);
+  const cintura = parseFloat(document.getElementById('calc-cintura').value);
+
+  if(!peito){
+    alert('Preenche pelo menos a medida de peito/busto pra calcular.');
+    return;
+  }
+
+  // as tabelas trazem a peça medida "de lado" (plana), que equivale a
+  // aproximadamente metade da circunferência do corpo
+  const tabela = tabelaTamanhos[calcGenero];
+  const bustoPlano = peito / 2;
+  const cinturaPlana = cintura ? cintura / 2 : null;
+
+  let escolhido = tabela[tabela.length - 1];
+  for(const linha of tabela){
+    const cabeNoBusto = bustoPlano <= linha.busto;
+    const cabeNaCintura = (calcGenero === 'feminino' && cinturaPlana != null)
+      ? cinturaPlana <= linha.cintura
+      : true;
+    if(cabeNoBusto && cabeNaCintura){
+      escolhido = linha;
+      break;
+    }
+  }
+
+  const tamanho = escolhido.tam;
+
+  let obs = calcGenero === 'feminino'
+    ? 'Cálculo baseado na tabela Baby Look (busto e cintura). Se preferir um caimento mais solto, considera um tamanho acima.'
+    : 'Cálculo baseado na tabela do modelo tradicional (peito). Se preferir um caimento mais solto, considera um tamanho acima.';
+
+  if(altura >= 185){
+    obs += ' Como sua altura está acima da média, vale considerar um tamanho acima pro comprimento da peça.';
+  }
+
+  document.getElementById('calc-tamanho-valor').textContent = tamanho;
+  document.getElementById('calc-obs').textContent = obs;
+  document.getElementById('calc-resultado').style.display = 'block';
+  document.getElementById('calc-resultado').scrollIntoView({behavior:'smooth', block:'nearest'});
+
+  const partes = [`gênero ${calcGenero}`, `peito/busto ${peito}cm`];
+  if(altura) partes.push(`altura ${altura}cm`);
+  if(cintura) partes.push(`cintura ${cintura}cm`);
+  const msg = encodeURIComponent(`Oi! Fiz o cálculo de tamanho no site (${partes.join(', ')}) e o resultado foi ${tamanho}. Quero confirmar antes de comprar.`);
+  document.getElementById('calc-whats-link').href = `https://wa.me/5564999999999?text=${msg}`;
+}
+</script>
+
+
+<script>
+  // Catálogo: cada botão troca a imagem real do produto e registra a cor.
+  (function () {
+    const nomesCores = {
+      preto: 'Preto',
+      vermelho: 'Vermelho',
+      branco: 'Branco'
+    };
+
+    document.querySelectorAll('.produto-interativo').forEach(function(card) {
+      const image = card.querySelector('.produto-img');
+      const label = card.querySelector('.cor-selecionada');
+      const buttons = card.querySelectorAll('.cor-btn');
+
+      if (!image || !buttons.length) return;
+
+      let images = {};
+      try {
+        images = JSON.parse(card.dataset.images || '{}');
+      } catch (error) {
+        console.error('Não foi possível ler as imagens do produto:', card.dataset.product, error);
+        return;
+      }
+
+      function selecionarCor(button) {
+        const color = button.dataset.color;
+        const imageUrl = images[color];
+
+        if (!imageUrl) {
+          console.warn('Imagem não encontrada para', card.dataset.product, color);
+          return;
+        }
+
+        // Mostra visualmente que a nova imagem está carregando.
+        image.classList.add('is-loading');
+
+        const preloader = new Image();
+        preloader.onload = function() {
+          image.src = imageUrl;
+          image.alt = card.dataset.product + ' - ' + nomesCores[color];
+          image.classList.remove('is-loading');
+        };
+        preloader.onerror = function() {
+          image.classList.remove('is-loading');
+          console.error('Erro ao carregar imagem:', imageUrl);
+        };
+        preloader.src = imageUrl;
+
+        if (label) {
+          label.textContent = nomesCores[color] || color;
+        }
+
+        buttons.forEach(function(btn) {
+          const ativo = btn === button;
+          btn.classList.toggle('ativo', ativo);
+          btn.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+        });
+      }
+
+      buttons.forEach(function(button) {
+        button.type = 'button';
+        button.setAttribute('aria-pressed', button.classList.contains('ativo') ? 'true' : 'false');
+        button.addEventListener('click', function() {
+          selecionarCor(button);
+        });
+      });
+
+      // Garante que o estado inicial também tenha uma imagem válida.
+      const inicial = card.querySelector('.cor-btn.ativo') || buttons[0];
+      if (inicial) {
+        const color = inicial.dataset.color;
+        if (images[color]) {
+          image.src = images[color];
+          image.alt = card.dataset.product + ' - ' + (nomesCores[color] || color);
+        }
+      }
+
+      // Pré-carrega as três variações para a troca ser instantânea.
+      Object.values(images).forEach(function(url) {
+        const preload = new Image();
+        preload.src = url;
+      });
+    });
+  })();
+</script>
+
+
+<script>
+  // Roupas e acessórios: fileiras horizontais com avanço automático a cada 3 segundos.
+  (function () {
+    document.querySelectorAll('.produtos-carrossel').forEach(function (carrossel) {
+      const viewport = carrossel.querySelector('.produtos-viewport');
+      const track = carrossel.querySelector('.grade-produtos');
+      const prev = carrossel.querySelector('.produto-nav.prev');
+      const next = carrossel.querySelector('.produto-nav.next');
+      const status = carrossel.querySelector('.produtos-status');
+      const cards = Array.from(track.children);
+      if (!cards.length) return;
+
+      let index = 0;
+      let timer = null;
+      let paused = false;
+
+      function getVisible() {
+        if (window.innerWidth <= 620) return 1;
+        if (window.innerWidth <= 900) return 2;
+        return 3;
+      }
+
+      function maxIndex() {
+        return Math.max(0, cards.length - getVisible());
+      }
+
+      function setupDots() {
+        const visible = getVisible();
+        const pages = Math.max(1, Math.ceil(cards.length / visible));
+        status.innerHTML = '';
+        for (let i = 0; i < pages; i++) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Ir para o grupo ' + (i + 1));
+          dot.addEventListener('click', function () {
+            index = Math.min(i * visible, maxIndex());
+            update(true);
+            restart();
+          });
+          status.appendChild(dot);
+        }
+      }
+
+      function update(animate) {
+        const gap = parseFloat(getComputedStyle(track).gap) || 16;
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        index = Math.max(0, Math.min(index, maxIndex()));
+        track.style.transition = animate === false ? 'none' : 'transform .65s cubic-bezier(.22,.61,.36,1)';
+        track.style.transform = 'translateX(' + (-index * (cardWidth + gap)) + 'px)';
+
+        const dots = Array.from(status.children);
+        const page = Math.min(dots.length - 1, Math.floor(index / getVisible()));
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('ativo', i === page);
+          dot.setAttribute('aria-current', i === page ? 'true' : 'false');
+        });
+      }
+
+      function goNext() {
+        index = index >= maxIndex() ? 0 : index + 1;
+        update(true);
+      }
+      function goPrev() {
+        index = index <= 0 ? maxIndex() : index - 1;
+        update(true);
+      }
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+          if (!paused) goNext();
+        }, 3000);
+      }
+      function restart() { start(); }
+
+      prev.addEventListener('click', function () { goPrev(); restart(); });
+      next.addEventListener('click', function () { goNext(); restart(); });
+      carrossel.addEventListener('mouseenter', function () { paused = true; });
+      carrossel.addEventListener('mouseleave', function () { paused = false; });
+      carrossel.addEventListener('focusin', function () { paused = true; });
+      carrossel.addEventListener('focusout', function () { paused = false; });
+
+      let resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          index = Math.min(index, maxIndex());
+          setupDots();
+          update(false);
+        }, 120);
+      });
+
+      setupDots();
+      requestAnimationFrame(function () { update(false); start(); });
+    });
+  })();
+</script>
+
+<script>
+  // Lookbook: fileira horizontal com avanço automático a cada 3 segundos.
+  (function () {
+    const carrossel = document.querySelector('#modelos .modelos-carrossel');
+    if (!carrossel) return;
+
+    const viewport = carrossel.querySelector('.modelos-viewport');
+    const track = carrossel.querySelector('.grade-modelos');
+    const prev = carrossel.querySelector('.modelo-nav.prev');
+    const next = carrossel.querySelector('.modelo-nav.next');
+    const status = carrossel.querySelector('.modelos-status');
+    const cards = Array.from(track.children);
+
+    if (!cards.length) return;
+
+    let index = 0;
+    let timer = null;
+    let visible = 3;
+    let step = 0;
+    let paused = false;
+
+    function getVisible() {
+      if (window.innerWidth <= 620) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+
+    function setupDots() {
+      visible = getVisible();
+      const pages = Math.max(1, Math.ceil(cards.length / visible));
+      status.innerHTML = '';
+
+      for (let i = 0; i < pages; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir para o grupo de modelos ' + (i + 1));
+        dot.addEventListener('click', function () {
+          index = Math.min(i * visible, Math.max(0, cards.length - visible));
+          update(true);
+          restart();
+        });
+        status.appendChild(dot);
+      }
+    }
+
+    function update(animate) {
+      visible = getVisible();
+      const gap = parseFloat(getComputedStyle(track).gap) || 16;
+      const cardWidth = cards[0].getBoundingClientRect().width;
+      const maxIndex = Math.max(0, cards.length - visible);
+
+      index = Math.max(0, Math.min(index, maxIndex));
+      step = cardWidth + gap;
+
+      track.style.transition = animate === false ? 'none' : 'transform .65s cubic-bezier(.22,.61,.36,1)';
+      track.style.transform = 'translateX(' + (-index * step) + 'px)';
+
+      const dots = Array.from(status.children);
+      const page = Math.min(dots.length - 1, Math.floor(index / visible));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('ativo', i === page);
+        dot.setAttribute('aria-current', i === page ? 'true' : 'false');
+      });
+    }
+
+    function goNext() {
+      const maxIndex = Math.max(0, cards.length - getVisible());
+      index = index >= maxIndex ? 0 : index + 1;
+      update(true);
+    }
+
+    function goPrev() {
+      const maxIndex = Math.max(0, cards.length - getVisible());
+      index = index <= 0 ? maxIndex : index - 1;
+      update(true);
+    }
+
+    function start() {
+      clearInterval(timer);
+      timer = setInterval(function () {
+        if (!paused) goNext();
+      }, 3000);
+    }
+
+    function restart() {
+      start();
+    }
+
+    prev.addEventListener('click', function () {
+      goPrev();
+      restart();
+    });
+
+    next.addEventListener('click', function () {
+      goNext();
+      restart();
+    });
+
+    carrossel.addEventListener('mouseenter', function () { paused = true; });
+    carrossel.addEventListener('mouseleave', function () { paused = false; });
+    carrossel.addEventListener('focusin', function () { paused = true; });
+    carrossel.addEventListener('focusout', function () { paused = false; });
+
+    let resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        index = Math.min(index, Math.max(0, cards.length - getVisible()));
+        setupDots();
+        update(false);
+      }, 120);
+    });
+
+    setupDots();
+    requestAnimationFrame(function () { update(false); start(); });
+  })();
+</script>
+
+<script>
+  // ---------- Cesta de compras ----------
+  (function () {
+    const NUMERO_WHATS = '5564999999999';
+    const CHAVE_STORAGE = 'cerberus-cesta';
+
+    const abrirBtn = document.getElementById('cestaAbrirBtn');
+    const fecharBtn = document.getElementById('cestaFecharBtn');
+    const overlay = document.getElementById('cestaOverlay');
+    const painel = document.getElementById('cestaPainel');
+    const lista = document.getElementById('cestaLista');
+    const contador = document.getElementById('cestaContador');
+    const totalValor = document.getElementById('cestaTotalValor');
+    const finalizarBtn = document.getElementById('cestaFinalizarBtn');
+
+    if (!abrirBtn || !painel) return;
+
+    function carregar() {
+      try {
+        const salvo = localStorage.getItem(CHAVE_STORAGE);
+        return salvo ? JSON.parse(salvo) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function salvar() {
+      try { localStorage.setItem(CHAVE_STORAGE, JSON.stringify(itens)); } catch (e) {}
+    }
+
+    function parsePreco(str) {
+      const limpo = String(str).replace('R$', '').trim().replace(/\./g, '').replace(',', '.');
+      return parseFloat(limpo) || 0;
+    }
+
+    function formatarPreco(valor) {
+      return 'R$ ' + valor.toFixed(2).replace('.', ',');
+    }
+
+    let itens = carregar();
+
+    function abrir() {
+      overlay.classList.add('aberta');
+      painel.classList.add('aberta');
+    }
+
+    function fechar() {
+      overlay.classList.remove('aberta');
+      painel.classList.remove('aberta');
+    }
+
+    abrirBtn.addEventListener('click', abrir);
+    if (fecharBtn) fecharBtn.addEventListener('click', fechar);
+    if (overlay) overlay.addEventListener('click', fechar);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') fechar();
+    });
+
+    function adicionarItem(nome, cor, precoTexto, qtd) {
+      const preco = parsePreco(precoTexto);
+      const chave = nome + '|' + cor;
+      const existente = itens.find(function (i) { return i.chave === chave; });
+      if (existente) {
+        existente.qtd += qtd;
+      } else {
+        itens.push({ chave: chave, nome: nome, cor: cor, preco: preco, qtd: qtd });
+      }
+      salvar();
+      renderizar();
+      abrir();
+    }
+
+    function removerItem(chave) {
+      itens = itens.filter(function (i) { return i.chave !== chave; });
+      salvar();
+      renderizar();
+    }
+
+    function alterarQtd(chave, delta) {
+      const item = itens.find(function (i) { return i.chave === chave; });
+      if (!item) return;
+      item.qtd += delta;
+      if (item.qtd <= 0) { removerItem(chave); return; }
+      salvar();
+      renderizar();
+    }
+
+    function renderizar() {
+      const totalQtd = itens.reduce(function (soma, i) { return soma + i.qtd; }, 0);
+      contador.textContent = totalQtd;
+      contador.classList.toggle('vazio', totalQtd === 0);
+
+      const totalValorNum = itens.reduce(function (soma, i) { return soma + i.preco * i.qtd; }, 0);
+      totalValor.textContent = formatarPreco(totalValorNum);
+
+      if (itens.length === 0) {
+        lista.innerHTML = '<p class="cesta-vazia">Sua cesta está vazia. Adiciona itens da coleção pra montar seu pedido.</p>';
+      } else {
+        lista.innerHTML = itens.map(function (item) {
+          return '' +
+            '<div class="cesta-item" data-chave="' + item.chave + '">' +
+              '<div class="cesta-item-info">' +
+                '<div class="cesta-item-nome">' + item.nome + '</div>' +
+                '<div class="cesta-item-cor">Cor: ' + item.cor + '</div>' +
+                '<div class="cesta-item-preco">' + formatarPreco(item.preco) + '</div>' +
+                '<div class="cesta-item-controles">' +
+                  '<button type="button" class="cesta-qtd-btn" data-acao="menos" aria-label="Diminuir quantidade">-</button>' +
+                  '<span class="cesta-qtd-valor">' + item.qtd + '</span>' +
+                  '<button type="button" class="cesta-qtd-btn" data-acao="mais" aria-label="Aumentar quantidade">+</button>' +
+                  '<button type="button" class="cesta-item-remover" aria-label="Remover item">Remover</button>' +
+                '</div>' +
+              '</div>' +
+            '</div>';
+        }).join('');
+      }
+
+      if (finalizarBtn) {
+        if (itens.length === 0) {
+          finalizarBtn.href = '#';
+        } else {
+          let msg = 'Oi! Vim pelo site e quero fechar esse pedido:%0A%0A';
+          itens.forEach(function (item) {
+            msg += '- ' + item.nome + ' (' + item.cor + ') x' + item.qtd + ' — ' + formatarPreco(item.preco * item.qtd) + '%0A';
+          });
+          msg += '%0ATotal: ' + formatarPreco(totalValorNum);
+          finalizarBtn.href = 'https://wa.me/' + NUMERO_WHATS + '?text=' + msg;
+        }
+      }
+    }
+
+    lista.addEventListener('click', function (e) {
+      const linha = e.target.closest('.cesta-item');
+      if (!linha) return;
+      const chave = linha.getAttribute('data-chave');
+      if (e.target.classList.contains('cesta-qtd-btn')) {
+        alterarQtd(chave, e.target.getAttribute('data-acao') === 'mais' ? 1 : -1);
+      } else if (e.target.classList.contains('cesta-item-remover')) {
+        removerItem(chave);
+      }
+    });
+
+    document.querySelectorAll('.cesta-add-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const produto = btn.closest('.produto');
+        if (!produto) return;
+        const nomeAttr = produto.getAttribute('data-product');
+        const nomeEl = produto.querySelector('.produto-nome');
+        const nome = nomeAttr || (nomeEl ? nomeEl.textContent.trim() : 'Produto');
+
+        const precoAttr = produto.getAttribute('data-price');
+        const precoEl = produto.querySelector('.produto-preco');
+        const precoTexto = precoAttr || (precoEl ? precoEl.textContent.trim() : 'R$ 0,00');
+
+        const corEl = produto.querySelector('.cor-selecionada');
+        const cor = corEl ? corEl.textContent.trim() : '-';
+
+        const qtdInput = produto.querySelector('.cesta-qtd-input');
+        const qtd = qtdInput ? Math.max(1, parseInt(qtdInput.value, 10) || 1) : 1;
+
+        adicionarItem(nome, cor, precoTexto, qtd);
+
+        btn.classList.add('adicionado');
+        const textoOriginal = btn.textContent;
+        btn.textContent = 'Adicionado!';
+        setTimeout(function () {
+          btn.classList.remove('adicionado');
+          btn.textContent = textoOriginal;
+        }, 1400);
+      });
+    });
+
+    renderizar();
+  })();
+</script>
+</body>
+</html>
