@@ -814,6 +814,161 @@
     .produto-photo{min-height:250px;}
   }
 
+  /* ---------- cesta de compras ---------- */
+  .cesta-adicionar{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:1px solid var(--linha);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .cesta-qtd-label{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-size:10px;
+    color:var(--cinza);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  .cesta-qtd-input{
+    width:56px;
+    background:var(--preto);
+    border:1px solid var(--linha);
+    border-radius:8px;
+    padding:8px 8px;
+    color:var(--branco);
+    font-size:14px;
+    font-family:'Inter',sans-serif;
+    text-align:center;
+  }
+  .cesta-qtd-input:focus{outline:none;border-color:var(--vermelho);}
+  .cesta-add-btn{
+    flex:1;
+    padding:11px 16px;
+    font-size:13px;
+  }
+  .cesta-add-btn.adicionado{
+    background:linear-gradient(135deg,#2f8f4e,#1f6a38);
+    box-shadow:none;
+  }
+
+  .cesta-fixo{
+    position:fixed;
+    bottom:18px;
+    right:86px;
+    z-index:60;
+    background:var(--preto-2);
+    border:1px solid var(--linha);
+    width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px -6px rgba(0,0,0,0.6);
+    cursor:pointer;
+  }
+  .cesta-fixo svg{width:24px;height:24px;fill:var(--branco);}
+  .cesta-contador{
+    position:absolute;
+    top:-4px;right:-4px;
+    min-width:20px;height:20px;
+    padding:0 5px;
+    border-radius:999px;
+    background:var(--vermelho);
+    color:#fff;
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:11px;
+    display:flex;align-items:center;justify-content:center;
+    border:2px solid var(--preto);
+  }
+  .cesta-contador.vazio{display:none;}
+
+  .cesta-overlay{
+    position:fixed;inset:0;z-index:70;
+    background:rgba(0,0,0,0.6);
+    opacity:0;pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .cesta-overlay.aberta{opacity:1;pointer-events:auto;}
+
+  .cesta-painel{
+    position:fixed;
+    top:0;right:0;bottom:0;
+    z-index:71;
+    width:100%;
+    max-width:400px;
+    background:var(--preto-2);
+    border-left:1px solid var(--linha);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);
+    transition:transform .3s ease;
+  }
+  .cesta-painel.aberta{transform:translateX(0);}
+  .cesta-cabecalho{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 22px;
+    border-bottom:1px solid var(--linha);
+  }
+  .cesta-cabecalho h3{font-size:18px;}
+  .cesta-fechar{
+    background:transparent;border:1px solid var(--linha);color:var(--branco);
+    width:34px;height:34px;border-radius:50%;
+    font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .cesta-lista{
+    flex:1;overflow-y:auto;
+    padding:16px 22px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .cesta-vazia{
+    color:var(--cinza);
+    font-size:14px;
+    text-align:center;
+    padding:40px 0;
+  }
+  .cesta-item{
+    display:flex;
+    gap:12px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--linha);
+  }
+  .cesta-item-info{flex:1;min-width:0;}
+  .cesta-item-nome{font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;margin-bottom:2px;}
+  .cesta-item-cor{font-size:12px;color:var(--cinza);margin-bottom:8px;}
+  .cesta-item-preco{font-size:13px;color:var(--vermelho);font-weight:700;margin-bottom:8px;}
+  .cesta-item-controles{display:flex;align-items:center;gap:10px;}
+  .cesta-qtd-btn{
+    width:26px;height:26px;border-radius:50%;
+    border:1px solid var(--linha);background:var(--preto);color:var(--branco);
+    font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    line-height:1;
+  }
+  .cesta-qtd-valor{font-size:14px;font-weight:700;min-width:18px;text-align:center;}
+  .cesta-item-remover{
+    align-self:flex-start;
+    background:transparent;border:0;color:var(--cinza);
+    font-size:12px;text-decoration:underline;cursor:pointer;
+    padding:2px 0;
+  }
+  .cesta-item-remover:hover{color:var(--vermelho);}
+  .cesta-rodape{
+    padding:18px 22px 24px;
+    border-top:1px solid var(--linha);
+  }
+  .cesta-total-linha{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:16px;
+  }
+  .cesta-total-label{font-size:13px;color:var(--cinza);text-transform:uppercase;letter-spacing:0.06em;}
+  .cesta-total-valor{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;color:var(--branco);}
+  .cesta-finalizar{width:100%;}
+  @media(max-width:420px){
+    .cesta-fixo{right:80px;bottom:16px;width:50px;height:50px;}
+    .cesta-fixo svg{width:21px;height:21px;}
+  }
+
 </style>
 </head>
 <body>
@@ -952,6 +1107,12 @@
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -973,6 +1134,12 @@
               <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
           </div>
         </div>
       </div>
@@ -997,6 +1164,12 @@
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1019,6 +1192,12 @@
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1040,6 +1219,12 @@
               <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
+          </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
           </div>
         </div>
       </div>
@@ -1081,6 +1266,12 @@
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1103,6 +1294,12 @@
               <button class="cor-btn" data-color="branco" aria-label="Branco"><span></span>Branco</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1124,6 +1321,12 @@
               <button class="cor-btn ativo" data-color="vermelho" aria-label="Vermelho"><span></span>Vermelho</button>
             </div>
           </div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1138,6 +1341,12 @@
           <div class="produto-nome">Kit Stickers Cerberus</div>
           <div class="produto-desc">Kit com 3 adesivos pra colar na garrafa, notebook ou bolsa de treino.</div>
           <div class="produto-preco">R$ 14<small>,90</small></div>
+          <div class="cesta-adicionar">
+            <label class="cesta-qtd-label">Qtd
+              <input type="number" class="cesta-qtd-input" min="1" value="1" aria-label="Quantidade">
+            </label>
+            <button type="button" class="btn btn-primario cesta-add-btn">Adicionar à cesta</button>
+          </div>
         </div>
       </div>
 
@@ -1415,6 +1624,29 @@
   <div>Cerberus Store — Roupas de Academia e Streetwear · Rio Verde - GO</div>
   <div>Extensão oficial da <a href="https://cerberus-academia.vercel.app" target="_blank" rel="noopener">Academia Cerberus</a> · © 2026</div>
 </footer>
+
+<button type="button" class="cesta-fixo" id="cestaAbrirBtn" aria-label="Abrir cesta de compras">
+  <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2v1h2l3.6 7.59-1.35 2.44c-.16.28-.25.61-.25.97 0 1.1.9 2 2 2h12v-2h-11.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.31l-.95-2h-3zm14 15c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-11 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+  <span class="cesta-contador vazio" id="cestaContador">0</span>
+</button>
+
+<div class="cesta-overlay" id="cestaOverlay"></div>
+<aside class="cesta-painel" id="cestaPainel" aria-label="Cesta de compras">
+  <div class="cesta-cabecalho">
+    <h3>Sua cesta</h3>
+    <button type="button" class="cesta-fechar" id="cestaFecharBtn" aria-label="Fechar cesta">&times;</button>
+  </div>
+  <div class="cesta-lista" id="cestaLista">
+    <p class="cesta-vazia">Sua cesta está vazia. Adiciona itens da coleção pra montar seu pedido.</p>
+  </div>
+  <div class="cesta-rodape">
+    <div class="cesta-total-linha">
+      <span class="cesta-total-label">Total estimado</span>
+      <span class="cesta-total-valor" id="cestaTotalValor">R$ 0,00</span>
+    </div>
+    <a class="btn btn-primario cesta-finalizar" id="cestaFinalizarBtn" href="#" target="_blank" rel="noopener">Finalizar pedido no WhatsApp</a>
+  </div>
+</aside>
 
 <a class="whats-fixo" href="https://wa.me/5564999999999?text=Oi!%20Vim%20pelo%20site%20e%20quero%20ver%20as%20pe%C3%A7as%20da%20Cerberus%20Store" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
   <svg viewBox="0 0 32 32"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.702 4.61 1.912 6.478L4 29l7.72-1.874A11.94 11.94 0 0 0 16 27c6.628 0 12-5.373 12-12S22.63 3 16.001 3zm0 21.6c-1.98 0-3.85-.55-5.45-1.5l-.39-.23-4.58 1.11 1.13-4.46-.25-.4A9.56 9.56 0 0 1 5.4 15c0-5.85 4.75-10.6 10.6-10.6S26.6 9.15 26.6 15 21.85 24.6 16 24.6zm5.63-7.94c-.31-.15-1.82-.9-2.1-1s-.49-.15-.69.15-.79 1-.97 1.2-.36.23-.67.08a8.7 8.7 0 0 1-2.56-1.58 9.6 9.6 0 0 1-1.78-2.22c-.19-.31 0-.48.14-.63.14-.14.31-.36.47-.54.15-.18.2-.31.31-.51.1-.2.05-.38-.02-.53-.08-.15-.69-1.67-.94-2.28-.25-.6-.5-.52-.69-.53h-.59c-.2 0-.53.08-.8.38s-1.05 1.02-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.13 3.26 5.17 4.57.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.82-.74 2.08-1.46.26-.72.26-1.33.18-1.46-.08-.13-.28-.2-.59-.36z"/></svg>
@@ -1837,5 +2069,16 @@ function calcularTamanho(){
   })();
 </script>
 
-</body>
-</html>
+<script>
+  // ---------- Cesta de compras ----------
+  (function () {
+    const NUMERO_WHATS = '5564999999999';
+    const CHAVE_STORAGE = 'cerberus-cesta';
+
+    const abrirBtn = document.getElementById('cestaAbrirBtn');
+    const fecharBtn = document.getElementById('cestaFecharBtn');
+    const overlay = document.getElementById('cestaOverlay');
+    const painel = document.getElementById('cestaPainel');
+    const lista = document.getElementById('cestaLista');
+    const contador = document.getElementById('cestaContador');
+    const totalValor = document.getEl
